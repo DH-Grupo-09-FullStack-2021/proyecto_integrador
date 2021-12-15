@@ -23,6 +23,7 @@ Introducción de los miembros del equipo
   par de años como hobby.
 * Soy Gonzalo Ruiz, mi edad es de 24 y vivo en Córdoba, soy técnico en Recursos Humanos y me encuentro realizando una capacitación de administrador de azure. Por último, soy fanatico de River.
 * Soy Luciano Razzi, tengo 28 años soy analista de sistema, y vivo en Cordoba Capital
+
 Links
 =====
 * [Wireframe del
