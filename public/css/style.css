@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+/*header */
+
+.logo{
+    width: 200px;}
+
+.img-main{
+    width: 100px;
+}    
+
+.productos-main{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.CajaProductos-main{
+        width: 50vw;
+        margin:auto;
+        border-top: solid 1px #ebebeb;
+        padding: 15px;
+        background-color: rgb(162, 178, 179);
+        box-sizing: border-box;
+        box-shadow : 0px 0px 10px rgba( 100 , 100 , 100 );
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;}
+
+.header{
+    background-color: rgb(132, 24, 233);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.header-main-top{
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    box-sizing: border-box;
+}
+
+.main-navbar{
+    display: flex;
+    
+    justify-content: space-between;
+    
+    
+    }
+
+.main-navbar ul{
+        list-style: none;
+        margin:0;
+        padding: 0;
+        display: flex
+        ;
+    }
+ .main-navbar li{
+    margin:0 15px
+}    
+
+.main-navbar a{
+    text-decoration: none;
+    color: white;
+    display:inline-block;
+    padding:5px 0 ;
+}
+
+.enlaces{
+    color: white;
+}
+
+/*footer */
+
+.footer{
+    background-color: rgb(132, 24, 233);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+    display:inline-block;
+    padding:5px 0 ;
+}
