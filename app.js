@@ -3,17 +3,10 @@ const path = require('path');
 
 const app = express();
 
-app.get('', (req,res) =>{
-    res.send("Ahora si entre");  
-});
-
-app.get('/inicio', (req,res) =>{
-   
+app.get('/', (req, res) => {
     res.sendFile((__dirname + '/views/index.html'));  
 });
 
-app.use(express.static(path.join(__dirname, './public')));  
+app.use(express.static(path.join(__dirname, '/public')));  
 
-
-
-app.listen(505,() => console.log('El servidor funciona'));
+app.listen(3000,() => console.log('El servidor funciona'));
