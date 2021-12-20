@@ -2,11 +2,41 @@
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
+    
 }
 /*header */
 
+/* .header { position: fixed; width: 100%; } */
+
 .logo{
-    width: 200px;}
+    width: 100%;
+    height: auto;
+    max-width: 22%;
+    min-width: 10%
+}
+
+.top-nav-bar
+{
+    font-size: 24px;
+    align-self: center;
+}
+
+.top-nav-right-margin
+{
+    margin-right: 22px;
+}
+
+.subclase-boton-est
+{
+    font-size: 23px;
+    align-self: center;
+    border: 0px; background: white;
+}
+
+.boton-estilizado
+{
+    padding: 5px; margin: 0px; border-radius: 5px; background: white;
+}
 
 .img-main{
     width: 100px;
@@ -14,21 +44,33 @@
 
 .productos-main{
     display: flex;
+    padding: 10px;
     justify-content: space-between;
+    background-color: rgb(162, 178, 179);
 }
 
 
 .CajaProductos-main{
-        width: 50vw;
+        width: 22%;
         margin:auto;
-        border-top: solid 1px #ebebeb;
         padding: 15px;
-        background-color: rgb(162, 178, 179);
-        box-sizing: border-box;
+        background-color: white;
         box-shadow : 0px 0px 10px rgba( 100 , 100 , 100 );
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;}
+	border-radius: 10px;
+	transition-delay: 500ms;
+	transition: .5s box-shadow;
+}
+
+.texto-producto-inicio {
+    height: 36px;
+    margin: 5px;
+}
+
+.CajaProductos-main:hover
+{
+    box-shadow: 10px 10px 10px rgba(122, 100, 122, 100);
+    transition: .5s box-shadow;
+}
 
 .header{
     background-color: rgb(132, 24, 233);
@@ -47,27 +89,14 @@
 
 .main-navbar{
     display: flex;
-    
     justify-content: space-between;
-    
-    
-    }
-
-.main-navbar ul{
-        list-style: none;
-        margin:0;
-        padding: 0;
-        display: flex
-        ;
-    }
- .main-navbar li{
-    margin:0 15px
-}    
+    margin: 15px 25px 0px 25px;
+}
 
 .main-navbar a{
     text-decoration: none;
     color: white;
-    display:inline-block;
+    font-size: 18px;
     padding:5px 0 ;
 }
 
@@ -78,14 +107,35 @@
 /*footer */
 
 .footer{
+    padding: 5px;
+    background-color: rgb(162, 178, 179);
+}
+
+.flexbox-footer
+{
+    display: flexbox;
     background-color: rgb(132, 24, 233);
-    display: flex;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 20px;
     justify-content: space-between;
 }
 
 .footer a{
     text-decoration: none;
     color: white;
-    display:inline-block;
-    padding:5px 0 ;
+    padding: 5px 0px;
 }
+
+.item-footer-menu
+{
+    margin: 30px;
+}
+
+/* celulares */
+
+@media only screen 
+	and (min-device-width: 361px)
+	and (max-device-width: 769px)
+	{
+	}
