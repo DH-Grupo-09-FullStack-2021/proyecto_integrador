@@ -2,41 +2,11 @@
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
-    
 }
 /*header */
 
-/* .header { position: fixed; width: 100%; } */
-
 .logo{
-    width: 100%;
-    height: auto;
-    max-width: 22%;
-    min-width: 10%
-}
-
-.top-nav-bar
-{
-    font-size: 24px;
-    align-self: center;
-}
-
-.top-nav-right-margin
-{
-    margin-right: 22px;
-}
-
-.subclase-boton-est
-{
-    font-size: 23px;
-    align-self: center;
-    border: 0px; background: white;
-}
-
-.boton-estilizado
-{
-    padding: 5px; margin: 0px; border-radius: 5px; background: white;
-}
+    width: 200px;}
 
 .img-main{
     width: 100px;
@@ -44,33 +14,21 @@
 
 .productos-main{
     display: flex;
-    padding: 10px;
     justify-content: space-between;
-    background-color: rgb(162, 178, 179);
 }
 
 
 .CajaProductos-main{
-        width: 22%;
+        width: 50vw;
         margin:auto;
+        border-top: solid 1px #ebebeb;
         padding: 15px;
-        background-color: white;
+        background-color: rgb(162, 178, 179);
+        box-sizing: border-box;
         box-shadow : 0px 0px 10px rgba( 100 , 100 , 100 );
-	border-radius: 10px;
-	transition-delay: 500ms;
-	transition: .5s box-shadow;
-}
-
-.texto-producto-inicio {
-    height: 36px;
-    margin: 5px;
-}
-
-.CajaProductos-main:hover
-{
-    box-shadow: 10px 10px 10px rgba(122, 100, 122, 100);
-    transition: .5s box-shadow;
-}
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;}
 
 .header{
     background-color: rgb(132, 24, 233);
@@ -90,13 +48,23 @@
 .main-navbar{
     display: flex;
     justify-content: space-between;
-    margin: 15px 25px 0px 25px;
 }
+
+.main-navbar ul{
+        list-style: none;
+        margin:0;
+        padding: 0;
+        display: flex
+        ;
+    }
+ .main-navbar li{
+    margin:0 15px
+}    
 
 .main-navbar a{
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    display:inline-block;
     padding:5px 0 ;
 }
 
@@ -107,35 +75,22 @@
 /*footer */
 
 .footer{
-    padding: 5px;
-    background-color: rgb(162, 178, 179);
-}
-
-.flexbox-footer
-{
-    display: flexbox;
+    width: auto;
     background-color: rgb(132, 24, 233);
-    margin: 10px;
-    padding: 5px;
-    border-radius: 20px;
-    justify-content: space-between;
+    display: flex;
+    justify-content: space-around;
+    
 }
 
 .footer a{
     text-decoration: none;
     color: white;
-    padding: 5px 0px;
+    display:inline-block;
+    padding:5px 0 ;
 }
-
-.item-footer-menu
-{
-    margin: 30px;
+#sugerencias{
+    width: 99vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
-
-/* celulares */
-
-@media only screen 
-	and (min-device-width: 361px)
-	and (max-device-width: 769px)
-	{
-	}
