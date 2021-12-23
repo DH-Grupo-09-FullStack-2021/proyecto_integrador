@@ -1,0 +1,4 @@
+ * el carrito se lo reacomoda con flow para movil, para que el cartel de checkout quede al fondo.
+ * la pagina de productos, algo parecido para que quede el selector de imagenes abajo de la imagen activa.
+ * para la pagina principal habra que reacomodar el carrousel y ver como se muestran el resto de los productos.
+ * arreglar la vista para CELULARES: hacer display del logo directamente arriva de la barra de navegacion. es la forma mas facil de arreglarlo y ademas queda bien.
