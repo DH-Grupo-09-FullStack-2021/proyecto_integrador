@@ -1,0 +1,38 @@
+/* escritorio (monitor grande) */
+@media only screen
+and (min-device-width: 1439px)
+{
+    
+}
+
+/* escritorio (monitor mediano) */
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1440px)
+{
+
+}
+
+/* escritorio resolucion regular (768p a 1024p) */
+@media only screen
+and (min-device-width: 769px)
+and (max-device-width: 1024px)
+{
+    
+}
+
+/* tablets */
+@media only screen
+and (min-device-width: 475px)
+and (max-device-width: 768px)
+{
+
+}
+
+/* celulares */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 476px)
+{
+
+}

@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmacia Ruiz: Registro de usuario</title>
+    <title>Farmacia Ruiz: Login</title>
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/register.css"/>
-<link rel="stylesheet" href="css/responsive.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
@@ -21,7 +20,7 @@
             <a class="top-nav-bar top-nav-right-margin">Carrito de Compras</a>
         </article>
         <nav class="main-navbar">
-             <div><a href='#'>Inicio</a></div>
+             <div><a href='/'>Inicio</a></div>
              <div><a href='#'>Productos</a></div>
              <div><a href='#'>Ofertas</a></div>
              <div><a href='#'>Quienes Somos</a></div>
@@ -31,12 +30,6 @@
     </header>
     <main class="main">
 	     <form class="flexbox-formulario">
-	     <div class="formulario-item">
-	       <label for="nombreusuario">Nombre de
-    usuario</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text" maxlength="32" minlength="8"
-	       id="nombreusuario" name="nombreusuario" required="required">
-	     </div>
 	     <div class="formulario-item">
 	       <label for="emailusuario">E-mail</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="email" id="emailusuario"
@@ -48,17 +41,8 @@
 	       minlength="8" maxlength="32" required="required">
 	     </div>
 	     <div class="formulario-item">
-	       <label for="contrasenausuario">Repetir contraseña</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario"
-	       minlength="8" maxlength="32" required="required">
-	       </div>
-	     <div class="formulario-item">
-	       <input class="formulario-input-box formulario-checkbox" type="checkbox"
-    name="terminosycond" id="terminosycond" required="required">
-	       <label for="terminosycond">Acepto a los terminos y condiciones</label>
-	     </div>
-	     <div class="formulario-item">
-	       <input class="formulario-boton-enviar" type="submit" value="Registrarse">
+	       <input class="formulario-boton-enviar" type="submit"
+    style="margin-top: 10px;" value="Login">
 	     </div>
 	     </form>
     </main>

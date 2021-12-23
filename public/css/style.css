@@ -101,6 +101,12 @@
     padding:5px 0 ;
 }
 
+.header-main-top a
+{
+    text-decoration: none;
+    color: white;
+}
+
 .enlaces{
     color: white;
 }

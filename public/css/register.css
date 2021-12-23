@@ -1,0 +1,47 @@
+.flexbox-formulario
+{
+    padding-left: 30vw;
+
+    margin: 18px;
+    margin-left: 0px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.formulario-item
+{
+    font-size: 24px;
+    margin: 5px;
+}
+
+.formulario-input-box
+{
+    width: 30%;
+    height: 36px;
+    border: solid 2px black;
+}
+
+.formulario-checkbox
+{
+    width: 18px;
+    height: 18px;
+}
+
+.formulario-boton-enviar
+{
+    border-width: 0px;
+    border-radius: 12px;
+    height: 36px;
+    width: 20%;
+    transition-delay: .5s;
+    transition: .5s background-color;
+    transition: .5s color;
+}
+
+.formulario-boton-enviar:hover
+{
+    background-color: purple;
+    color: white;
+    transition: .5s color;
+    transition: .5s background-color;
+}
