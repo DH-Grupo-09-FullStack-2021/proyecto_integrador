@@ -14,15 +14,17 @@
     <header class="header">
         <article class="header-main-top">
             <img src="..\img\logo.JPG" class="logo">
-            <span class="boton-estilizado top-nav-bar">
-                <input placeholder="Buscar..." class="subclase-boton-est" type="text"><button class="subclase-boton-est"><i class="fas fa-search"></i></button>
-            </span>
-            <a href="login" class="top-nav-bar">Login</a>
-            <a class="top-nav-bar top-nav-right-margin">Carrito de Compras</a>
+            <form class="boton-estilizado top-nav-bar">
+	        <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="busqueda" id="busqueda"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
+	    </form>
+            <a href="login" class="solo-escritorio top-nav-bar">Login</a>
+            <a href="login" class="solo-movil top-nav-bar"><i class="fas fa-user"></i></a>
+            <a href="cart" class="solo-escritorio top-nav-bar top-nav-right-margin">Carrito de Compras</a>
+            <a href="cart" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-shopping-cart"></i></a>
         </article>
         <nav class="main-navbar">
-             <div><a href='#'>Inicio</a></div>
-             <div><a href='#'>Productos</a></div>
+             <div><a href='/'>Inicio</a></div>
+             <div><a href='product'>Productos</a></div>
              <div><a href='#'>Ofertas</a></div>
              <div><a href='#'>Quienes Somos</a></div>
              <div><a href='#'>Contactanos</a></div>
@@ -53,7 +55,7 @@
 	       minlength="8" maxlength="32" required="required">
 	       </div>
 	     <div class="formulario-item">
-	       <input class="formulario-input-box formulario-checkbox" type="checkbox"
+	       <input class="formulario-checkbox" type="checkbox"
     name="terminosycond" id="terminosycond" required="required">
 	       <label for="terminosycond">Acepto a los terminos y condiciones</label>
 	     </div>

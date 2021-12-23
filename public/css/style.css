@@ -9,7 +9,6 @@
     width: 100%;
     height: auto;
     max-width: 30%;
-    min-width: 10%
 }
 
 .top-nav-bar
@@ -32,8 +31,11 @@
 
 .boton-estilizado
 {
+    display: flex; max-width: 20%; flex-flow: row nowrap;
     padding: 5px; margin: 0px; border-radius: 5px; background: white;
 }
+
+.boton-estilizado input { max-width: 80%; }
 
 .img-main{
     width: 100px;
@@ -140,6 +142,7 @@
     display:inline-block;
     padding:5px 0 ;
 }
+
 #sugerencias{
     width: 99vw;
     display: flex;

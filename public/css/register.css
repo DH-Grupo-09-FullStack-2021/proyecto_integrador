@@ -1,7 +1,6 @@
 .flexbox-formulario
 {
     padding-left: 30vw;
-
     margin: 18px;
     margin-left: 0px;
     display: flex;
@@ -16,7 +15,7 @@
 
 .formulario-input-box
 {
-    width: 30%;
+    min-width: 30%;
     height: 36px;
     border: solid 2px black;
 }
