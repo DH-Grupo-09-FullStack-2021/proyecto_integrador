@@ -4,6 +4,7 @@ and (min-device-width: 1439px)
 {
     .flexbox-formulario { padding-left: 30vw; }
     .formulario-input-box { width: 30%; }
+    .boton-estilizado input { max-width: 90%; }
 
     .solo-movil { display: none; }
 }
@@ -15,6 +16,7 @@ and (max-device-width: 1440px)
 {
     .flexbox-formulario { padding-left: 22vw; }
     .formulario-input-box { width: 36%; }
+    .boton-estilizado input { max-width: 86%; }
 
     .solo-movil { display: none; }
 }
