@@ -1,0 +1,20 @@
+.carrousel-main
+{
+    width: 850px;
+    height: 480px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carrousel-item
+{
+    width: 850px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.carrousel-item
+{
+    scroll-snap-align: start;
+}

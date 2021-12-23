@@ -44,7 +44,7 @@
 .productos-main{
     display: flex;
     padding: 10px;
-    background-color: rgb(162, 178, 179);
+/*    background-color: rgb(162, 178, 179); */
     justify-content: space-between;
 }
 
