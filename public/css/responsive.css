@@ -24,7 +24,7 @@ and (max-device-width: 1440px)
 /* escritorio resolucion regular (768p a 1024p) */
 @media only screen
 and (min-device-width: 769px)
-and (max-device-width: 1024px)
+and (max-device-width: 1023px)
 {
     .flexbow-formulario { padding-left: 10vw; }
     .formulario-input-box { width: 50%; }
@@ -62,5 +62,15 @@ and (max-device-width: 476px)
 
     .main-navbar { display: none; }
     .solo-escritorio { display: none; }
+
+    .header-main-top .logo
+    {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 18px;
+    }
+    .header-main-top { flex-flow: row wrap; }
+    .boton-estilizado input { max-width: 80%; }
+    .boton-estilizado { max-width: 40%; }
 }
 
