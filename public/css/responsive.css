@@ -7,6 +7,7 @@ and (min-device-width: 1439px)
     .boton-estilizado input { max-width: 90%; }
 
     .solo-movil { display: none; }
+    .carr-movil-img { display: none; }
 }
 
 /* escritorio (monitor mediano) */
@@ -19,6 +20,7 @@ and (max-device-width: 1440px)
     .boton-estilizado input { max-width: 86%; }
 
     .solo-movil { display: none; }
+    .carr-movil-img { display: none; }
 }
 
 /* escritorio resolucion regular (768p a 1024p) */
@@ -32,6 +34,7 @@ and (max-device-width: 1023px)
     .logo-footer .logo { max-width: 75%; }
 
     .solo-escritorio { display: none; }
+    .carr-movil-img { display: none; }
 }
 
 /* tablets */
@@ -47,6 +50,8 @@ and (max-device-width: 768px)
 
     .main-navbar { display: none; }
     .solo-escritorio { display: none; }
+    .carr-desktop-img { display: none; }
+    .carr-movil-img { display: inline; }
 }
 
 /* celulares */
@@ -62,6 +67,8 @@ and (max-device-width: 476px)
 
     .main-navbar { display: none; }
     .solo-escritorio { display: none; }
+    .carr-desktop-img { display: none; }
+    .carr-movil-img { display: inline; }
 
     .header-main-top .logo
     {
