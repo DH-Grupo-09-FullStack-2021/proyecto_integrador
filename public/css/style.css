@@ -37,10 +37,6 @@
 
 .boton-estilizado input { max-width: 80%; }
 
-.img-main{
-    width: 100px;
-}
-
 .header{
     background-color: rgb(132, 24, 233);
     color: white;
@@ -60,7 +56,12 @@
     display: flex;
     justify-content: space-between;
     margin: 15px 25px 0px 25px;
-} 
+}
+
+.grey-bg-color-idx
+{
+    background-color: rgb(223, 223, 223);
+}
 
 .main-navbar a{
     text-decoration: none;

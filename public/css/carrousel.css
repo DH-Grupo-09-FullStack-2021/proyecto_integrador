@@ -38,17 +38,7 @@
     scroll-snap-align: start;
 }
 
-/* por alguna razon calc() no funciona en chrome....
-@media only screen
-and (min-device-width: 701px)
-and (max-device-width: 768px)
-{
-    .carrousel-main img
-    {
-	padding-left: calc((100% - 700) / 2);
-	padding-right: calc((100% - 700) / 2);
-    }
-}*/
+/* responsive carrousel */
 
 @media only screen
 and (min-device-width: 701px)
@@ -56,11 +46,9 @@ and (max-device-width: 746px)
 {
     .carrousel-main img
     {
-	padding-left: 6%;
-	padding-right: 6%;
+	width: 105vw;
     }
 }
-
 
 @media only screen
 and (min-device-width: 745px)
@@ -68,7 +56,6 @@ and (max-device-width: 768px)
 {
     .carrousel-main img
     {
-	padding-left: 10%;
-	padding-right: 10%;
+	width: 110vw;
     }
 }
