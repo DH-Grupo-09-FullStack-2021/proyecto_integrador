@@ -2,7 +2,7 @@
 {
     display: flex;
     padding: 10px;
-    padding-top: 28px;
+    padding-top: 78px;
     padding-bottom: 28px;
     background-color: white;
     margin-left: 5px;
@@ -38,16 +38,34 @@
     transition: .5s box-shadow;
 }
 
-.img-main{
+.img-main
+{
     width: 75%;
 }
 
 
 .display-texto-caja-prod
 {
+    height: 0px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    margin: 12px;
+/*    background-color: rgb(240, 240, 240);*/
+    padding-left: 12px;
+    top: 36px;
+    position: relative;
+    border-radius: 8px;
+/*    box-shadow: 0px 0px 8px rgb(200, 200, 200);*/
+}
+
+/* responsive titulo caja productos */
+@media only screen
+and (min-device-width: 476px)
+{
+    .display-texto-caja-prod { font-size: 36px; }
 }
 
 .display-texto-caja-carrito
 {
 }
-

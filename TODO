@@ -3,3 +3,4 @@
  * implementar alguna forma de darle a las paginas titulos correctos sin sacar <title> de head.js. O sacarlo y listo.
  * cambiar carrousel a functionar en base a imagenes que agarre automaticamente de una carpeta
  * selector de imagenes para la pagina de detalle de producto
+ * crear plantilla para productos y seleccionarlos automaticamente desde la DB

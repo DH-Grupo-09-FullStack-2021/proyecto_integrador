@@ -93,4 +93,5 @@ and (max-device-width: 476px)
     .productos-main { justify-content: center; }
     .CajaProductos-main { min-width: 88%; }
     .CajaProductos-main { margin-bottom: 18px; }
+    .display-texto-caja-prod { font-size: 24px; }
 }
