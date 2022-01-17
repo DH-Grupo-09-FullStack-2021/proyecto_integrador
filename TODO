@@ -2,3 +2,4 @@
  * en la pagina de productos para celulares, algo parecido para que quede el selector de imagenes abajo de la imagen activa.
  * para la pagina principal en celulares hay que arreglar como se muestran los productos.
  * falta el codigo responsive para CajaProductos
+ * implementar alguna forma de darle a las paginas titulos correctos sin sacar <title> de head.js. O sacarlo y listo.
