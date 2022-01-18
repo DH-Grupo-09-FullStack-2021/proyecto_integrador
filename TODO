@@ -4,3 +4,4 @@
  * cambiar carrousel a functionar en base a imagenes que agarre automaticamente de una carpeta
  * selector de imagenes para la pagina de detalle de producto
  * crear plantilla para productos y seleccionarlos automaticamente desde la DB
+ * selector de productos por ID para la pagina de detalle de producto

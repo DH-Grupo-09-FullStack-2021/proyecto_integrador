@@ -94,4 +94,12 @@ and (max-device-width: 476px)
     .CajaProductos-main { min-width: 88%; }
     .CajaProductos-main { margin-bottom: 18px; }
     .display-texto-caja-prod { font-size: 24px; }
+    .contenedor-carrito { flex-direction: column; }
+    .caja-prod-carrito { width: 97%; }
+    .display-texto-caja-carrito
+    {
+	width: 97%;
+	margin-top: 20px;
+		   
+    }
 }
