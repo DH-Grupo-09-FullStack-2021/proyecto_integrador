@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./head') %>
+<body class="grey-bg-color-idx">
+<%- include('./header') %>
+    <main class="main">
+	     <form class="flexbox-formulario">
+	     <div class="formulario-item">
+	       <label for="nombreproducto">Nombre del Producto</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="text"
+	       id="nombreproducto" name="nombreproducto" required="required">
+	     </div>
+	     <div class="formulario-item">
+	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
+	       name="fabricadorproducto" required="required">
+	     </div>
+	     <div class="formulario-item">
+	       <label for="valorproducto">Precio</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
+	       required="required">
+	     </div>
+	     <div class="formulario-item">
+	       <input class="formulario-boton-enviar" type="submit"
+	       value="Agregar Producto">
+	     </div>
+	     </form>
+    </main>
+<%- include('./footer') %>
+    
+</body>
+</html>

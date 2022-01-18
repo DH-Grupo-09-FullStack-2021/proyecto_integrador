@@ -116,3 +116,40 @@
     justify-content: space-between;
     flex-wrap: nowrap;
 }
+
+.perfil-usuario
+{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-left: 12%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 14px;
+}
+
+.titulo-perfil-usuario
+{
+    padding: 10px;
+    margin-left: 12%;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.item-perfil-usuario
+{
+    padding: 2px;
+    font-size: 18px;
+}
+
+.margen-perfil-usuario
+{
+    margin-bottom: 10px;
+}
+
+.bold-perfil-usuario
+{
+    display: inline;
+    font-weight: bold;
+}

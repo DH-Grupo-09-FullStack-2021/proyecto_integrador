@@ -27,6 +27,25 @@ const controller =
 	res.render("register");
     },
 
+    submit: (req, res) =>
+    {
+	res.render("submit");
+    },
+    
+    editar: (req, res) =>
+    {
+	res.render("editar");
+    },
+    
+    profile: (req, res) =>
+    {
+	res.render("profile");
+    },
+    
+    plist: (req, res) =>
+    {
+	res.render("plist");
+    },
 /*
     : (req, res) =>
     {

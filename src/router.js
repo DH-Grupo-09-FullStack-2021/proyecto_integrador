@@ -12,6 +12,14 @@ router.get('/cart', controller.cart);
 
 router.get('/register', controller.register);
 
+router.get('/profile', controller.profile);
+
+router.get('/edit', controller.editar);
+
+router.get('/submit', controller.submit);
+
+router.get('/list', controller.plist);
+
 /* router.get('', controller.); */
 
 module.exports = router;
