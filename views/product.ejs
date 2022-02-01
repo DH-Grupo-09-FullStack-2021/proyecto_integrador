@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./head') %>
-<link rel="stylesheet" href="../css/style.css"/>
-<link rel="stylesheet" href="../css/carrousel.css"/>
-<link rel="stylesheet" href="../css/carrito.css"/>
-<link rel="stylesheet" href="../css/register.css"/>
-<link rel="stylesheet" href="../css/responsive.css"/>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
 <main class="main">
 <div class="contenedor-carrito">
     
 <div class="productos-main caja-prod-carrito">
-  <img src="../img/<%= product.img %>" class='img-main'>
+  <img src="/public\img\<%= product.img %>" class='img-main'>
 	</div>
 	  <div class="display-texto-caja-carrito">
 	    <%= product.name %>
@@ -36,8 +31,8 @@
 	       </div>
     	     <article class="productos-main">
 	       <% for (let i = 0; i < productos_lista.length; i++) { %>
-    <a href="/product/<%= productos_lista[i].id %>" class="CajaProductos-main">
-        <img src="../img/<%= productos_lista[i].img %>" class='img-main'>
+    <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
+        <img src="/public\img\<%= productos_lista[i].img %>" class='img-main'>
         <h3><strong><%= productos_lista[i].name %></strong></h3>
         <div class="texto-producto-inicio"><%= productos_lista[i].desc %></div>
         <h2><strong>$ <%= productos_lista[i].price %></strong></h2>

@@ -6,7 +6,7 @@ router.get('/', controller.index);
 
 router.get('/products', controller.plist);
 
-router.get('/product/:id', controller.product);
+router.get('/products/detail/:id', controller.product);
 
 router.get('/login', controller.login);
 
@@ -19,6 +19,8 @@ router.get('/profile', controller.profile);
 router.get('/edit', controller.editar);
 
 router.get('/submit', controller.submit);
+
+router.post('/submit');
 
 /* router.get('', controller.); */
 
