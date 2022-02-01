@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./head') %>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/carrousel.css"/>
+<link rel="stylesheet" href="../css/carrito.css"/>
+<link rel="stylesheet" href="../css/register.css"/>
+<link rel="stylesheet" href="../css/responsive.css"/>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
 <main class="main">
 <div class="contenedor-carrito">
     
 <div class="productos-main caja-prod-carrito">
-  <img src=../img/224433_desodorante-nivea-black-y-white-invisible-fresh-en-aerosol-x-150-ml_imagen-1.jpg class='img-main'>
+  <img src="../img/<%= product.img %>" class='img-main'>
 	</div>
 	  <div class="display-texto-caja-carrito">
-	    Desodorante Nivea Black & White Invisible Fresh
+	    <%= product.name %>
 	  <div class="carrito-texinfo-box">
-	    El producto viene en tubo, en Aerosol, cada unidad
-	    contiene 150 ml.
+	    <%= product.desc %>
 <br><br>
-	    Fabricante: Nivea.
+	    Fabricante: <%= product.maker %>
 	  </div>
 
 	  <div class="carrito-total-flexbox">
 	    Precio
   	    <div class="carrito-total-a-pagar">
-	      $ 275.50
+	      $ <%= product.price %>
 	    </div>
 	  </div>
 	  </div>
@@ -31,24 +35,14 @@
 	       Productos Relacionados
 	       </div>
     	     <article class="productos-main">
-    <article class="CajaProductos-main">
-        <img src="../img/224456_combo_imagen-1.jpg" class='img-main'>
-        <h3><strong>Olympia</strong></h3>
-        <div class="texto-producto-inicio">Combo Olympia Mascarilla KN95 x2 un x5 c/u</div>
-        <h2><strong>$ 1366.66</strong></h2>
-    </article>
-    <article class="CajaProductos-main">
-        <img src="../img/224726_crema-dental-colgate-luminous-white-carbon-activado-x-70-g_imagen-1.jpg" class='img-main'>
-        <h3><strong>Oral B</strong></h3>
-        <div class="texto-producto-inicio">Crema Dental Oral-B 3D White x 90 g</div>
-        <h2><strong>$ 389.50</strong></h2>
-    </article>
-    <article class="CajaProductos-main">
-        <img src="../img/224772_crema-dental-oral-b-3d-white-x-90-g_imagen-1.jpg" class="img-main">
-        <h3><strong>UltraFlex</strong></h3>
-        <div class="texto-producto-inicio">Suplemento Dietario UltraFlex HMB3000 Lata x 420g </div>
-        <h2><strong>$ 3120.00</strong></h2>
-    </article>
+	       <% for (let i = 0; i < productos_lista.length; i++) { %>
+    <a href="/product/<%= productos_lista[i].id %>" class="CajaProductos-main">
+        <img src="../img/<%= productos_lista[i].img %>" class='img-main'>
+        <h3><strong><%= productos_lista[i].name %></strong></h3>
+        <div class="texto-producto-inicio"><%= productos_lista[i].desc %></div>
+        <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
+    </a>
+	<% } %>
     </article>
     </main>
 <%- include('./footer') %>

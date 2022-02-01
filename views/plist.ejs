@@ -7,31 +7,15 @@
 	       <div class="display-texto-caja-prod">
 	       Productos Disponibles
 	       </div>
-	     <article class="productos-main">
-    <article class="CajaProductos-main">
-        <img src=../img/224433_desodorante-nivea-black-y-white-invisible-fresh-en-aerosol-x-150-ml_imagen-1.jpg class='img-main'>
-        <h3><strong>Nivea</strong></h3>
-        <div class="texto-producto-inicio">Desodorante Nivea Black & White Invisible Fresh en Aerosol x 150 ml</div>
-        <h2><strong>$ 275.50</strong></h2>
-    </article>
-    <article class="CajaProductos-main">
-        <img src="../img/224456_combo_imagen-1.jpg" class='img-main'>
-        <h3><strong>Olympia</strong></h3>
-        <div class="texto-producto-inicio">Combo Olympia Mascarilla KN95 x2 un x5 c/u</div>
-        <h2><strong>$ 1366.66</strong></h2>
-    </article>
-    <article class="CajaProductos-main">
-        <img src="../img/224726_crema-dental-colgate-luminous-white-carbon-activado-x-70-g_imagen-1.jpg" class='img-main'>
-        <h3><strong>Oral B</strong></h3>
-        <div class="texto-producto-inicio">Crema Dental Oral-B 3D White x 90 g</div>
-        <h2><strong>$ 389.50</strong></h2>
-    </article>
-    <article class="CajaProductos-main">
-        <img src="../img/224772_crema-dental-oral-b-3d-white-x-90-g_imagen-1.jpg" class="img-main">
-        <h3><strong>UltraFlex</strong></h3>
-        <div class="texto-producto-inicio">Suplemento Dietario UltraFlex HMB3000 Lata x 420g </div>
-        <h2><strong>$ 3120.00</strong></h2>
-    </article>
+	     <article class="productos-main productos-pagina-productos">
+	       <% for (let i = 0; i < productos_lista.length; i++) { %>
+    <a href="/product/<%= productos_lista[i].id %>" class="CajaProductos-main">
+        <img src="../img/<%= productos_lista[i].img %>" class='img-main'>
+        <h3><strong><%= productos_lista[i].maker %></strong></h3>
+        <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
+        <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
+    </a>
+	<% } %>
     </article>
     </main>
 <%- include('./footer') %>
