@@ -20,7 +20,7 @@ router.get('/profile', controller.profile);
 
 router.get('/products/:id/edit', controller.editar);
 
-//router.put('/products/:id', controller.editarPUT);
+router.put('/products/:id', controller.editarPUT);
 
 router.get('/products/create', controller.submit);
 

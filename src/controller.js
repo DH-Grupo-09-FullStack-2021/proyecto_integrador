@@ -77,7 +77,20 @@ const controller =
     
     editar: (req, res) =>
     {
-	res.render("editar");
+	let producto = 0;
+
+	for (let i = 0; i < products.products.length; i++)
+	{
+	    if (products.products[i].id == req.params.id)
+		producto = products.products[i];
+	}
+	
+	res.render("editar", {producto: producto});
+    },
+
+    editarPUT: (req, res) =>
+    {
+	res.redirect("product", );
     },
     
     profile: (req, res) =>

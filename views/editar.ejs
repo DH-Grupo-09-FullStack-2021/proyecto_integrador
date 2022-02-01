@@ -4,23 +4,23 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="main">
-	     <form class="flexbox-formulario">
+	     <form method="PUT" action="/products/<%= producto.id %>" class="flexbox-formulario">
 	     <div class="formulario-item">
-	       <label for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
+	       <label placeholder="<%= producto.name %>" for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
 	       id="nombreproducto" name="nombreproducto">
 	     </div>
 	     <div class="formulario-item">
-	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
+	       <label placeholder="<%= producto.maker %>" for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
 	       name="fabricadorproducto">
 	     </div>
 	     <div class="formulario-item">
-	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
+	       <label placeholder="<%= producto.desc %>" for="descprod">Descripción del producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" name="descprod" id="descprod">
 	     </div>  
 	     <div class="formulario-item">
-	       <label for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
+	       <label placeholder="<%= producto.price %>" for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
 	       >
 	     </div>
