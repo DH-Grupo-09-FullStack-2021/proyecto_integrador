@@ -1,5 +1,7 @@
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
+const upload = multer({ dest: '../public/img/' });
 const controller = require('./controller');
 
 router.get('/', controller.index);
@@ -16,12 +18,14 @@ router.get('/register', controller.register);
 
 router.get('/profile', controller.profile);
 
-router.get('/edit', controller.editar);
+router.get('/products/:id/edit', controller.editar);
 
-router.get('/submit', controller.submit);
+//router.put('/products/:id', controller.editarPUT);
 
-router.post('/submit');
+router.get('/products/create', controller.submit);
 
-/* router.get('', controller.); */
+router.post('/products', upload.single('imagenprod'), controller.submitPOST);
+
+//router.delete('/products/:id', controller.product_delete);
 
 module.exports = router;

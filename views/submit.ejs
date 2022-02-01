@@ -4,7 +4,7 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="main">
-	     <form method="POST" action="/submit" class="flexbox-formulario">
+	     <form method="POST" action="/products" class="flexbox-formulario" enctype="multipart/form-data">
 	     <div class="formulario-item">
 	       <label for="nombreproducto">Nombre del Producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
@@ -14,6 +14,15 @@
 	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
 	       name="fabricadorproducto" required="required">
+	     </div>
+	     <div class="formulario-item">
+	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="text" name="descprod" id="descprod">
+	     </div>
+	     <div class="formulario-item">
+	       <label for="imagenprod">Imagen</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="file" name="imagenprod" id="imagenprod"
+	       required="required">
 	     </div>
 	     <div class="formulario-item">
 	       <label for="valorproducto">Precio</label></div><div class="formulario-item">

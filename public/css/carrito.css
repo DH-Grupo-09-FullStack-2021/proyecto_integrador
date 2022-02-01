@@ -146,3 +146,8 @@ and (min-device-width: 476px)
     transition: 1s color;
     transition: 1s background-color;
 }
+
+.margin-bot-plist
+{
+    margin-bottom: 24px;
+}

@@ -1,4 +1,6 @@
 const express = require('express');
+const fs = require('fs');
+
 let products = require('../db/products');
 
 const controller =
@@ -54,6 +56,23 @@ const controller =
     submit: (req, res) =>
     {
 	res.render("submit");
+    },
+    
+    submitPOST: (req, res) =>
+    {
+	let new_plist = products.products;
+	new_plist.push(
+	    {
+		name: req.body.nombreproducto,
+		price: req.body.valorproducto,
+		id: products.products.length + 1,
+		maker: req.body.fabricadorproducto,
+		desc: req.body.descprod,
+		img: req.file.filename
+	    });
+	fs.writeFileSync("../db/products.json", JSON.stringify(new_plist));
+	
+	res.redirect("/products");
     },
     
     editar: (req, res) =>

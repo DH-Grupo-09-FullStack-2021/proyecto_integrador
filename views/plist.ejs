@@ -9,7 +9,7 @@
 	       </div>
 	     <article class="productos-main productos-pagina-productos">
 	       <% for (let i = 0; i < productos_lista.length; i++) { %>
-    <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
+    <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main margin-bot-plist">
         <img src="/public/img/<%= productos_lista[i].img %>" class='img-main'>
         <h3><strong><%= productos_lista[i].maker %></strong></h3>
         <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
