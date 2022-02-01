@@ -3,23 +3,30 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-    <main class="main">
-	     <form class="flexbox-formulario">
-	     <div class="formulario-item">
-	       <label for="emailusuario">E-mail</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="email" id="emailusuario"
-	       name="emailusuario" required="required">
-	     </div>
-	     <div class="formulario-item">
-	       <label for="contrasenausuario">Contraseña</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario"
-	       minlength="8" maxlength="32" required="required">
-	     </div>
-	     <div class="formulario-item">
-	       <input class="formulario-boton-enviar" type="submit"
-    style="margin-top: 10px;" value="Login">
-	     </div>
-	     </form>
+    <main class="cuerpo">
+	    <form class="flexbox-formulario">
+	     	<div class="formulario-item">
+	       		<label for="emailusuario">E-mail</label>
+			</div>
+			<div class="formulario-item">
+	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario" required="required">
+	     	</div>
+	     	<div class="formulario-item">
+	       		<label for="contrasenausuario">Contraseña</label>
+			</div>
+			<div class="formulario-item">
+	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" required="required">
+	     	</div>
+	     	<div class="formulario-item">
+	       		<input class="formulario-boton-enviar" type="submit" value="Login">
+	     	</div>
+	    </form>
+		<section class="redes-sociales">
+			<button id="sign-up-facebook" type="submit" value="Facebook"><i class="fab fa-facebook-square"></i> Ingresa con Facebook </button>
+			<button id="sign-up-Google" type="submit" value="Google"><i class="fab fa-google"></i> Ingresa con Google </button>
+			<button id="sign-up-Aple" type="submit" value="Apple"><i class="fab fa-apple"></i> Ingresa con Apple </button>
+	   </section>
+
     </main>
 <%- include('./footer') %>
     

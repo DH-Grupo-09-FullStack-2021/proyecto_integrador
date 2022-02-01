@@ -5,6 +5,10 @@ and (min-device-width: 1439px)
     .flexbox-formulario { padding-left: 30vw; }
     .formulario-input-box { width: 30%; }
     .boton-estilizado input { max-width: 90%; }
+    .cuerpo{flex-flow: row;}
+    .formulario-boton-enviar{width: 30vw;}
+    .redes-sociales{width: 50vw;justify-content: center;}
+    
 
     .solo-movil { display: none; }
     .carr-movil-img { display: none; }
@@ -15,9 +19,12 @@ and (min-device-width: 1439px)
 and (min-device-width: 1024px)
 and (max-device-width: 1440px)
 {
-    .flexbox-formulario { padding-left: 22vw; }
-    .formulario-input-box { width: 36%; }
+    .flexbox-formulario { padding-left: 5vw;padding-right: 10vw; }
+    .formulario-input-box { width: 30vw;  }
     .boton-estilizado input { max-width: 86%; }
+    .cuerpo{flex-flow: row;}
+    .formulario-boton-enviar{width: 30vw;}
+    .redes-sociales{width: 50vw;justify-content: center;}
 
     .solo-movil { display: none; }
     .carr-movil-img { display: none; }
@@ -32,7 +39,12 @@ and (min-device-width: 769px)
 and (max-device-width: 1023px)
 {
     .flexbow-formulario { padding-left: 10vw; }
-    .formulario-input-box { width: 50%; }
+    .formulario-input-box { width: 60vw; }
+    .cuerpo{flex-flow: row;}
+    .formulario-boton-enviar{width: 60vw;}
+    .redes-sociales{width: 40vw;justify-content: center;}
+
+
 
     .logo-footer .logo { max-width: 75%; }
 
@@ -53,8 +65,10 @@ and (max-device-width: 1023px)
 and (min-device-width: 475px)
 and (max-device-width: 768px)
 {
-    .flexbox-formulario { padding-left: 74px; }
-    .formulario-input-box { width: 366px; }
+    .flexbox-formulario { padding-left: 50px; }
+    .formulario-input-box { width: 80%; }
+    .cuerpo{flex-flow: column-reverse;}
+    .formulario-boton-enviar{width: 60vw;}
 
     .logo-footer .logo { max-width: 55%; }
     .flexbox-footer { flex-flow: column; }
@@ -82,8 +96,11 @@ and (max-device-width: 768px)
 and (min-device-width: 320px)
 and (max-device-width: 476px)
 {
-    .flexbox-formulario { padding-left: 12px; }
+    .flexbox-formulario { padding-left: 50px;}
     .formulario-input-box { width: 80%; }
+    .cuerpo{flex-flow: column-reverse;}
+    .formulario-boton-enviar{width: 60vw;}
+    
 
     .logo-footer .logo { max-width: 55%; }
     .flexbox-footer { flex-flow: column; }
