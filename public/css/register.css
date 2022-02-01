@@ -1,15 +1,23 @@
-.flexbox-formulario
-{
-    padding-left: 30vw;
-    margin: 18px;
-    margin-left: 0px;
+.cuerpo{
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 30px;
+}
+
+.flexbox-formulario
+{  
     flex-flow: column nowrap;
+    display: flex;
+    justify-content: start; 
+    flex-direction: column;
+    height: auto;
+    width: auto;  
 }
 
 .formulario-item
 {
-    font-size: 24px;
+    font-size: 16px;
     margin: 5px;
 }
 
@@ -24,6 +32,7 @@
 {
     width: 18px;
     height: 18px;
+  
 }
 
 .formulario-boton-enviar
@@ -43,5 +52,42 @@
     background-color: purple;
     color: white;
     transition: 500ms color;
-    transition: 500ms background-color;
+    transition: 500ms;
+}
+.redes-sociales{
+  
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+#sign-up-facebook
+{
+  background-color: blue;
+  width: auto;
+  height: 36px;
+  margin: 20px 10px 5px 10px;
+  color: white;
+  border-radius: 12px;
+  display: inline-block;
+}
+#sign-up-Google
+{
+  background-color: white;
+  width: auto;
+  height: 36px;
+  margin: 5px 10px 5px 10px;
+  color: black;
+  border-radius: 12px;
+}
+#sign-up-Aple
+{
+  background-color: black;
+  width: auto;
+  height: 36px;
+  margin: 5px 10px 20px 10px;
+  color: white;
+  border-radius: 12px;
 }
