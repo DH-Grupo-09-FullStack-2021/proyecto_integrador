@@ -18,7 +18,7 @@ router.get('/register', controller.register);
 
 router.get('/profile', controller.profile);
 
-router.get('/products/:id/edit', controller.editar);
+router.get('/products/edit/:id', controller.editar);
 
 router.put('/products/:id', controller.editarPUT);
 
@@ -26,6 +26,6 @@ router.get('/products/create', controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
-//router.delete('/products/:id', controller.product_delete);
+router.delete('/products/detail/products/delete/:id', controller.destroy);
 
 module.exports = router;

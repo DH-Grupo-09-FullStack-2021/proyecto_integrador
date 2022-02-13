@@ -1,7 +1,9 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
-let products = require('../db/products');
+const productsFilePath = path.join(__dirname, '../db/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller =
 {
@@ -11,7 +13,7 @@ const controller =
 
 	for (let i = 0; i < 4; i++)
 	{
-	    cuatro_prod.push(products.products[Math.floor(Math.random() * (products.products.length))]);
+	    cuatro_prod.push(products[Math.floor(Math.random() * (products.length))]);
 	}
 	
 	res.render("index", {productos_lista: cuatro_prod});
@@ -21,18 +23,18 @@ const controller =
     {
 	let producto = 0;
 
-	for (let i = 0; i < products.products.length; i++)
+	for (let i = 0; i < products.length; i++)
 	{
-	    if (products.products[i].id == req.params.id)
-		producto = products.products[i];
+	    if (products[i].id == req.params.id)
+		producto = products[i];
 	}
 
 	let prodlist = [];
 
-	for (let i = 0; i < products.products.length; i++)
+	for (let i = 0; i < products.length; i++)
 	{
-	    if (products.products[i].id != req.params.id)
-		prodlist.push(products.products[i]);
+	    if (products[i].id != req.params.id)
+		prodlist.push(products[i]);
 	}
 	
 	res.render("product", {product: producto, productos_lista: prodlist});
@@ -60,16 +62,18 @@ const controller =
     
     submitPOST: (req, res) =>
     {
-	let new_plist = products.products;
-	new_plist.push(
-	    {
+	let new_plist = products;
+
+	let nuevo_producto={
 		name: req.body.nombreproducto,
 		price: req.body.valorproducto,
-		id: products.products.length + 1,
+		id: products.length + 1,
 		maker: req.body.fabricadorproducto,
 		desc: req.body.descprod,
 		img: req.file.filename
-	    });
+	    };
+
+	new_plist.push(nuevo_producto)
 	fs.writeFileSync("../db/products.json", JSON.stringify(new_plist));
 	
 	res.redirect("/products");
@@ -79,10 +83,10 @@ const controller =
     {
 	let producto = 0;
 
-	for (let i = 0; i < products.products.length; i++)
+	for (let i = 0; i < products.length; i++)
 	{
-	    if (products.products[i].id == req.params.id)
-		producto = products.products[i];
+	    if (products[i].id == req.params.id)
+		producto = products[i];
 	}
 	
 	res.render("editar", {producto: producto});
@@ -90,7 +94,19 @@ const controller =
 
     editarPUT: (req, res) =>
     {
-	res.redirect("product", );
+		let idProductoSeleccionado = req.params.id;
+		for (let p of products){
+			if(p.id==idProductoSeleccionado){
+				p.name= req.body.nombreproducto;
+				p.price= req.body.valorproducto;
+				p.maker=req.body.fabricadorproducto;
+				p.desc=req.body.descprod;
+				break;
+			}
+		}
+
+		fs.writeFileSync("../db/products.json", JSON.stringify(products,null,' '));
+		res.redirect("/products");
     },
     
     profile: (req, res) =>
@@ -100,14 +116,22 @@ const controller =
     
     plist: (req, res) =>
     {
-	res.render("plist", {productos_lista: products.products});
+	res.render("plist", {productos_lista: products});
     },
-/*
-    : (req, res) =>
-    {
-	res.render("");
+	destroy: (req, res) =>{
+
+		let idProductoSeleccionado = req.params.id;
+
+		let products2 = products.filter(function(element){
+			return element.id!=idProductoSeleccionado;
+		})
+
+		fs.writeFileSync("../db/products.json", JSON.stringify(products2,null,' '));
+
+	    res.redirect('/products');
+
     },
-*/
+
 };
 
 module.exports = controller;
