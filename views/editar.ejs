@@ -4,24 +4,24 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="main">
-	     <form method="PUT" action="/products/<%= producto.id %>" class="flexbox-formulario">
+	     <form method="POST" action="/products/<%= producto.id %>?_method=PUT" class="flexbox-formulario">
 	     <div class="formulario-item">
-	       <label placeholder="<%= producto.name %>" for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
+	       <label for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
-	       id="nombreproducto" name="nombreproducto">
+	       id="nombreproducto" name="nombreproducto" placeholder="<%=producto.name %>" value="<%=producto.name %>">>
 	     </div>
 	     <div class="formulario-item">
-	       <label placeholder="<%= producto.maker %>" for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
+	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
-	       name="fabricadorproducto">
+	       name="fabricadorproducto" placeholder="<%=producto.maker %>" value="<%=producto.maker %>">
 	     </div>
 	     <div class="formulario-item">
-	       <label placeholder="<%= producto.desc %>" for="descprod">Descripción del producto</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text" name="descprod" id="descprod">
+	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="text" name="descprod" id="descprod"  placeholder="<%=producto.desc %>" value="<%=producto.desc %>">
 	     </div>  
 	     <div class="formulario-item">
-	       <label placeholder="<%= producto.price %>" for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
+	       <label for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
+	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto" placeholder="<%=producto.price %>" value="<%=producto.price %>"
 	       >
 	     </div>
 	     <div class="formulario-item">

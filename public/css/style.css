@@ -153,3 +153,31 @@
     display: inline;
     font-weight: bold;
 }
+.Botones_Productos 
+{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#Boton_Editar{
+    background-color: blue;
+    width: auto;
+    height: 36px;
+    margin: 20px 10px 5px 10px;
+    color: white;
+    border-radius: 12px;
+    display: inline-block;
+
+}
+#Boton_Eliminar{
+    background-color: red;
+    width: auto;
+    height: 36px;
+    margin: 20px 10px 5px 10px;
+    color: white;
+    border-radius: 12px;
+    display: inline-block;
+
+}
