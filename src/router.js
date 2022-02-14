@@ -26,6 +26,8 @@ router.get('/products/create', controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
+router.post('/register', upload.single('imagenUser'), controller.registerPOST);
+
 router.delete('/products/detail/products/delete/:id', controller.destroy);
 
 module.exports = router;

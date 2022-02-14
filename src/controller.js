@@ -2,8 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../db/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
+const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/users.json'), 'utf-8'));
 
 const controller =
 {
@@ -55,6 +55,23 @@ const controller =
 	res.render("register");
     },
 
+    registerPOST: (req, res) =>
+    {
+	let newUserDB = users;
+
+	newUserDB.push({
+	    username: req.body.nombreusuario,
+	    email: req.body.emailusuario,
+	    password: req.body.contrasenausuario,
+	    img: req.file.filename,
+	    bio: ""
+	});
+
+	fs.writeFileSync("../db/users.json", JSON.stringify(newUserDB));
+	
+	res.redirect("/profile");
+    },
+    
     submit: (req, res) =>
     {
 	res.render("submit");
