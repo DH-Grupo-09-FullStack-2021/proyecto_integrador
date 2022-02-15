@@ -1,9 +1,21 @@
 const express = require('express');
 const multer = require('multer');
+const path = require('path')
 const router = express.Router();
 const upload = multer({ dest: '../public/img/' });
 const controller = require('./controller');
 
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, '../public/img/profile'))
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
+    }
+  })
+  const Proupload = multer({ storage })
+  
 router.get('/', controller.index);
 
 router.get('/products', controller.plist);
@@ -26,7 +38,7 @@ router.get('/products/create', controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
-router.post('/register', upload.single('imagenUser'), controller.registerPOST);
+router.post('/register', Proupload.single('imagenUser'), controller.registerPOST);
 
 router.delete('/products/detail/products/delete/:id', controller.destroy);
 
