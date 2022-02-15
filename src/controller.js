@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-const products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
+let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/users.json'), 'utf-8'));
 
 const controller =
@@ -142,6 +142,7 @@ const controller =
 		let products2 = products.filter(function(element){
 			return element.id!=idProductoSeleccionado;
 		})
+		products=products2;
 
 		fs.writeFileSync("../db/products.json", JSON.stringify(products2,null,' '));
 
