@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require('express-validator')
 
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
 const users = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/users.json'), 'utf-8'));
@@ -57,20 +58,26 @@ const controller =
 
     registerPOST: (req, res) =>
     {
-	let newUserDB = users;
+		let errors= validationResult(req);
+		if (errors.isEmpty()){
+			
+			let newUserDB = users;
 
-	newUserDB.push({
-	    username: req.body.nombreusuario,
-	    email: req.body.emailusuario,
-	    password: req.body.contrasenausuario,
-	    img: req.file.filename,
-	    bio: ""
+			newUserDB.push({
+	    	username: req.body.nombreusuario,
+	    	email: req.body.emailusuario,
+	   		password: req.body.contrasenausuario,
+	    	img: req.file.filename,
+	    	bio: ""
 	});
 
 	fs.writeFileSync("../db/users.json", JSON.stringify(newUserDB));
 	
 	res.redirect("/profile");
-    },
+	}else{
+		res.render("register",{errors:errors.array()});
+	}
+	},
     
     submit: (req, res) =>
     {

@@ -4,6 +4,7 @@ const path = require('path')
 const router = express.Router();
 const upload = multer({ dest: '../public/img/' });
 const controller = require('./controller');
+const validatorRegister=require(path.join(__dirname, '../middlewares/validatorRegister'))
 
 
 const storage = multer.diskStorage({
@@ -38,7 +39,7 @@ router.get('/products/create', controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
-router.post('/register', Proupload.single('imagenUser'), controller.registerPOST);
+router.post('/register',validatorRegister, Proupload.single('imagenUser'), controller.registerPOST);
 
 router.delete('/products/detail/products/delete/:id', controller.destroy);
 
