@@ -1,4 +1,5 @@
 const express = require('express');
+const { check } = require('express-validator');
 const multer = require('multer');
 const path = require('path')
 const router = express.Router();
@@ -24,6 +25,8 @@ router.get('/products', controller.plist);
 router.get('/products/detail/:id', controller.product);
 
 router.get('/login', controller.login);
+
+router.post('/login',[check('emailusuario').isEmail().withMessage('Email Invalido')],controller.sumitLOGIN)
 
 router.get('/cart', controller.cart);
 

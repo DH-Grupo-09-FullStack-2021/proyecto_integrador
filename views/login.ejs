@@ -4,18 +4,29 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="cuerpo">
-	    <form class="flexbox-formulario">
+		<% if (typeof errors != 'undefined') { %>
+			<p style="color:red">ERROR</p>
+			<ul>
+				<% for (let i =0; i < errors.length;i++){ %>
+					<li>
+						<%=errors[i].msg%>
+					</li>
+					<% } %>
+			</ul>
+			<% } %>
+
+	    <form class="flexbox-formulario" action="/login" method="POST">
 	     	<div class="formulario-item">
 	       		<label for="emailusuario">E-mail</label>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario" required="required">
+	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario">
 	     	</div>
 	     	<div class="formulario-item">
 	       		<label for="contrasenausuario">Contraseña</label>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" required="required">
+	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" >
 	     	</div>
 	     	<div class="formulario-item">
 	       		<input class="formulario-boton-enviar" type="submit" value="Login">

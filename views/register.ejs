@@ -4,6 +4,16 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="cuerpo">
+		<% if (typeof errors != 'undefined') { %>
+			<p style="color:red">ERROR</p>
+			<ul>
+				<% for (let i =0; i < errors.length;i++){ %>
+					<li>
+						<%=errors[i].msg%>
+					</li>
+					<% } %>
+			</ul>
+			<% } %>
 	    <form class="flexbox-formulario" action="/register" method="POST" enctype="multipart/form-data">
 	     	<div class="formulario-item">
 	       		<label for="nombreusuario">Nombre de usuario</label>
