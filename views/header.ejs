@@ -4,17 +4,22 @@
             <form class="boton-estilizado top-nav-bar">
 	        <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="busqueda" id="busqueda"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
 	    </form>
+            <%if (locals.isUserLogged===false) {%>
             <a href="/login" class="solo-escritorio top-nav-bar">Login</a>
             <a href="/login" class="solo-movil top-nav-bar"><i class="fas fa-user"></i></a>
             <a href="/register" class="solo-escritorio top-nav-bar top-nav-right-margin">Registrarse</a>
             <a href="/register" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-user-plus"></i></a>
+            <% }%>
         </article>
         <nav class="main-navbar">
              <div><a href='/'>Inicio</a></div>
              <div><a href='/products'>Productos</a></div>
              <div><a href='#'>Ofertas</a></div>
+             <%if (locals.isUserLogged===true) {%>
              <div><a href='/profile'>Perfil del usuario</a></div> <!-- Quienes somos -->
              <div><a href='/cart'>Carrito de Compras</a></div>
+             <% }%>
+            
         </nav>
         
     </header>

@@ -3,8 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator')
 
+const bcrypt=require('bcryptjs')
+
+
 let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
-let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/users.json'), 'utf-8'));
+const userDB= path.resolve(__dirname, '../db/users.json');
+
+const users = JSON.parse(fs.readFileSync(userDB,"utf8"))
+
 
 const controller =
 {
@@ -46,40 +52,26 @@ const controller =
 	res.render("login");
     },
 
-	sumitLOGIN:(req,res)=>
-	{
-		let errors= validationResult(req);
-		if (errors.isEmpty()){
-			let userJSON= fs.readFileSync( '../db/users.json',{errors:errors.errors})
-			let users;
-			let usuarioALoguearse
-			if(userJSON==""){
-				users=[]
-			}else{
-				users= JSON.parse(userJSON)
-			}
-			for(let i=0;i<users.length;i++){
-				if(users[i].emailusuario==req.body.emailusuario){
-					if(bcrypt.compareSync(req.body.contrasenausuario,users[i].contrasenausuario)){
-						let usuarioALoguearse=users[i];
-						break;
-					}
-				}
-			}
-			if(usuarioALoguearse == undefined){
-				return res.render("login",{errors:[
-					{msg: 'Credenciales invalidas'}]});
+	sumitLOGIN:(req,res)=>{
+		const usertologin = users.find(oneUser=> oneUser.email===req.body.emailusuario);
 
-			}
-			req.session.usuarioLogueado= usuarioALoguearse
-			res.render('success')
-
-		}else{
-			return res.render("login",{errors:errors.errors});
+		if(usertologin===undefined){
+			return res.send("no existe el ususario")
 		}
+		if(usertologin!==undefined){
+			const isPasswordOk= bcrypt.compareSync(req.body.contrasenausuario,usertologin.password);
 
+			if(!isPasswordOk){
+				return res.send("las contraseñas no coinciden")
+			}
 
+			delete usertologin.password ;
+			req.session.user= usertologin;
 
+			res.cookie("email",usertologin.email,{maxAge:1000*60}*30)
+
+			return res.redirect("profile")
+		}
 
 	},
 
@@ -95,25 +87,20 @@ const controller =
 
     registerPOST: (req, res) =>
     {
-		let errors= validationResult(req);
-		if (errors.isEmpty()){
-			
 			let newUserDB = users;
 
 			newUserDB.push({
 	    	username: req.body.nombreusuario,
 	    	email: req.body.emailusuario,
-	   		password: req.body.contrasenausuario,
+	   		password: bcrypt.hashSync(req.body.contrasenausuario,10),
 	    	img: req.file.filename,
 	    	bio: ""
 	});
 
-	fs.writeFileSync("../db/users.json", JSON.stringify(newUserDB));
+	fs.writeFileSync("../db/users.json", JSON.stringify(newUserDB,null," "));
 	
 	res.redirect("/profile");
-	}else{
-		res.render("register",{errors:errors.array()});
-	}
+	
 	},
     
     submit: (req, res) =>
@@ -135,7 +122,7 @@ const controller =
 	    };
 
 	new_plist.push(nuevo_producto)
-	fs.writeFileSync("../db/products.json", JSON.stringify(new_plist));
+	fs.writeFileSync("../db/products.json", JSON.stringify(new_plist,null," "));
 	
 	res.redirect("/products");
     },
@@ -172,7 +159,8 @@ const controller =
     
     profile: (req, res) =>
     {
-	res.render("profile");
+	console.log(req.cookies.email)
+	return res.render("profile",{userData:req.session.user});
     },
     
     plist: (req, res) =>
@@ -193,6 +181,12 @@ const controller =
 	    res.redirect('/products');
 
     },
+	logout:(req,res)=>{
+		req.session.destroy();
+		res.clearCookie("email");
+		res.redirect("/")
+
+	},
 
 };
 

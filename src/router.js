@@ -46,4 +46,6 @@ router.post('/register',validatorRegister, Proupload.single('imagenUser'), contr
 
 router.delete('/products/detail/products/delete/:id', controller.destroy);
 
+router.get('/logout',controller.logout)
+
 module.exports = router;
