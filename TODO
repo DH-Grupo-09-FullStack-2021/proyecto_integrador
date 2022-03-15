@@ -1,7 +1,0 @@
- * el carrito se lo reacomoda con flow para movil, para que el cartel de checkout quede arriba de todo. hay que arreglar el posicionamiento del titulo del area de productos primero.
- * en la pagina de productos para celulares, algo parecido para que quede el selector de imagenes abajo de la imagen activa.
- * implementar alguna forma de darle a las paginas titulos correctos sin sacar <title> de head.js. O sacarlo y listo.
- * cambiar carrousel a functionar en base a imagenes que agarre automaticamente de una carpeta
- * selector de imagenes para la pagina de detalle de producto
- * agregar mas productos (se puede usar el formulario una vez la funcionalidad del mismo este completa)
- * Consultar para eliminar imagen de la carpeta IMG.
