@@ -5,7 +5,7 @@ const path = require('path')
 const router = express.Router();
 const upload = multer({ dest: '../public/img/' });
 const controller = require('./controller');
-const validatorRegister=require(path.join(__dirname, '../middlewares/validatorRegister'))
+const validatorRegister=require('./middlewares/validatorRegister');
 
 
 const storage = multer.diskStorage({
@@ -26,7 +26,7 @@ router.get('/products/detail/:id', controller.product);
 
 router.get('/login', controller.login);
 
-router.post('/login',[check('emailusuario').isEmail().withMessage('Email Invalido')],controller.sumitLOGIN)
+router.post('/login',[check('emailusuario').isEmail().withMessage('Email Invalido')],controller.loginPOST)
 
 router.get('/cart', controller.cart);
 

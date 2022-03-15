@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const userDB= path.resolve(__dirname, '../db/users.json');
+const db = require('../basedatos');
 
-const users = JSON.parse(fs.readFileSync(userDB,"utf8"))
+let users = [];
 
+db.user.findAll().then(p => { users = p });
 
 const userCookie =(req,res,next)=>{
     res.locals.isUserLogged=false;

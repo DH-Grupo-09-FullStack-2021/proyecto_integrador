@@ -3,14 +3,12 @@
   "username": "sebastian",
   "email": "sebas@farma.com",
   "password": "$2a$10$dNGTDTGhsqFkKvE4BDVWBugzF8l9DVqDWHdHvHHHgkBCWqp9bOgby",
-  "img": "imagenUser-1646154972572.jpeg",
-  "bio": ""
+  "img": "imagenUser-1646154972572.jpeg"
  },
  {
   "username": "sebatiani",
   "email": "yohan@farma.com",
   "password": "$2a$10$xjtbMItL1G7l33.Eu3.Pn.3x2lchoIPPM8hvBsVSvtnFIxPsODQTK",
-  "img": "imagenUser-1646162473845.JPG",
-  "bio": ""
+  "img": "imagenUser-1646162473845.JPG"
  }
 ]

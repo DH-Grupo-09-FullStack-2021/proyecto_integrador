@@ -47,6 +47,28 @@
     transition: 500ms background-color;
 }
 
+.boton-profile-cerrar
+{
+    
+    text-decoration: none;
+    color: white;
+    background-color: purple;
+    border-width: 0px;
+    border-radius: 12px;
+    height: 36px;
+    width: 20%;
+    transition: 500ms color;
+    transition: 500ms background-color;
+}
+
+.boton-profile-cerrar:hover
+{
+    background-color: red;
+    color: white;
+    transition: 500ms color;
+    transition: 500ms;
+}
+
 .formulario-boton-enviar:hover
 {
     background-color: purple;

@@ -15,7 +15,7 @@ app.use(methodOverride('_method'))
 app.use (session({secret:"Identificador de Seguridad",save: true,saveUninitialized: false,}))
 app.use(coolieParser());
 
-const mdUserCookie=require(path.join(__dirname,'../middlewares/mdUserCookie.js'))
+const mdUserCookie=require('./middlewares/mdUserCookie.js');
 app.use(mdUserCookie)
 
 app.set('view engine', 'ejs');

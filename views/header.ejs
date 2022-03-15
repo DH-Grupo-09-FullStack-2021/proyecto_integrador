@@ -10,16 +10,19 @@
             <a href="/register" class="solo-escritorio top-nav-bar top-nav-right-margin">Registrarse</a>
             <a href="/register" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-user-plus"></i></a>
             <% }%>
+             <%if (locals.isUserLogged===true) {%>
+            <a href="/profile" class="solo-escritorio top-nav-bar">Perfil del usuario</a>
+            <a href="/profile" class="solo-movil top-nav-bar"><i class="fas fa-user-circle"></i></i></a>
+            <a href="/cart" class="solo-escritorio top-nav-bar top-nav-right-margin">Carrito de Compras</a>
+            <a href="/cart" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-shopping-cart"></i></i></a>
+             <% }%>
         </article>
         <nav class="main-navbar">
              <div><a href='/'>Inicio</a></div>
              <div><a href='/products'>Productos</a></div>
              <div><a href='#'>Ofertas</a></div>
-             <%if (locals.isUserLogged===true) {%>
-             <div><a href='/profile'>Perfil del usuario</a></div> <!-- Quienes somos -->
-             <div><a href='/cart'>Carrito de Compras</a></div>
-             <% }%>
-            
+             <div><a href='#'>Quienes somos</a></div>
+             <div><a href='#'>Contactanos</a></div>
         </nav>
         
     </header>

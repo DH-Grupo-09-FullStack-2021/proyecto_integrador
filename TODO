@@ -3,7 +3,5 @@
  * implementar alguna forma de darle a las paginas titulos correctos sin sacar <title> de head.js. O sacarlo y listo.
  * cambiar carrousel a functionar en base a imagenes que agarre automaticamente de una carpeta
  * selector de imagenes para la pagina de detalle de producto
- * pagina perfil del usuario tiene que juntar la informacion de los usuarios almacenados en la DB
- * arreglar el selector de productos random de la pagina principal para que no agarre al mismo producto 2 veces.
  * agregar mas productos (se puede usar el formulario una vez la funcionalidad del mismo este completa)
- *Consultar para eliminar imagen de la carpeta IMG.
+ * Consultar para eliminar imagen de la carpeta IMG.

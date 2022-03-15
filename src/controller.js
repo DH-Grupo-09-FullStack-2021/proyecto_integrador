@@ -2,14 +2,13 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require('express-validator')
-
 const bcrypt=require('bcryptjs')
+const db = require('./basedatos');
 
+let products = [], users = [];
 
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/products.json'), 'utf-8'));
-const userDB= path.resolve(__dirname, '../db/users.json');
-
-const users = JSON.parse(fs.readFileSync(userDB,"utf8"))
+db.product.findAll().then(p => { products = p });
+db.user.findAll().then(p => { users = p });
 
 
 const controller =
@@ -20,7 +19,11 @@ const controller =
 
 	for (let i = 0; i < 4; i++)
 	{
-	    cuatro_prod.push(products[Math.floor(Math.random() * (products.length))]);
+	    let rnd_prod = products[Math.floor(Math.random() * (products.length))];
+	    if (cuatro_prod.indexOf(rnd_prod) !== -1)
+		i--;
+	    else
+		cuatro_prod.push(rnd_prod);
 	}
 	
 	res.render("index", {productos_lista: cuatro_prod});
@@ -38,7 +41,7 @@ const controller =
 
 	let prodlist = [];
 
-	for (let i = 0; i < products.length; i++)
+	for (let i = 0; i < 4; i++)
 	{
 	    if (products[i].id != req.params.id)
 		prodlist.push(products[i]);
@@ -52,7 +55,7 @@ const controller =
 	res.render("login");
     },
 
-	sumitLOGIN:(req,res)=>{
+	loginPOST:(req,res)=>{
 		const usertologin = users.find(oneUser=> oneUser.email===req.body.emailusuario);
 
 		if(usertologin===undefined){
@@ -87,19 +90,22 @@ const controller =
 
     registerPOST: (req, res) =>
     {
-			let newUserDB = users;
-
-			newUserDB.push({
-	    	username: req.body.nombreusuario,
-	    	email: req.body.emailusuario,
-	   		password: bcrypt.hashSync(req.body.contrasenausuario,10),
-	    	img: req.file.filename,
-	    	bio: ""
+	users.push({
+	    username: req.body.nombreusuario,
+	    email: req.body.emailusuario,
+	    id: users.length + 1,
+	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
+	    img: req.file.filename,
 	});
 
-	fs.writeFileSync("../db/users.json", JSON.stringify(newUserDB,null," "));
+	db.user.create({
+	    username: req.body.nombreusuario,
+	    email: req.body.emailusuario,
+	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
+	    img: req.file.filename,
+	});
 	
-	res.redirect("/profile");
+	res.redirect("/");
 	
 	},
     
@@ -110,20 +116,23 @@ const controller =
     
     submitPOST: (req, res) =>
     {
-	let new_plist = products;
-
-	let nuevo_producto={
+	products.push({
 		name: req.body.nombreproducto,
 		price: req.body.valorproducto,
 		id: products.length + 1,
 		maker: req.body.fabricadorproducto,
 		desc: req.body.descprod,
 		img: req.file.filename
-	    };
+	});
 
-	new_plist.push(nuevo_producto)
-	fs.writeFileSync("../db/products.json", JSON.stringify(new_plist,null," "));
-	
+	db.product.create({
+	    name: req.body.nombreproducto,
+	    price: req.body.valorproducto,
+	    maker: req.body.fabricadorproducto,
+	    desc: req.body.descprod,
+	    img: req.file.filename
+	});
+
 	res.redirect("/products");
     },
     
@@ -136,30 +145,30 @@ const controller =
 	    if (products[i].id == req.params.id)
 		producto = products[i];
 	}
-	
+
 	res.render("editar", {producto: producto});
     },
 
     editarPUT: (req, res) =>
     {
-		let idProductoSeleccionado = req.params.id;
-		for (let p of products){
-			if(p.id==idProductoSeleccionado){
-				p.name= req.body.nombreproducto;
-				p.price= req.body.valorproducto;
-				p.maker=req.body.fabricadorproducto;
-				p.desc=req.body.descprod;
-				break;
-			}
-		}
-
-		fs.writeFileSync("../db/products.json", JSON.stringify(products,null,' '));
-		res.redirect("/products");
+	for (let p of products)
+	{
+	    if (p.id == req.params.id)
+	    {
+		p.name = req.body.nombreproducto;
+		p.price = req.body.valorproducto;
+		p.maker = req.body.fabricadorproducto;
+		p.desc = req.body.descprod;
+		p.save();
+		break;
+	    }
+	}
+	
+	res.redirect("/products");
     },
     
     profile: (req, res) =>
     {
-	console.log(req.cookies.email)
 	return res.render("profile",{userData:req.session.user});
     },
     
@@ -167,27 +176,27 @@ const controller =
     {
 	res.render("plist", {productos_lista: products});
     },
-	destroy: (req, res) =>{
 
-		let idProductoSeleccionado = req.params.id;
+    destroy: (req, res) =>
+    {
+	let products2 = products.filter(function(element)
+	{
+	    return element.id != req.params.id;
+	});
 
-		let products2 = products.filter(function(element){
-			return element.id!=idProductoSeleccionado;
-		})
-		products=products2;
+	products = products2;
 
-		fs.writeFileSync("../db/products.json", JSON.stringify(products2,null,' '));
+	db.product.findByPk(req.params.id).destroy();
 
-	    res.redirect('/products');
-
+	res.redirect('/products');
     },
-	logout:(req,res)=>{
-		req.session.destroy();
-		res.clearCookie("email");
-		res.redirect("/")
-
-	},
-
+    
+    logout: (req,res) =>
+    {
+	req.session.destroy();
+	res.clearCookie("email");
+	res.redirect("/")	
+    },
 };
 
 module.exports = controller;
