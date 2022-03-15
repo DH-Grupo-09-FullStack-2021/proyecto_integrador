@@ -4,10 +4,10 @@ const db = require('../basedatos');
 
 let users = [];
 
-const userCookie =(req,res,next)=>{
+const userCookie = async (req,res,next)=>{
     res.locals.isUserLogged=false;
     if(req.cookies.email !==undefined){
-		db.user.findAll().then(p =>
+		await db.user.findAll().then(p =>
 		{
 			users = p;
 			const userTologin = users.find(oneUser=> oneUser.email===req.cookies.email);
