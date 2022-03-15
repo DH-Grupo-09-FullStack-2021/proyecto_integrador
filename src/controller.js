@@ -90,22 +90,50 @@ const controller =
 
     registerPOST: (req, res) =>
     {
+		let archivo_imagen;
+
+		if (req.file)
+			
+			archivo_imagen = req.file.filename;
+		else
+			archivo_imagen = null;
+
 	users.push({
 	    username: req.body.nombreusuario,
 	    email: req.body.emailusuario,
 	    id: users.length + 1,
 	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
-	    img: req.file.filename,
+	    img: archivo_imagen,
 	});
 
 	db.user.create({
 	    username: req.body.nombreusuario,
 	    email: req.body.emailusuario,
 	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
-	    img: req.file.filename,
+	    img: archivo_imagen,
 	});
 	
-	res.redirect("/");
+			const usertologin = users.find(oneUser=> oneUser.email===req.body.emailusuario);
+
+		if(usertologin===undefined){
+			return res.send("no existe el ususario")
+		}
+		if(usertologin!==undefined){
+			const isPasswordOk= bcrypt.compareSync(req.body.contrasenausuario,usertologin.password);
+
+			if(!isPasswordOk){
+				return res.send("las contraseñas no coinciden")
+			}
+
+			delete usertologin.password ;
+			req.session.user= usertologin;
+
+			res.cookie("email",usertologin.email,{maxAge:1000*60}*30)
+
+		}
+
+	
+	res.redirect("/profile");
 	
 	},
     
@@ -169,7 +197,7 @@ const controller =
     
     profile: (req, res) =>
     {
-	return res.render("profile",{userData:req.session.user});
+		return res.render("profile",{userData:req.session.user});
     },
     
     plist: (req, res) =>

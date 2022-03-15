@@ -12,10 +12,10 @@
 	<div class="item-perfil-usuario margen-perfil-usuario">
 	  <div class="bold-perfil-usuario">E-mail del usuario:</div> <%=userData.email%>
 	</div>
-	<div class="item-perfil-usuario margen-perfil-usuario">
+	<% if (userData.img){ %><div class="item-perfil-usuario margen-perfil-usuario">
 	  <div class="bold-perfil-usuario">Imagen de perfil:<br></div>
 	  <img src="/public/img/profile/<%= userData.img%>" alt="Foto de mi perro">
-	</div>
+	</div><% } %>
 	<!--<div class="item-perfil-usuario">
 	  <div class="bold-perfil-usuario">Biografía del usuario:</div> Hola chicos soy Pepe Sanchez y aguante Racing.
 	  </div>-->
