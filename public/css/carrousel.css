@@ -1,12 +1,12 @@
-*::-webkit-scrollbar {
+.carrousel-main::-webkit-scrollbar {
   width: 0;
 }
 
-*::-webkit-scrollbar-track {
+.carrousel-main::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
+.carrousel-main::-webkit-scrollbar-thumb {
   background: transparent;
   border: none;
 }
