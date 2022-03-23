@@ -5,30 +5,16 @@
 <%- include('./header') %>
 	     <main class="main">
 	     <div class="carrousel-main">
-  	       <div class="carrousel-item" id="item-carrousel-1">
+<% for (let i = 1; i < 4; i++) { %>
+  	       <div class="carrousel-item" id="item-carrousel-<%=i%>">
 	       <div class="carr-desktop-img">
-		 <img src="/public/img/carr-1-desktop.jpg">
+		 <img src="/public/img/carr/carr-<%=i%>-desktop.jpg">
 		 </div>
 		 <div class="carr-movil-img">
-		   <img src="/public/img/carr-1-movil.jpg">
+		   <img src="/public/img/carr/carr-<%=i%>-movil.jpg">
 		 </div>
 	       </div>
-	       <div class="carrousel-item" id="item-carrousel-2">
-	       <div class="carr-desktop-img">
-		 <img src="/public/img/carr-2-desktop.jpg">
-		 </div>
-		 <div class="carr-movil-img">
-		   <img src="/public/img/carr-2-movil.jpg">
-		 </div>
-	       </div>
-	       <div class="carrousel-item" id="item-carrousel-3">
-	         <div class="carr-desktop-img">
-		 <img src="/public/img/carr-3-desktop.jpg">
-		 </div>
-		 <div class="carr-movil-img">
-		   <img src="/public/img/carr-3-movil.jpg">
-		 </div>
-	       </div>
+<% } %> 
 	       </div>
 	       <div class="display-texto-caja-prod">
 	       Productos Destacados
