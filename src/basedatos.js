@@ -27,9 +27,18 @@ const Product = sequelize.define("product", {
     desc: DataTypes.TEXT,
     maker: DataTypes.TEXT
 }, {paranoid: true});
+/*
+const Compra = sequelize.define("compra", {
+	id: {type: DataTypes.INTEGER, primaryKey: true, authenticate: true},
+	cantidad: {type: DataTypes.INTEGER,  allowNull: false}
+});
+
+Compra.User = Compra.belongsTo(User);
+Compra.Product = Compra.hasMany(Product); */
 
 db["product"] = Product;
 db["user"] = User;
+//db["compra"] = Compra;
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
