@@ -21,9 +21,9 @@ const controller =
 	{
 	    let rnd_prod = products[Math.floor(Math.random() * (products.length))];
 	    if (cuatro_prod.indexOf(rnd_prod) !== -1)
-		i--;
+			i--;
 	    else
-		cuatro_prod.push(rnd_prod);
+			cuatro_prod.push(rnd_prod);
 	}
 	
 	res.render("index", {productos_lista: cuatro_prod});
@@ -36,17 +36,20 @@ const controller =
 	for (let i = 0; i < products.length; i++)
 	{
 	    if (products[i].id == req.params.id)
-		producto = products[i];
+			producto = products[i];
 	}
 
 	let prodlist = [];
 
 	for (let i = 0; i < 4; i++)
 	{
-	    if (products[i].id != req.params.id)
-		prodlist.push(products[i]);
+	    let rnd_prod = products[Math.floor(Math.random() * (products.length))];
+	    if (prodlist.indexOf(rnd_prod) !== -1 && rnd_prod.id !== req.params.id)
+			i--;
+	    else
+			prodlist.push(rnd_prod);
 	}
-	
+
 	res.render("product", {product: producto, productos_lista: prodlist});
     },
 
@@ -92,8 +95,7 @@ const controller =
     {
 		let archivo_imagen;
 
-		if (req.file)
-			
+		if (req.file)		
 			archivo_imagen = req.file.filename;
 		else
 			archivo_imagen = null;
