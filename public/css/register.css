@@ -113,3 +113,19 @@
   color: white;
   border-radius: 12px;
 }
+
+.formulario-warning
+{
+    color: red;
+    font-size: 14px;
+}
+
+.formulario-label
+{
+    font-size: 24px;
+}
+
+.formulario-input-box-imagen
+{
+    border-width: 0px;
+}

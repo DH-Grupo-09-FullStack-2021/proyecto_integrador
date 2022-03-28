@@ -24,6 +24,7 @@
 	    </div>
 	  </div>
 	  <%if (locals.isUserLogged===true) {%>
+	  <div> </div>
 	  <section class="Botones_Productos">
 		<a id="Boton_Editar" href="/products/edit/<%=product.id%>" >Editar</a>
 			<form action="/products/detail/products/delete/<%= product.id%>?_method=DELETE"  method="POST"> 

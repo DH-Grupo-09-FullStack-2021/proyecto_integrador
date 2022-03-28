@@ -8,6 +8,7 @@ const db = require('./basedatos');
 let products = [], users = [];
 
 db.product.findAll().then(p => { products = p });
+/* no es necesario cargar todos los usuarios. hay que arreglar esto */
 db.user.findAll().then(p => { users = p });
 
 
@@ -93,51 +94,66 @@ const controller =
 
     registerPOST: (req, res) =>
     {
-		let archivo_imagen;
+	let errors = validationResult(req.body);
 
-		if (req.file)		
-			archivo_imagen = req.file.filename;
+	if (errors.isEmpty())
+	{
+	    let archivo_imagen = null;
+	    
+	    if (req.file)		
+		archivo_imagen = req.file.filename;
+
+	    const user_pwd = bcrypt.hashSync(req.body.contrasenausuario, 10);
+	    if (req.body.contrasenausuario !== req.body.contrasenausuario2)
+	    {
+		req.body.contrasenausuario2 = null;
+		return res.render("register", { errors: {
+		    contrasenausuario2: {
+			msg: "Las contraseñas no coinciden",
+			param: 'contrasenausuario2',
+			value: null,
+			location: 'body'
+		    }}, old: req.body});
+	    }
+	    
+	    (async () => {
+		const [new_user, created] = await db.user.findOrCreate({
+		    where: { email: req.body.emailusuario },
+		    defaults: {
+			username: req.body.nombreusuario,
+			password: user_pwd,
+			img: archivo_imagen,
+		    }});
+	    
+		if (created)
+		{
+		    users.push(new_user);
+		    
+		    req.session.user = new_user;
+		    
+		    res.cookie("email", new_user.email,{maxAge:1000*60}*30)
+		    
+		    return res.redirect("profile");
+		}
 		else
-			archivo_imagen = null;
-
-	users.push({
-	    username: req.body.nombreusuario,
-	    email: req.body.emailusuario,
-	    id: users.length + 1,
-	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
-	    img: archivo_imagen,
-	});
-
-	db.user.create({
-	    username: req.body.nombreusuario,
-	    email: req.body.emailusuario,
-	    password: bcrypt.hashSync(req.body.contrasenausuario,10),
-	    img: archivo_imagen,
-	});
-	
-			const usertologin = users.find(oneUser=> oneUser.email===req.body.emailusuario);
-
-		if(usertologin===undefined){
-			return res.send("no existe el ususario")
+		{
+		    /* avisar al usuario sobre email duplicado */
+		    return res.render("register", { errors: {
+			emailusuario: {
+			    msg: "Este E-mail ya esta registrado",
+			    param: 'emailusuario',
+			    value: req.body.emailusuario,
+			    location: 'body'
+			}}, old: req.body});
 		}
-		if(usertologin!==undefined){
-			const isPasswordOk= bcrypt.compareSync(req.body.contrasenausuario,usertologin.password);
-
-			if(!isPasswordOk){
-				return res.send("las contraseñas no coinciden")
-			}
-
-			delete usertologin.password ;
-			req.session.user= usertologin;
-
-			res.cookie("email",usertologin.email,{maxAge:1000*60}*30)
-
-		}
-
-	
-	res.redirect("/profile");
-	
-	},
+	    })();
+	}
+	else
+	{
+	    /* avisar al usuario sobre errores en el formulario */
+	    return res.render("register", { errors: errors.mapped(), old: req.body});
+	}   
+    },
     
     submit: (req, res) =>
     {

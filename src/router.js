@@ -7,6 +7,9 @@ const upload = multer({ dest: '../public/img/' });
 const controller = require('./controller');
 const validatorRegister=require('./middlewares/validatorRegister');
 
+const validatorLogin = [check('emailusuario').notEmpty().withMessage('Debes completar este campo').bail()
+			.isEmail().withMessage('Email Invalido'),
+			check('contrasenausuario').notEmpty().withMessage("Debes completar este campo")];
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -26,7 +29,7 @@ router.get('/products/detail/:id', controller.product);
 
 router.get('/login', controller.login);
 
-router.post('/login',[check('emailusuario').isEmail().withMessage('Email Invalido')],controller.loginPOST)
+router.post('/login', validatorLogin, controller.loginPOST)
 
 router.get('/cart', controller.cart);
 
@@ -42,7 +45,7 @@ router.get('/products/create', controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
-router.post('/register',validatorRegister, Proupload.single('imagenUser'), controller.registerPOST);
+router.post('/register', validatorRegister, Proupload.single('imagenUser'), controller.registerPOST);
 
 router.delete('/products/detail/products/delete/:id', controller.destroy);
 

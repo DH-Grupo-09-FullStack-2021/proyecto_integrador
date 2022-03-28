@@ -4,47 +4,77 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="cuerpo">
-		<% if (typeof errors != 'undefined') { %>
-			<p style="color:red">ERROR</p>
-			<ul>
-				<% for (let i =0; i < errors.length;i++){ %>
-					<li>
-						<%=errors[i].msg%>
-					</li>
-					<% } %>
-			</ul>
-			<% } %>
 	    <form class="flexbox-formulario" action="/register" method="POST" enctype="multipart/form-data">
-	     	<div class="formulario-item">
-	       		<label for="nombreusuario">Nombre de usuario</label>
+	     	<div class="formulario-item formulario-label">
+	       		<label for="nombreusuario">Nombre de
+		  usuario</label>
+		  <% if (locals.errors && errors.nombreusuario) { %>
+		<div class="formulario-warning">
+		  <%= errors.nombreusuario.msg %>
+		</div>
+		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="text" maxlength="32" minlength="8"id="nombreusuario" name="nombreusuario" required="required">
+	       		<input class="formulario-input-box"
+			  type="text" maxlength="32"
+			  minlength="8"id="nombreusuario"
+			  name="nombreusuario" required="required"
+			  value="<%= locals.old && old.nombreusuario %>">
 	     	</div>
-	    	<div class="formulario-item">
-	       		<label for="emailusuario">E-mail</label>
+	    	<div class="formulario-item formulario-label">
+		  <label for="emailusuario">E-mail</label>
+		  <% if (locals.errors && errors.emailusuario) { %>
+		<div class="formulario-warning">
+		  <%= errors.emailusuario.msg %>
+		</div>
+		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario" required="required">
+	       		<input class="formulario-input-box"
+			  type="email"
+			  id="emailusuario"name="emailusuario"
+			  required="required" value="<%= locals.old &&
+			  old.emailusuario %>">
 	     	</div>
-	     	<div class="formulario-item">
-	       		<label for="contrasenausuario">Contraseña</label>
+	     	<div class="formulario-item formulario-label">
+	       		<label
+		  for="contrasenausuario">Contraseña</label>
+		  <% if (locals.errors && errors.contrasenausuario) { %>
+		<div class="formulario-warning">
+		  <%= errors.contrasenausuario.msg %>
+		</div>
+		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="password" name="contrasenausuario" id="contrasenausuario"minlength="8" maxlength="32" required="required">
+	       		<input class="formulario-input-box"
+			  type="password" name="contrasenausuario"
+			  id="contrasenausuario"minlength="8"
+			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario %>">
 	     	</div>
-	     	<!--<div class="formulario-item">
-	       		<label for="contrasenausuario">Repetir contraseña</label>
+	     	<div class="formulario-item formulario-label">
+	       		<label for="contrasenausuario2">Repetir
+		  contraseña</label>
+		  <% if (locals.errors && errors.contrasenausuario2) { %>
+		<div class="formulario-warning">
+		  <%= errors.contrasenausuario2.msg %>
+		</div>
+		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="password" name="contrasenausuario" id="contrasenausuario"minlength="8" maxlength="32" required="required">
-			</div> -->
-	     <div class="formulario-item">
-	       <label for="imagenUser">Imagen de perfil</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="file" name="imagenUser" id="imagenUser">
+	       		<input class="formulario-input-box"
+			  type="password" name="contrasenausuario2"
+			  id="contrasenausuario2"minlength="8"
+			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario2 %>">
+			</div>
+	     <div class="formulario-item formulario-label">
+	       <label for="imagenUser">Imagen de perfil</label>
+	     </div><div class="formulario-item">
+	       <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenUser" id="imagenUser">
 	     </div>
 	     	<div class="formulario-item">
-	       		<input class="formulario-checkbox" type="checkbox"name="terminosycond" id="terminosycond" required="required">
+	       		<input class="formulario-checkbox"
+		  type="checkbox"name="terminosycond"
+		  id="terminosycond" required="required" value="<%= locals.old && old.terminosycond %>">
 	       		<label for="terminosycond">Acepto a los terminos y condiciones</label>
 	     	</div>
 	     	<div class="formulario-item">
