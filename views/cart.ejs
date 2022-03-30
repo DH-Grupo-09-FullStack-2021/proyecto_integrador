@@ -4,6 +4,7 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
 <main class="main">
+<%if (locals.isUserLogged===true) {%>
 <div class="display-texto-caja-prod">Productos en el Carrito</div>
 <div class="contenedor-carrito">
     
@@ -35,7 +36,10 @@
 	  </div>  
 	  </div>
     </div>
-</div>
+    </div>
+    	     <div class="formulario-label">Error: 401. Registrese para
+	       acceder a esta pagina.</div>
+	     <% } %>
     </main>
 <%- include('./footer') %>
     

@@ -3,28 +3,30 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-    <main class="main">
+<main class="main">
+<%if (locals.isUserLogged===true) {%>
 	     <form method="POST" action="/products" class="flexbox-formulario" enctype="multipart/form-data">
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="nombreproducto">Nombre del Producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
 	       id="nombreproducto" name="nombreproducto" required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
 	       name="fabricadorproducto" required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text" name="descprod" id="descprod">
+	       <input class="formulario-input-box" type="text"
+		 name="descprod" id="descprod" required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="imagenprod">Imagen</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="file" name="imagenprod" id="imagenprod"
 	       required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="valorproducto">Precio</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
 	       required="required">
@@ -34,6 +36,10 @@
 	       value="Agregar Producto">
 	     </div>
 	     </form>
+	     <% } else { %>
+	     <div class="formulario-label">Error: 401. Registrese para
+	       acceder a esta pagina.</div>
+	     <% } %>
     </main>
 <%- include('./footer') %>
     

@@ -11,6 +11,11 @@ const validatorLogin = [check('emailusuario').notEmpty().withMessage('Debes comp
 			.isEmail().withMessage('Email Invalido'),
 			check('contrasenausuario').notEmpty().withMessage("Debes completar este campo")];
 
+const validatorEdit = [check().notEmpty.withMessage().bail()
+		       .isNumeric().withMessage()/*.toFloat()*/,
+		       check().notEmpty.withMessage().bail()
+		      .is];
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname, '../public/img/profile'))

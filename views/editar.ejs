@@ -3,25 +3,36 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-    <main class="main">
+<main class="main">
+<%if (locals.isUserLogged===true) {%>
 	     <form method="POST" action="/products/<%= producto.id %>?_method=PUT" class="flexbox-formulario">
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
-	       id="nombreproducto" name="nombreproducto" placeholder="<%=producto.name %>" value="<%=producto.name %>">>
+	       id="nombreproducto" name="nombreproducto"
+		 placeholder="<%=producto.name %>"
+		 value="<%=producto.name %>" required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
-	       name="fabricadorproducto" placeholder="<%=producto.maker %>" value="<%=producto.maker %>">
+	       name="fabricadorproducto"
+		 placeholder="<%=producto.maker %>"
+		 value="<%=producto.maker %>" required="required">
 	     </div>
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text" name="descprod" id="descprod"  placeholder="<%=producto.desc %>" value="<%=producto.desc %>">
+	       <input class="formulario-input-box" type="text"
+		 name="descprod" id="descprod"
+		 placeholder="<%=producto.desc %>"
+		 value="<%=producto.desc %>" required="required">
 	     </div>  
-	     <div class="formulario-item">
+	     <div class="formulario-item formulario-label">
 	       <label for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto" placeholder="<%=producto.price %>" value="<%=producto.price %>"
+	       <input class="formulario-input-box" type="number"
+		 name="valorproducto" id="valorproducto"
+		 placeholder="<%=producto.price %>"
+		 value="<%=producto.price %>" required="required"
 	       >
 	     </div>
 	     <div class="formulario-item">
@@ -29,6 +40,10 @@
 	       value="Actualizar Producto">
 	     </div>
 	     </form>
+	     <% } else { %>
+	     <div class="formulario-label">Error: 401. Registrese para
+	       acceder a esta pagina.</div>
+	     <% } %>
     </main>
 <%- include('./footer') %>
     
