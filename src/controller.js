@@ -5,12 +5,8 @@ const {validationResult} = require('express-validator')
 const bcrypt=require('bcryptjs')
 const db = require('./basedatos');
 
-let products = [], users = [];
-
+let products = [];
 db.product.findAll().then(p => { products = p });
-/* no es necesario cargar todos los usuarios. hay que arreglar esto */
-db.user.findAll().then(p => { users = p });
-
 
 const controller =
 {
@@ -59,27 +55,54 @@ const controller =
 	res.render("login");
     },
 
-	loginPOST:(req,res)=>{
-		const usertologin = users.find(oneUser=> oneUser.email===req.body.emailusuario);
+	loginPOST:(req,res)=>
+	{
+		let errors = validationResult(req.body);
 
-		if(usertologin===undefined){
-			return res.send("no existe el ususario")
+		if (errors.isEmpty())
+		{	    
+			(async () => {
+				const usertologin = await db.user.findOne({
+					where: {email: req.body.emailusuario}})
+		
+				if (usertologin !== null)
+				{
+					if (!bcrypt.compareSync(req.body.contrasenausuario, usertologin.password))
+					{
+						req.body.contrasenausuario = null;
+						return res.render("login", { errors: {
+							contrasenausuario: {
+							msg: "Contraseña incorrecta",
+							param: 'contrasenausuario',
+							value: null,
+							location: 'body'
+						}}, old: req.body});
+					}
+
+					req.session.user = usertologin;
+		    
+					res.cookie("email", usertologin.email,{maxAge:1000*60}*30)
+		    
+					return res.redirect("profile");
+				}
+				else
+				{
+					/* avisar al usuario sobre email no registrado */
+					return res.render("login", { errors: {
+					emailusuario: {
+						msg: "Este E-mail nunca ha sido registrado",
+						param: 'emailusuario',
+						value: req.body.emailusuario,
+						location: 'body'
+					}}, old: req.body});
+				}
+			})();
 		}
-		if(usertologin!==undefined){
-			const isPasswordOk= bcrypt.compareSync(req.body.contrasenausuario,usertologin.password);
-
-			if(!isPasswordOk){
-				return res.send("las contraseñas no coinciden")
-			}
-
-			delete usertologin.password ;
-			req.session.user= usertologin;
-
-			res.cookie("email",usertologin.email,{maxAge:1000*60}*30)
-
-			return res.redirect("profile")
-		}
-
+		else
+		{
+			/* avisar al usuario sobre errores en el formulario */
+			return res.render("register", { errors: errors.mapped(), old: req.body});
+		} 
 	},
 
     cart: (req, res) =>
@@ -127,8 +150,6 @@ const controller =
 	    
 		if (created)
 		{
-		    users.push(new_user);
-		    
 		    req.session.user = new_user;
 		    
 		    res.cookie("email", new_user.email,{maxAge:1000*60}*30)

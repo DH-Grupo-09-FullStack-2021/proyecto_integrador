@@ -4,29 +4,29 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="cuerpo">
-		<% if (typeof errors != 'undefined') { %>
-			<p style="color:red">ERROR</p>
-			<ul>
-				<% for (let i =0; i < errors.length;i++){ %>
-					<li>
-						<%=errors[i].msg%>
-					</li>
-					<% } %>
-			</ul>
-			<% } %>
-
 	    <form class="flexbox-formulario" action="/login" method="POST">
-	     	<div class="formulario-item">
+	     	<div class="formulario-item formulario-label">
 	       		<label for="emailusuario">E-mail</label>
+			<% if (locals.errors && errors.emailusuario) { %>
+			<div class="formulario-warning">
+			<%= errors.emailusuario.msg %>
+			</div>
+			<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario">
+	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario" required="required" value="<%= locals.old &&
+			  old.emailusuario %>">
 	     	</div>
-	     	<div class="formulario-item">
+	     	<div class="formulario-item formulario-label">
 	       		<label for="contrasenausuario">Contraseña</label>
+			<% if (locals.errors && errors.contrasenausuario) { %>
+			<div class="formulario-warning">
+			<%= errors.contrasenausuario.msg %>
+			</div>
+			<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" >
+	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" required="required">
 	     	</div>
 	     	<div class="formulario-item">
 	       		<input class="formulario-boton-enviar" type="submit" value="Login">

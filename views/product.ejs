@@ -23,9 +23,9 @@
 	      $ <%= product.price %>
 	    </div>
 	  </div>
-	  <%if (locals.isUserLogged===true) {%>
 	  <div> </div>
-	  <section class="Botones_Productos">
+	  <%if (locals.isUserLogged===true) {%>
+	  <section class="Botones_Productos solo-escritorio">
 		<a id="Boton_Editar" href="/products/edit/<%=product.id%>" >Editar</a>
 			<form action="/products/detail/products/delete/<%= product.id%>?_method=DELETE"  method="POST"> 
 				<button id="Boton_Eliminar" type="submit" class="action-button delete">Eliminar producto</button>
