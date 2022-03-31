@@ -39,6 +39,8 @@ router.post('/login', validatorLogin, controller.loginPOST)
 
 router.get('/cart', controller.cart);
 
+router.post('/cart/add/:id', controller.cartPOST);
+
 router.get('/register', controller.register);
 
 router.get('/profile', controller.profile);

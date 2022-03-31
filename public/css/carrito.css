@@ -151,3 +151,10 @@ and (min-device-width: 476px)
 {
     margin-bottom: 24px;
 }
+
+.flexbox-boton-pagina-producto
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

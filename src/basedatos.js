@@ -29,8 +29,8 @@ const Product = sequelize.define("product", {
 }, {paranoid: true});
 
 const Compra = sequelize.define("compra", {
-	id: {type: DataTypes.INTEGER, primaryKey: true, authenticate: true},
-	cantidad: {type: DataTypes.INTEGER,  allowNull: false}
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    cantidad: {type: DataTypes.INTEGER,  allowNull: false}
 });
 
 Product.Compra = Product.hasMany(Compra);

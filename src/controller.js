@@ -128,6 +128,31 @@ const controller =
 	    return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
     },
 
+    cartPOST: (req, res) =>
+    {
+	(async () => {
+	    let usrc = await db.user.findOne({where: {email: req.session.user.email}});
+	    if (usrc !== null)
+	    {
+		let [nueva_compra, created] = await db.compra.findOrCreate({
+		    where: {
+			productId: req.params.id,
+			userId: usrc.id},
+		    defaults: {
+			cantidad: 1
+		    }});
+		
+		if (!created)
+		{
+		    nueva_compra.cantidad += 1;
+		    nueva_compra.save();
+		}
+
+		return res.redirect("/cart");
+	    }
+	})();
+    },
+
     register: (req, res) =>
     {
 	res.render("register");

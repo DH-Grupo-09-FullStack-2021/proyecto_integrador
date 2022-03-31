@@ -14,7 +14,7 @@
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
         <img src="/public\img\<%= productos_lista[i].img %>" class='img-main'>
         <h3><strong><%= productos_lista[i].name %></strong></h3>
-        <div class="texto-producto-inicio"><%= productos_lista[i].desc %></div>
+        <div class="texto-producto-inicio">Cantidad: <%= productos_lista[i].cantidad %></div>
         <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
     </a>
 	<% } %>
