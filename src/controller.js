@@ -18,9 +18,9 @@ const controller =
 	{
 	    let rnd_prod = products[Math.floor(Math.random() * (products.length))];
 	    if (cuatro_prod.indexOf(rnd_prod) !== -1)
-			i--;
+		i--;
 	    else
-			cuatro_prod.push(rnd_prod);
+		cuatro_prod.push(rnd_prod);
 	}
 	
 	res.render("index", {productos_lista: cuatro_prod});
@@ -30,11 +30,8 @@ const controller =
     {
 	let producto = null;
 
-	for (let i = 0; i < products.length; i++)
-	{
-	    if (products[i].id == req.params.id)
-			producto = products[i];
-	}
+	if (req.params.id <= products.length)
+	    producto = products[req.params.id - 1];
 
 	if (producto === null)
 	    return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
@@ -44,10 +41,10 @@ const controller =
 	for (let i = 0; i < 4; i++)
 	{
 	    let rnd_prod = products[Math.floor(Math.random() * (products.length))];
-	    if (prodlist.indexOf(rnd_prod) !== -1 && rnd_prod.id !== req.params.id)
-			i--;
+	    if (parseInt(rnd_prod.id) != parseInt(producto.id) && (prodlist.indexOf(rnd_prod) === -1))
+		prodlist.push(rnd_prod);
 	    else
-			prodlist.push(rnd_prod);
+		i--;
 	}
 
 	res.render("product", {product: producto, productos_lista: prodlist});
@@ -106,15 +103,29 @@ const controller =
 
     cart: (req, res) =>
     {
-	(async () => {
-	    let usrc = await db.user.findOne({where: {email: req.session.user.email}});
-	    if (usrc !== null)
-	    {
-		res.render("cart");
-	    }
-	    else
-		return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
-	}
+	if (typeof req.session.user !== 'undefined')
+	    (async () => {
+		/* no es una verificacion segura ya que no checkea el pwd */
+		let usrc = await db.user.findOne({where: {email: req.session.user.email}});
+		if (usrc !== null)
+		{
+		    /* se podria usar req.session.user.id en cambio y no checkear nada */
+		    let prodscarrito = await db.compra.findAll({where: {userId: usrc.id}});
+		    let prodlista = [], total = 0;
+		    for (let i = 0; i < prodscarrito.length; i++)
+		    {
+			prodlista.push(products[prodscarrito[i].productId - 1]);
+			prodlista[i].cantidad = prodscarrito[i].cantidad;
+			total += prodlista[i].price * prodscarrito[i].cantidad;
+		    }
+
+		    return res.render("cart", {productos_lista: prodlista, infouser: req.session.user, totalapagar: total});
+		}
+		else
+		    return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
+	    })();
+	else
+	    return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
     },
 
     register: (req, res) =>
