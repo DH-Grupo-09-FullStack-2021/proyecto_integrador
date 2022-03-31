@@ -37,7 +37,7 @@ const controller =
 	}
 
 	if (producto === null)
-	    return res.render('not-found');
+	    return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
 
 	let prodlist = [];
 
@@ -106,7 +106,15 @@ const controller =
 
     cart: (req, res) =>
     {
-	res.render("cart");
+	(async () => {
+	    let usrc = await db.user.findOne({where: {email: req.session.user.email}});
+	    if (usrc !== null)
+	    {
+		res.render("cart");
+	    }
+	    else
+		return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
+	}
     },
 
     register: (req, res) =>
@@ -223,7 +231,7 @@ const controller =
 	}
 
 	if (producto === null)
-	    return res.render('not-found');
+	    return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
 	else
 	    return res.render("editar", {producto: producto});
     },

@@ -1,5 +1,15 @@
-<html>
-    <body>
-        <h1>Error 404 No se encuentra la pagina </h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./head') %>
+<body class="grey-bg-color-idx">
+<%- include('./header') %>
+<main class="main">
+<div class="pagina-error">
+  <% if (errno !== 'undefined') { %>
+  <div class="pagina-error-enfasis">Error <%= errno %></div>: <%= errmsg %>
+  <% } %>
+</div>
+</main>
+<%- include('./footer') %>    
+</body>
 </html>

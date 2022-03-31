@@ -3,7 +3,8 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-    <main class="main">
+<main class="main">
+<%if (locals.isUserLogged===true) {%>
 <div class="titulo-perfil-usuario">Perfil de usuario</div>
     <div class="perfil-usuario">
         <div class="item-perfil-usuario margen-perfil-usuario">
@@ -26,6 +27,12 @@
     </div>
  <!--   <div class="panel-control-usuario">
  </div> -->
+
+ 	     <% } else { %>
+	     <div class="formulario-label">Error: 401. Registrese para
+	       acceder a esta pagina.</div>
+	       <% } %>
+	       
     </main>
 <%- include('./footer') %>
     

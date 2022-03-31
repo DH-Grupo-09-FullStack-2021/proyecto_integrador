@@ -181,3 +181,18 @@
     display: inline-block;
 
 }
+
+.pagina-error
+{
+    font-size: 32px;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+}
+
+.pagina-error-enfasis
+{
+    color: darkred;
+    font-weight: bold;
+    display: inline-block;
+}
