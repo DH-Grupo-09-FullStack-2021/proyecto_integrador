@@ -2,8 +2,15 @@
 @media only screen
 and (min-device-width: 1439px)
 {
-    .flexbox-formulario { padding-left: 30vw; }
+    .flexbox-formulario { padding-left: 5vw;padding-right: 10vw; }
+    .flexbox-formulario-r { padding-left: 5vw;padding-right: 10vw; }
     .formulario-input-box { width: 30vw; }
+    .formulario-input-box-email-login{ width: 30vw; }
+    .formulario-input-box-contrasena-login{ width: 30vw; }
+    .formulario-input-box-email-register{ width: 30vw; }
+    .formulario-input-box-contrasena-register{ width: 30vw; }
+    .formulario-input-box-contrasena-register2{ width: 30vw; }
+
     .boton-estilizado input { max-width: 90%; }
     .cuerpo{flex-flow: row;}
     .formulario-boton-enviar{width: 30vw;}
@@ -20,7 +27,14 @@ and (min-device-width: 1024px)
 and (max-device-width: 1440px)
 {
     .flexbox-formulario { padding-left: 5vw;padding-right: 10vw; }
+    .flexbox-formulario-r { padding-left: 5vw;padding-right: 10vw; }
     .formulario-input-box { width: 30vw;  }
+    .formulario-input-box-email-login{ width: 30vw; }
+    .formulario-input-box-contrasena-login{ width: 30vw; }
+    .formulario-input-box-email-register{ width: 30vw; }
+    .formulario-input-box-contrasena-register{ width: 30vw; }
+    .formulario-input-box-contrasena-register2{ width: 30vw; }
+
     .boton-estilizado input { max-width: 86%; }
     .cuerpo{flex-flow: row;}
     .formulario-boton-enviar{width: 30vw;}
@@ -38,8 +52,15 @@ and (max-device-width: 1440px)
 and (min-device-width: 769px)
 and (max-device-width: 1023px)
 {
-    .flexbow-formulario { padding-left: 10vw; }
+    .flexbox-formulario { padding-left: 10vw; }
+    .flexbox-formulario-r { padding-left: 10vw; }
     .formulario-input-box { width: 60vw; }
+    .formulario-input-box-email-login{ width: 60vw; }
+    .formulario-input-box-contrasena-login{ width: 60vw; }
+    .formulario-input-box-email-register{ width: 60vw; }
+    .formulario-input-box-contrasena-register{ width: 60vw; }
+    .formulario-input-box-contrasena-register2{ width: 60vw; }
+
     .cuerpo{flex-flow: row;}
     .formulario-boton-enviar{width: 60vw;}
     .redes-sociales{width: 40vw;justify-content: center;}
@@ -66,7 +87,14 @@ and (min-device-width: 475px)
 and (max-device-width: 768px)
 {
     .flexbox-formulario { padding-left: 50px; }
+    .flexbox-formulario-r { padding-left: 50px; }
     .formulario-input-box { width: 80%; }
+    .formulario-input-box-email-login{ width: 80%; }
+    .formulario-input-box-contrasena-login{ width: 80%; }
+    .formulario-input-box-email-register{ width: 80%; }
+    .formulario-input-box-contrasena-register{ width: 80%; }
+    .formulario-input-box-contrasena-register2{ width: 80%; }
+
     .cuerpo{flex-flow: column-reverse;}
     .formulario-boton-enviar{width: 60vw;}
 
@@ -97,7 +125,14 @@ and (min-device-width: 320px)
 and (max-device-width: 476px)
 {
     .flexbox-formulario { padding-left: 50px;}
+    .flexbox-formulario-r { padding-left: 50px;}
     .formulario-input-box { width: 80%; }
+    .formulario-input-box-email-login{ width: 80%; }
+    .formulario-input-box-contrasena-login{ width: 80%; }
+    .formulario-input-box-email-register{ width: 80%; }
+    .formulario-input-box-contrasena-register{ width: 80%; }
+    .formulario-input-box-contrasena-register2{ width: 80%; }
+
     .cuerpo{flex-flow: column-reverse;}
     .formulario-boton-enviar{width: 60vw;}
     

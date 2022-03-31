@@ -112,10 +112,11 @@ const controller =
 	    {
 		res.render("cart");
 	    }
-	    else
+	    else{
 		return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
-	}
-    },
+		}
+    }
+	)},
 
     register: (req, res) =>
     {

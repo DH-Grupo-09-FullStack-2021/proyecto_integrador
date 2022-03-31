@@ -14,7 +14,7 @@
 			<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" type="email" id="emailusuario"name="emailusuario" required="required" value="<%= locals.old &&
+	       		<input class="formulario-input-box-email-login" type="email" id="emailusuario"name="emailusuario" required="required" value="<%= locals.old &&
 			  old.emailusuario %>">
 	     	</div>
 	     	<div class="formulario-item formulario-label">
@@ -26,7 +26,7 @@
 			<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box" name="contrasenausuario" id="contrasenausuario" required="required">
+	       		<input class="formulario-input-box-contrasena-login" name="contrasenausuario" id="contrasenausuario" required="required">
 	     	</div>
 	     	<div class="formulario-item">
 	       		<input class="formulario-boton-enviar" type="submit" value="Login">
@@ -40,6 +40,6 @@
 
     </main>
 <%- include('./footer') %>
-    
+    <script src="/public/js/jsFrontLogin.js"></script>
 </body>
 </html>
