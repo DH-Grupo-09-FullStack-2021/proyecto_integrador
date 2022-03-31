@@ -4,7 +4,7 @@
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
     <main class="cuerpo">
-	    <form class="flexbox-formulario" action="/register" method="POST" enctype="multipart/form-data">
+	    <form class="flexbox-formulario-r" action="/register" method="POST" enctype="multipart/form-data">
 	     	<div class="formulario-item formulario-label">
 	       		<label for="nombreusuario">Nombre de
 		  usuario</label>
@@ -16,9 +16,8 @@
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box"
-			  type="text" maxlength="32"
-			  minlength="8"id="nombreusuario"
-			  name="nombreusuario" required="required"
+			  type="text" id="nombreusuario"
+			  name="nombreusuario" 
 			  value="<%= locals.old && old.nombreusuario %>">
 	     	</div>
 	    	<div class="formulario-item formulario-label">
@@ -30,9 +29,9 @@
 		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box"
+	       		<input class="formulario-input-box-email-register"
 			  type="email"
-			  id="emailusuario"name="emailusuario"
+			  id="emailusuario"name="emailusuario" minlength="8" maxlength="32"
 			  required="required" value="<%= locals.old &&
 			  old.emailusuario %>">
 	     	</div>
@@ -46,7 +45,7 @@
 		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box"
+	       		<input class="formulario-input-box-contrasena-register"
 			  type="password" name="contrasenausuario"
 			  id="contrasenausuario"minlength="8"
 			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario %>">
@@ -61,7 +60,7 @@
 		<% } %>
 			</div>
 			<div class="formulario-item">
-	       		<input class="formulario-input-box"
+	       		<input class="formulario-input-box-contrasena-register2"
 			  type="password" name="contrasenausuario2"
 			  id="contrasenausuario2"minlength="8"
 			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario2 %>">
@@ -85,11 +84,10 @@
 			<button id="sign-up-facebook" type="submit" value="Facebook"><i class="fab fa-facebook-square"></i> Ingresa con Facebook </button>
 			<button id="sign-up-Google" type="submit" value="Google"><i class="fab fa-google"></i> Ingresa con Google </button>
 			<button id="sign-up-Aple" type="submit" value="Apple"><i class="fab fa-apple"></i> Ingresa con Apple </button>
-	   </section>
-
+	   </section>      
 	</main>
 <%- include('./footer') %>
-    
+    <script src="/public/js/jsFrontRegister.js"></script>
 </body>
 </html>
 

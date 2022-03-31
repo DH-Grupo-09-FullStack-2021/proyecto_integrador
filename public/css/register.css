@@ -14,6 +14,15 @@
     height: auto;
     width: auto;  
 }
+.flexbox-formulario-r
+{  
+    flex-flow: column nowrap;
+    display: flex;
+    justify-content: start; 
+    flex-direction: column;
+    height: auto;
+    width: auto;  
+}
 
 .formulario-item
 {
@@ -26,6 +35,42 @@
     min-width: 30%;
     height: 36px;
     border: solid 2px black;
+}
+
+.formulario-input-box-email-login
+{ 
+    min-width: 30%;
+    height: 36px;
+    border: solid 2px black;
+
+}
+.formulario-input-box-contrasena-login
+{
+    min-width: 30%;
+    height: 36px;
+    border: solid 2px black;
+}
+
+.formulario-input-box-email-register
+{
+    min-width: 30%;
+    height: 36px;
+    border: solid 2px black;
+
+}
+.formulario-input-box-contrasena-register
+{
+    min-width: 30%;
+    height: 36px;
+    border: solid 2px black;
+
+}
+.formulario-input-box-contrasena-register2
+{
+    min-width: 30%;
+    height: 36px;
+    border: solid 2px black;
+
 }
 
 .formulario-checkbox
