@@ -7,33 +7,57 @@
 <%if (locals.isUserLogged===true) {%>
 	     <form method="POST" action="/products/<%= producto.id %>?_method=PUT" class="flexbox-formulario">
 	     <div class="formulario-item formulario-label">
-	       <label for="nombreproducto">Nuevo nombre del Producto</label></div><div class="formulario-item">
+	       <label for="nombreproducto">Nuevo nombre del
+	       Producto</label>
+	       <% if (locals.errors && errors.nombreproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.nombreproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
 	       id="nombreproducto" name="nombreproducto"
 		 placeholder="<%=producto.name %>"
-		 value="<%=producto.name %>" required="required">
+		 value="<%= locals.old && old.nombreproducto ? old.nombreproducto : producto.name %>" required="required">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
+	       <label for="fabricadorproducto">Fabricante</label>
+	       <% if (locals.errors && errors.fabricadorproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.fabricadorproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
 	       name="fabricadorproducto"
 		 placeholder="<%=producto.maker %>"
-		 value="<%=producto.maker %>" required="required">
+		 value="<%= locals.old && old.fabricadorproducto ? old.fabricadorproducto : producto.maker %>" required="required">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
+	       <label for="descprod">Descripción del producto</label>
+	       <% if (locals.errors && errors.descprod) { %>
+		<div class="formulario-warning">
+		  <%= errors.descprod.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
 		 name="descprod" id="descprod"
 		 placeholder="<%=producto.desc %>"
-		 value="<%=producto.desc %>" required="required">
+		 value="<%= locals.old && old.descprod ? old.descprod : producto.desc %>" required="required">
 	     </div>  
 	     <div class="formulario-item formulario-label">
-	       <label for="valorproducto">Nuevo precio</label></div><div class="formulario-item">
+	       <label for="valorproducto">Nuevo precio</label>
+	       <% if (locals.errors && errors.valorproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.valorproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="number"
 		 name="valorproducto" id="valorproducto"
 		 placeholder="<%=producto.price %>"
-		 value="<%=producto.price %>" required="required"
-	       >
+		 value="<%= locals.old && old.valorproducto ? old.valorproducto : producto.price %>" required="required">
 	     </div>
 	     <div class="formulario-item">
 	       <input class="formulario-boton-enviar" type="submit"

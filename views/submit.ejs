@@ -7,29 +7,64 @@
 <%if (locals.isUserLogged===true) {%>
 	     <form method="POST" action="/products" class="flexbox-formulario" enctype="multipart/form-data">
 	     <div class="formulario-item formulario-label">
-	       <label for="nombreproducto">Nombre del Producto</label></div><div class="formulario-item">
+	       <label for="nombreproducto">Nombre del Producto</label>
+		  <% if (locals.errors && errors.nombreproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.nombreproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
-	       id="nombreproducto" name="nombreproducto" required="required">
+	       id="nombreproducto" name="nombreproducto"
+	       required="required" 
+			  value="<%= locals.old && old.nombreproducto %>">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="fabricadorproducto">Fabricante</label></div><div class="formulario-item">
+	       <label for="fabricadorproducto">Fabricante</label>
+	       <% if (locals.errors && errors.fabricadorproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.fabricadorproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
-	       name="fabricadorproducto" required="required">
+	       name="fabricadorproducto" required="required" 
+			  value="<%= locals.old && old.fabricadorproducto %>">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="descprod">Descripción del producto</label></div><div class="formulario-item">
+	       <label for="descprod">Descripción del producto</label>
+		  <% if (locals.errors && errors.descprod) { %>
+		<div class="formulario-warning">
+		  <%= errors.descprod.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
 	       <input class="formulario-input-box" type="text"
-		 name="descprod" id="descprod" required="required">
+		 name="descprod" id="descprod" required="required"
+			  value="<%= locals.old && old.descprod %>">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="imagenprod">Imagen</label></div><div class="formulario-item">
-	       <input class="formulario-input-box" type="file" name="imagenprod" id="imagenprod"
+	       <label for="imagenprod">Imagen</label>
+		  <% if (locals.errors && errors.imagenprod) { %>
+		<div class="formulario-warning">
+		  <%= errors.imagenprod.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
+	       <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenprod" id="imagenprod"
 	       required="required">
 	     </div>
 	     <div class="formulario-item formulario-label">
-	       <label for="valorproducto">Precio</label></div><div class="formulario-item">
-	       <input class="formulario-input-box formulario-input-box-imagen" type="number" name="valorproducto" id="valorproducto"
-	       required="required">
+	       <label for="valorproducto">Precio</label>
+		  <% if (locals.errors && errors.valorproducto) { %>
+		<div class="formulario-warning">
+		  <%= errors.valorproducto.msg %>
+		</div>
+		<% } %>
+	     </div><div class="formulario-item">
+	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
+	       required="required" 
+			  value="<%= locals.old && old.valorproducto %>">
 	     </div>
 	     <div class="formulario-item">
 	       <input class="formulario-boton-enviar" type="submit"

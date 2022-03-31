@@ -28,13 +28,16 @@ const controller =
 
     product: (req, res) =>
     {
-	let producto = 0;
+	let producto = null;
 
 	for (let i = 0; i < products.length; i++)
 	{
 	    if (products[i].id == req.params.id)
 			producto = products[i];
 	}
+
+	if (producto === null)
+	    return res.render('not-found');
 
 	let prodlist = [];
 
@@ -87,7 +90,6 @@ const controller =
 				}
 				else
 				{
-					/* avisar al usuario sobre email no registrado */
 					return res.render("login", { errors: {
 					emailusuario: {
 						msg: "Este E-mail nunca ha sido registrado",
@@ -99,10 +101,7 @@ const controller =
 			})();
 		}
 		else
-		{
-			/* avisar al usuario sobre errores en el formulario */
 			return res.render("register", { errors: errors.mapped(), old: req.body});
-		} 
 	},
 
     cart: (req, res) =>
@@ -158,7 +157,6 @@ const controller =
 		}
 		else
 		{
-		    /* avisar al usuario sobre email duplicado */
 		    return res.render("register", { errors: {
 			emailusuario: {
 			    msg: "Este E-mail ya esta registrado",
@@ -170,10 +168,7 @@ const controller =
 	    })();
 	}
 	else
-	{
-	    /* avisar al usuario sobre errores en el formulario */
 	    return res.render("register", { errors: errors.mapped(), old: req.body});
-	}   
     },
     
     submit: (req, res) =>
@@ -183,29 +178,43 @@ const controller =
     
     submitPOST: (req, res) =>
     {
-	products.push({
-		name: req.body.nombreproducto,
-		price: req.body.valorproducto,
-		id: products.length + 1,
-		maker: req.body.fabricadorproducto,
-		desc: req.body.descprod,
-		img: req.file.filename
-	});
+	let errors = validationResult(req.body);
 
-	db.product.create({
-	    name: req.body.nombreproducto,
-	    price: req.body.valorproducto,
-	    maker: req.body.fabricadorproducto,
-	    desc: req.body.descprod,
-	    img: req.file.filename
-	});
+	if (errors.isEmpty())
+	{
+	    (async () => {
+		let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
+		if (p === null)
+		{
+		    const newprod = db.product.build({
+			name: req.body.nombreproducto,
+			price: req.body.valorproducto,
+			maker: req.body.fabricadorproducto,
+			desc: req.body.descprod,
+			img: req.file.filename
+		    });
 
-	res.redirect("/products");
+		    newprod.save();
+	
+		    return res.redirect("/products");
+		}
+		else
+		    return res.render("submit", { errors: {
+			nombreproducto: {
+			    msg: "Ya existe un producto con este nombre en la base de datos",
+			    param: "nombreproducto",
+			    value: req.body.nombreproducto,
+			    location: 'body'
+		    }}, old: req.body});
+	    })();
+	}
+	else
+	    return res.render("submit", { errors: errors.mapped(), old: req.body});
     },
     
     editar: (req, res) =>
     {
-	let producto = 0;
+	let producto = null;
 
 	for (let i = 0; i < products.length; i++)
 	{
@@ -213,30 +222,42 @@ const controller =
 		producto = products[i];
 	}
 
-	res.render("editar", {producto: producto});
+	if (producto === null)
+	    return res.render('not-found');
+	else
+	    return res.render("editar", {producto: producto});
     },
 
     editarPUT: (req, res) =>
-    {
-	for (let p of products)
+    { 
+	let errors = validationResult(req.body);
+
+	if (errors.isEmpty())
 	{
-	    if (p.id == req.params.id)
+	    for (let p of products)
 	    {
-		p.name = req.body.nombreproducto;
-		p.price = req.body.valorproducto;
-		p.maker = req.body.fabricadorproducto;
-		p.desc = req.body.descprod;
-		p.save();
-		break;
+		if (p.id == req.params.id)
+		{
+		    p.name = req.body.nombreproducto;
+		    p.price = req.body.valorproducto;
+		    p.maker = req.body.fabricadorproducto;
+		    p.desc = req.body.descprod;
+		    (async () => {
+			p.save();
+		    })();
+		    break;
+		}
 	    }
-	}
 	
-	res.redirect("/products");
+	    res.redirect("/products");
+	}
+	else
+	    return res.render("editar", { errors: errors.mapped(), old: req.body});
     },
     
     profile: (req, res) =>
     {
-		return res.render("profile",{userData:req.session.user});
+	return res.render("profile",{userData:req.session.user});
     },
     
     plist: (req, res) =>
@@ -253,7 +274,10 @@ const controller =
 
 	products = products2;
 
-	db.product.findByPk(req.params.id).destroy();
+	(async () => {
+	    let p = await db.product.findByPk(req.params.id);
+	    p.destroy();
+	})();
 
 	res.redirect('/products');
     },

@@ -11,10 +11,11 @@ const validatorLogin = [check('emailusuario').notEmpty().withMessage('Debes comp
 			.isEmail().withMessage('Email Invalido'),
 			check('contrasenausuario').notEmpty().withMessage("Debes completar este campo")];
 
-const validatorEdit = [check().notEmpty.withMessage().bail()
-		       .isNumeric().withMessage()/*.toFloat()*/,
-		       check().notEmpty.withMessage().bail()
-		      .is];
+const validatorProductForm = [check("valorproducto").notEmpty().withMessage('Debes completar este campo').bail()
+			      .isNumeric().withMessage('El precio debe ser un valor numerico')/*.toFloat()*/,
+			      check("nombreproducto").notEmpty().withMessage('Debes completar este campo'),
+			      check("fabricadorproducto").notEmpty().withMessage('Debes completar este campo'),
+			      check("descprod").notEmpty().withMessage('Debes completar este campo')];
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -42,11 +43,11 @@ router.get('/register', controller.register);
 
 router.get('/profile', controller.profile);
 
-router.get('/products/edit/:id', controller.editar);
+router.get('/products/edit/:id', validatorProductForm, controller.editar);
 
 router.put('/products/:id', controller.editarPUT);
 
-router.get('/products/create', controller.submit);
+router.get('/products/create', validatorProductForm, controller.submit);
 
 router.post('/products', upload.single('imagenprod'), controller.submitPOST);
 
