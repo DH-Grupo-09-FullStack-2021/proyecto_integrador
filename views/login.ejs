@@ -5,6 +5,10 @@
 <%- include('./header') %>
     <main class="cuerpo">
 	    <form class="flexbox-formulario" action="/login" method="POST">
+			<div class="errores">
+				<ul></ul>
+			</div>
+			</div>
 	     	<div class="formulario-item formulario-label">
 	       		<label for="emailusuario">E-mail</label>
 			<% if (locals.errors && errors.emailusuario) { %>
