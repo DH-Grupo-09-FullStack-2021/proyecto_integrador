@@ -17,7 +17,7 @@
 			<div class="formulario-item">
 	       		<input class="formulario-input-box"
 			  type="text" id="nombreusuario"
-			  name="nombreusuario" 
+			  name="nombreusuario" required="required"
 			  value="<%= locals.old && old.nombreusuario %>">
 	     	</div>
 	    	<div class="formulario-item formulario-label">
@@ -48,7 +48,7 @@
 	       		<input class="formulario-input-box-contrasena-register"
 			  type="password" name="contrasenausuario"
 			  id="contrasenausuario"minlength="8"
-			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario %>">
+			  maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario %>">
 	     	</div>
 	     	<div class="formulario-item formulario-label">
 	       		<label for="contrasenausuario2">Repetir
@@ -63,7 +63,7 @@
 	       		<input class="formulario-input-box-contrasena-register2"
 			  type="password" name="contrasenausuario2"
 			  id="contrasenausuario2"minlength="8"
-			  maxlength="32" required="required" value="<%= locals.old && old.contrasenausuario2 %>">
+			  maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario2 %>">
 			</div>
 	     <div class="formulario-item formulario-label">
 	       <label for="imagenUser">Imagen de perfil</label>

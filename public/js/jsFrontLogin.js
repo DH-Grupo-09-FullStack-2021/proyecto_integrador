@@ -1,6 +1,7 @@
 window.addEventListener("load",function(){
     let formularioLogin= document.querySelector("form.flexbox-formulario");
-    formularioLogin.addEventListener("submit",function(){
+    formularioLogin.addEventListener("submit",function(event){
+        event.preventDefault
 
         let email= document.querySelector("input.formulario-input-box-email-login")
 

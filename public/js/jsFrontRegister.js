@@ -1,8 +1,7 @@
 window.addEventListener("load",function(){
     let formularioRegister= document.querySelector("form.flexbox-formulario-r");
-    formularioRegister.addEventListener("submit",function(){
-
-
+    formularioRegister.addEventListener("submit",function(event){
+        
         let nombreUsuario= document.querySelector("input.formulario-input-box")
 
         if(nombreUsuario.value == " "){
@@ -26,16 +25,14 @@ window.addEventListener("load",function(){
         if(contrasenaRegister2.value == ""){
             alert("Debe ingresar una contraseña")
          }else if(contrasenaRegister != contrasenaRegister2){
-             alert("No coinciden las contraseñas")
+            alert("No coinciden las contraseñas")
          }
 
-         let checkbox=document.querySelector("input.formulario-checkbox")
-         if(checkbox === false){
-             alert("Debe aceptar los terminos y condiciones ")
+         let checkbox=document.querySelector("input.formulario-checkbox").checked
+         if(checkbox == false){
+            alert("Debe aceptar los terminos y condiciones ")
          }
-
-
-
+        
         })
 
-})
+}) 

@@ -168,19 +168,55 @@ const controller =
 	    
 	    if (req.file)		
 		archivo_imagen = req.file.filename;
+		const user_pwd = bcrypt.hashSync(req.body.contrasenausuario, 10);
+		if(req.body.nombreusuario.length== 0){
+			return res.render("register", { errors: {
+		    	nombreusuario: {
+				msg: "Debe ingresar un nombre de usuario con 5 caracteres",
+				param: 'nombreusuario',
+				value: null,
+				location: 'body'
+		    	}}, old: req.body});
+			}else if(req.body.nombreusuario.length <= 4){
+				return res.render("register", { errors: {
+					nombreusuario: {
+					msg: "El nombre de usuario debe tener al menos 5 caracteres",
+					param: 'nombreusuario',
+					value: null,
+					location: 'body'
+					}}, old: req.body});
+			}
 
-	    const user_pwd = bcrypt.hashSync(req.body.contrasenausuario, 10);
-	    if (req.body.contrasenausuario !== req.body.contrasenausuario2)
-	    {
-		req.body.contrasenausuario2 = null;
-		return res.render("register", { errors: {
-		    contrasenausuario2: {
-			msg: "Las contraseñas no coinciden",
-			param: 'contrasenausuario2',
-			value: null,
-			location: 'body'
-		    }}, old: req.body});
-	    }
+		if(req.body.emailusuario.length==0){
+			return res.render("register", { errors: {
+				emailusuario: {
+				msg: "debe ingresar un email valido",
+				param: 'emailusuario',
+				value: null,
+				location: 'body'
+				}}, old: req.body});
+		}
+	    if(req.body.contrasenausuario.length>=8){
+	    	if (req.body.contrasenausuario !== req.body.contrasenausuario2)
+	    	{
+			req.body.contrasenausuario2 = null;
+			return res.render("register", { errors: {
+		    	contrasenausuario2: {
+				msg: "Las contraseñas no coinciden",
+				param: 'contrasenausuario2',
+				value: null,
+				location: 'body'
+		    	}}, old: req.body});
+	    }} else{
+			return res.render("register", { errors: {
+		    	contrasenausuario: {
+				msg: "La contraseña debe tener al menos 8 caracteres",
+				param: 'contrasenausuario',
+				value: null,
+				location: 'body'
+		    	}}, old: req.body});
+
+		}
 	    
 	    (async () => {
 		const [new_user, created] = await db.user.findOrCreate({
