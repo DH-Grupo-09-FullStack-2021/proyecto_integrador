@@ -3,25 +3,25 @@ window.addEventListener("load",function(){
     formularioLogin.addEventListener("submit",function(event){
 
 
-        let errores=[]
-
+        let errores=[];
         let email= document.querySelector("input.formulario-input-box-email-login")
 
         if(email.value == ""){
-            errores.push("Debe ingresar un email");
+            errores.push(1);
+            let validacion= document.querySelector("section.errorEmail")
+            validacion.innerHTML ="Debe ingresar un email registrado";
+            validacion.style.color="red"
         }
         let contrasena=document.querySelector("input.formulario-input-box-contrasena-login")
 
         if(contrasena.value == ""){
-            errores.push("Debe ingresar una contraseña")
+            errores.push(1)
+            let validacion=document.querySelector("section.errorContraseña")
+            validacion.innerHTML ="Debe ingresar una contraseña"
+            validacion.style.color="red"
         }
         if(errores.length>0){
             event.preventDefault
-
-            let mensajeErrores= document.querySelector("div.errores lu");
-            for(let i= 0; i < errores.length;i++){
-                mensajeErrores.innerHTML += "<li>"+ errores[i] + "</li>" 
-            }
         }
     })
 })

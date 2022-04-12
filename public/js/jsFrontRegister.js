@@ -6,40 +6,58 @@ window.addEventListener("load",function(){
         let errores=[];
 
         if(nombreUsuario.value == " "){
-            errores.push("Debe ingresar un nombre de usuario");
-        } else if(nombreUsuario.value.length < 8){
-            errores.push("El nombre de usuario debe tener minimo 8 caracteres")
+            errores.push(1);
+            let validacion= document.querySelector("section.errorNombreUsuario")
+            validacion.innerHTML ="Debe ingresar un nombre de usuario";
+            validacion.style.color="red"
+        } else if(nombreUsuario.value.length <= 5){
+            errores.push(1);
+            let validacion= document.querySelector("section.errorNombreUsuario")
+            validacion.innerHTML ="El nombre de usuario debe tener al menos 5 caracteres";
+            validacion.style.color="red"
         }
 
         let emailRegister= document.querySelector("input.formulario-input-box-email-register")
 
         if(emailRegister.value == ""){
-            errores.push("Debe ingresar un email");
+            errores.push(1);
+            let validacion= document.querySelector("section.ErrorEmail")
+            validacion.innerHTML ="Debe ingresar un email valido";
+            validacion.style.color="red"
         }
 
         let contrasenaRegister=document.querySelector("input.formulario-input-box-contrasena-register")
         if(contrasenaRegister.value == ""){
-            errores.push("Debe ingresar una contraseña")
+            errores.push(1);
+            let validacion= document.querySelector("section.errorContraseña")
+            validacion.innerHTML ="Debe ingresar una constraseña";
+            validacion.style.color="red"
+            
         }
 
         let contrasenaRegister2=document.querySelector("input.formulario-input-box-contrasena-register2")
         if(contrasenaRegister2.value == ""){
-            errores.push("Debe ingresar una contraseña")
+            errores.push(1);
+            let validacion= document.querySelector("section.errorContraseña2")
+            validacion.innerHTML ="Debe ingresar una constraseña";
+            validacion.style.color="red"
+            
          }else if(contrasenaRegister != contrasenaRegister2){
-            errores.push("No coinciden las contraseñas")
+            errores.push(1);
+            let validacion= document.querySelector("section.errorContraseña2")
+            validacion.innerHTML ="Las contraseñas no coinciden";
+            validacion.style.color="red"
          }
 
          let checkbox=document.querySelector("input.formulario-checkbox").checked
          if(checkbox == false){
-            errores.push("Debe aceptar los terminos y condiciones ")
+            errores.push(1);
+            let validacion= document.querySelector("section.errorCheckbox")
+            validacion.innerHTML ="Las contraseñas no coinciden";
+            validacion.style.color="red"
          }
          if(errores.length>0){
             event.preventDefault
-
-            let mensajeErrores= document.querySelector("div.errores ul");
-            for(let i= 0; i < errores.length;i++){
-                mensajeErrores.innerHTML += "<li>"+ errores[i]+ "</li>" 
-            }
         }        
         })
 
