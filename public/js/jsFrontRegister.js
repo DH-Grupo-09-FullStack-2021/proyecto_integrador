@@ -57,7 +57,7 @@ window.addEventListener("load",function(){
             validacion.style.color="red"
          }
          if(errores.length>0){
-            event.preventDefault
+            event.preventDefault();
         }        
         })
 
