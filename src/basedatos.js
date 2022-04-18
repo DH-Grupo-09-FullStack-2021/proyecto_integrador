@@ -1,4 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Sequelize, Model, DataTypes, Op } = require('sequelize');
 
 const sequelize = new Sequelize('mariadb://tpdhg9:Rkfp@Vf7mXBBDd4@mysql-tpdhg9.alwaysdata.net:3306/tpdhg9_trabajointegrador');
 
@@ -42,6 +42,7 @@ db["compra"] = Compra;
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+db.Op = Op;
 
 (async () => {
   await sequelize.sync({ force: false });

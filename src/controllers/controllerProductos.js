@@ -1,31 +1,18 @@
 const express = require('express');
 const db = require('../basedatos');
-const products = require('../dbProductos');
 
 const controllerProductos =
 {
     product: (req, res) =>
     {
-		let producto = null;
+	(async () => {
+	    let producto = await db.product.findOne({where: {id: req.params.id}});
+	    if (producto === null)
+		return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
 
-		if (req.params.id <= products.length)
-			producto = products[req.params.id - 1];
-
-		if (producto === null)
-			return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
-
-		let prodlist = [];
-
-		for (let i = 0; i < 4; i++)
-		{
-			let rnd_prod = products[Math.floor(Math.random() * (products.length))];
-			if (parseInt(rnd_prod.id) != parseInt(producto.id) && (prodlist.indexOf(rnd_prod) === -1))
-				prodlist.push(rnd_prod);
-			else
-				i--;
-		}
-
-		res.render("product", {product: producto, productos_lista: prodlist});
+	    let prodlist = await db.product.findAll({where: {id: {[db.Op.ne]: req.params.id}}, order: db.Sequelize.literal('rand()'), limit: 4});
+	    return res.render("product", {product: producto, productos_lista: prodlist});
+	})();
     },
     
     submit: (req, res) =>
@@ -64,69 +51,50 @@ const controllerProductos =
     },
     
     editar: (req, res) =>
-    {
-		let producto = null;
-
-		for (let i = 0; i < products.length; i++)
-		{
-			if (products[i].id == req.params.id)
-				producto = products[i];
-		}
+	{
+	    (async () => {
+		let producto = await db.product.findOne({where: {id: req.params.id}});
 
 		if (producto === null)
 			return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
 		else
-			return res.render("editar", {producto: producto});
+		    return res.render("editar", {producto: producto});
+	    })();
     },
 
     editarPUT: (req, res) =>
-    { 
-			for (let p of products)
-			{
-				if (p.id == req.params.id)
-				{
-					p.name = req.body.nombreproducto;
-					p.price = req.body.valorproducto;
-					p.maker = req.body.fabricadorproducto;
-					p.desc = req.body.descprod;
-
-					(async () => {
-						p.save();
-					})();
-
-					break;
-				}
-			}
+    {	
+	(async () => {
+	    let p = await db.product.findOne({where: {id: req.params.id}});
+	    p.name = req.body.nombreproducto;
+	    p.price = req.body.valorproducto;
+	    p.maker = req.body.fabricadorproducto;
+	    p.desc = req.body.descprod;
+	    p.save();
 	
-			res.redirect("/products");
+	    return res.redirect("/products");
+	})();
     },
     
     plist: (req, res) =>
-    {
-		res.render("plist", {productos_lista: products});
+	{
+	    (async () => {
+		let products = await db.product.findAll({limit: 8});
+		return res.render("plist", {productos_lista: products});
+	    })();
     },
 
     destroy: (req, res) =>
     {
-		let producto = null;
+	(async () => {
+	    let p = await db.product.findByPk(req.params.id);
+	    if (p === null)
+		return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
 
-		for (let i = 0; i < products.length; i++)
-		{
-			if (products[i].id == req.params.id)
-				producto = products[i];
-		}
-		
-		if (producto === null)
-			return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
+	    p.destroy();
 
-		products.splice(products.indexOf(producto), 1);
-
-		(async () => {
-			let p = await db.product.findByPk(req.params.id);
-			p.destroy();
-		})();
-
-		return res.redirect('/products');
+	    return res.redirect('/products');
+	})();
     },
 
     api: (req, res) =>

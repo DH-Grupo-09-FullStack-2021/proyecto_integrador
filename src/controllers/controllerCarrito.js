@@ -1,6 +1,5 @@
 const express = require('express');
 const db = require('../basedatos');
-const products = require('../dbProductos');
 
 const controllerCarrito =
 {
@@ -13,16 +12,20 @@ const controllerCarrito =
 				if (usrc !== null)
 				{
 					/* se podria usar req.session.user.id en cambio y no checkear nada */
-					let prodscarrito = await db.compra.findAll({where: {userId: usrc.id}});
-					let prodlista = [], total = 0;
+				    let prodscarrito = [], prodlista = [], total = 0;
+				    prodscarrito = await db.compra.findAll({where: {userId: usrc.id}});
+				    if (prodscarrito !== null)
+				    {
 					for (let i = 0; i < prodscarrito.length; i++)
 					{
-						prodlista.push(products[prodscarrito[i].productId - 1]);
-						prodlista[i].cantidad = prodscarrito[i].cantidad;
-						total += prodlista[i].price * prodscarrito[i].cantidad;
+					    let tempp = await db.product.findOne({where: {id: prodscarrito[i].productId}});
+					    tempp.cantidad = prodscarrito[i].cantidad;
+					    prodlista.push(tempp);
+					    total += prodscarrito[i].cantidad * tempp.price;
 					}
+				    }
 
-					return res.render("cart", {productos_lista: prodlista, infouser: req.session.user, totalapagar: total});
+				    return res.render("cart", {productos_lista: prodlista, infouser: req.session.user, totalapagar: total});
 				}
 				else
 					return res.render("not-found", {errno: 401, errmsg: "Registrese para acceder a esta pagina"});
