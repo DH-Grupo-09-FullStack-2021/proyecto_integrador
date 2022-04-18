@@ -180,7 +180,12 @@ const controllerUsuarios =
 	(async () => {
 	    let u = await db.user.findByPk(req.params.id);
 	    let c = await db.compra.findAll({where: {userId: req.params.id}});
-	    res.send({user: u.toJSON(), compras: c});
+	    let compras = [];
+	    c.forEach(compra =>
+			 {
+			     compras.push(compra.toJSON());
+			 });
+	    res.send({user: u.toJSON(), compras: compras});
 	})();
     }
 };

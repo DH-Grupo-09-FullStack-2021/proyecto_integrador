@@ -148,7 +148,12 @@ const controllerProductos =
 	(async () => {
 	    let p = await db.product.findByPk(req.params.id);
 	    let c = await db.compra.findAll({where: {productId: req.params.id}});
-	    res.send({product: p.toJSON(), compras: c});
+	    let compras = [];
+	    c.forEach(compra =>
+			 {
+			     compras.push(compra.toJSON());
+			 });
+	    res.send({product: p.toJSON(), compras: compras});
 	})();
     }
 };
