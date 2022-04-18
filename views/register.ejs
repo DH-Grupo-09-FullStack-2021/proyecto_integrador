@@ -13,13 +13,13 @@
 		  <%= errors.nombreusuario.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorNombreUsuario"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box"
-			  type="text" id="nombreusuario"
+			  type="text" id="nombreusuario" minlength="8" maxlength="32
 			  name="nombreusuario" required="required"
 			  value="<%= locals.old && old.nombreusuario %>">
-			  <section class="errorNombreUsuario"></section>
 	     	</div>
 	    	<div class="formulario-item formulario-label">
 		  <label for="emailusuario">E-mail</label>
@@ -28,14 +28,14 @@
 		  <%= errors.emailusuario.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning ErrorEmail"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box-email-register"
 			  type="email"
-			  id="emailusuario"name="emailusuario" minlength="8" maxlength="32"
+			  id="emailusuario"name="emailusuario"
 			  required="required" value="<%= locals.old &&
 			  old.emailusuario %>">
-			  <section class="ErrorEmail"></section>
 	     	</div>
 	     	<div class="formulario-item formulario-label">
 	       		<label
@@ -45,13 +45,13 @@
 		  <%= errors.contrasenausuario.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorContraseña"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box-contrasena-register"
 			  type="password" name="contrasenausuario"
 			  id="contrasenausuario"minlength="8"
 			  maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario %>">
-			  <section class="errorContraseña"></section>
 	     	</div>
 	     	<div class="formulario-item formulario-label">
 	       		<label for="contrasenausuario2">Repetir
@@ -61,13 +61,13 @@
 		  <%= errors.contrasenausuario2.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorContraseña2"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box-contrasena-register2"
 			  type="password" name="contrasenausuario2"
 			  id="contrasenausuario2"minlength="8"
 			  maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario2 %>">
-			  <section class="errorContraseña2"></section>
 			</div>
 	     <div class="formulario-item formulario-label">
 	       <label for="imagenUser">Imagen de perfil</label>
@@ -79,17 +79,17 @@
 		  type="checkbox"name="terminosycond"
 		  id="terminosycond" required="required" value="<%= locals.old && old.terminosycond %>">
 	       		<label for="terminosycond">Acepto a los terminos y condiciones</label>
-				   <section class="errorCheckbox"></section>
+				   <section class="formulario-warning errorCheckbox"></section>
 	     	</div>
 	     	<div class="formulario-item">
 	       		<input class="formulario-boton-enviar" type="submit" value="Registrarse">
 	     	</div>
 	    </form>
-		<section class="redes-sociales">
+	<!--	<section class="redes-sociales">
 			<button id="sign-up-facebook" type="submit" value="Facebook"><i class="fab fa-facebook-square"></i> Ingresa con Facebook </button>
 			<button id="sign-up-Google" type="submit" value="Google"><i class="fab fa-google"></i> Ingresa con Google </button>
 			<button id="sign-up-Aple" type="submit" value="Apple"><i class="fab fa-apple"></i> Ingresa con Apple </button>
-	   </section>      
+	   </section> -->
 	</main>
 <%- include('./footer') %>
     <script src="/public/js/jsFrontRegister.js"></script>

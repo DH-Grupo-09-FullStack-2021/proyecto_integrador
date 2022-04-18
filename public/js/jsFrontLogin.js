@@ -6,19 +6,17 @@ window.addEventListener("load",function(){
         let errores=[];
         let email= document.querySelector("input.formulario-input-box-email-login")
 
-        if(email.value == ""){
+        if(email.value.trim() == ""){
             errores.push(1);
             let validacion= document.querySelector("section.errorEmail")
             validacion.innerHTML ="Debe ingresar un email registrado";
-            validacion.style.color="red"
         }
         let contrasena=document.querySelector("input.formulario-input-box-contrasena-login")
 
-        if(contrasena.value == ""){
+        if(contrasena.value.trim() == ""){
             errores.push(1)
             let validacion=document.querySelector("section.errorContraseña")
             validacion.innerHTML ="Debe ingresar una contraseña"
-            validacion.style.color="red"
         }
         if(errores.length>0){
             event.preventDefault();

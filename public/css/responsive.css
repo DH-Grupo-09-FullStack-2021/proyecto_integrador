@@ -124,14 +124,14 @@ and (max-device-width: 768px)
 and (min-device-width: 320px)
 and (max-device-width: 476px)
 {
-    .flexbox-formulario { padding-left: 50px;}
-    .flexbox-formulario-r { padding-left: 50px;}
-    .formulario-input-box { width: 80%; }
-    .formulario-input-box-email-login{ width: 80%; }
-    .formulario-input-box-contrasena-login{ width: 80%; }
-    .formulario-input-box-email-register{ width: 80%; }
-    .formulario-input-box-contrasena-register{ width: 80%; }
-    .formulario-input-box-contrasena-register2{ width: 80%; }
+    .flexbox-formulario { padding-left: 20px;}
+    .flexbox-formulario-r { padding-left: 20px;}
+    .formulario-input-box { width: 100%; }
+    .formulario-input-box-email-login{ width: 100%; }
+    .formulario-input-box-contrasena-login{ width: 100%; }
+    .formulario-input-box-email-register{ width: 100%; }
+    .formulario-input-box-contrasena-register{ width: 100%; }
+    .formulario-input-box-contrasena-register2{ width: 100%; }
 
     .cuerpo{flex-flow: column-reverse;}
     .formulario-boton-enviar{width: 60vw;}

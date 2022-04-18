@@ -5,7 +5,7 @@
 <%- include('./header') %>
 <main class="main">
 <%if (locals.isUserLogged===true) {%>
-	     <form method="POST" action="/products" class="flexbox-formulario" enctype="multipart/form-data">
+	     <form method="POST" action="/products" class="flexbox-formulario-r" enctype="multipart/form-data">
 	     <div class="formulario-item formulario-label">
 	       <label for="nombreproducto">Nombre del Producto</label>
 		  <% if (locals.errors && errors.nombreproducto) { %>
@@ -13,8 +13,9 @@
 		  <%= errors.nombreproducto.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorNombre"></section>
 	     </div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text"
+	       <input class="formulario-input-box nombreProductoFormSubmit" type="text"
 	       id="nombreproducto" name="nombreproducto"
 	       required="required" 
 			  value="<%= locals.old && old.nombreproducto %>">
@@ -26,8 +27,9 @@
 		  <%= errors.fabricadorproducto.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorFabricante"></section>
 	     </div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text" id="fabricadorproducto"
+	       <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
 	       name="fabricadorproducto" required="required" 
 			  value="<%= locals.old && old.fabricadorproducto %>">
 	     </div>
@@ -38,8 +40,9 @@
 		  <%= errors.descprod.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorDescripcion"></section>
 	     </div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text"
+	       <input class="formulario-input-box-contrasena-register" type="text"
 		 name="descprod" id="descprod" required="required"
 			  value="<%= locals.old && old.descprod %>">
 	     </div>
@@ -50,6 +53,7 @@
 		  <%= errors.imagenprod.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorImagen"></section>
 	     </div><div class="formulario-item">
 	       <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenprod" id="imagenprod"
 	       required="required">
@@ -61,8 +65,9 @@
 		  <%= errors.valorproducto.msg %>
 		</div>
 		<% } %>
+		<section class="formulario-warning errorPrecio"></section>
 	     </div><div class="formulario-item">
-	       <input class="formulario-input-box" type="number" name="valorproducto" id="valorproducto"
+	       <input class="formulario-input-box-contrasena-register2" type="number" name="valorproducto" id="valorproducto"
 	       required="required" 
 			  value="<%= locals.old && old.valorproducto %>">
 	     </div>
@@ -77,6 +82,6 @@
 	     <% } %>
     </main>
 <%- include('./footer') %>
-    
+    <script src="/public/js/jsFrontSubmit.js"></script>
 </body>
 </html>

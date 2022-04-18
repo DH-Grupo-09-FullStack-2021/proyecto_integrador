@@ -13,11 +13,11 @@
 			<%= errors.emailusuario.msg %>
 			</div>
 			<% } %>
+			<section class="formulario-warning errorEmail"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box-email-login" type="email" id="emailusuario"name="emailusuario" required="required" value="<%= locals.old &&
 			  old.emailusuario %>">
-			  	<section class="errorEmail"></section>
 	     	</div>
 	     	<div class="formulario-item formulario-label">
 	       		<label for="contrasenausuario">Contraseña</label>
@@ -26,20 +26,20 @@
 			<%= errors.contrasenausuario.msg %>
 			</div>
 			<% } %>
+			<section class="formulario-warning errorContraseña"></section>
 			</div>
 			<div class="formulario-item">
 	       		<input class="formulario-input-box-contrasena-login" type="password" name="contrasenausuario" id="contrasenausuario" autocomplete="off" required="required">
-					<section class="errorContraseña"></section>
 	     	</div>
 	     	<div class="formulario-item">
 	       		<input class="formulario-boton-enviar" type="submit" value="Login">
 	     	</div>
 	    </form>
-		<section class="redes-sociales">
+	<!--	<section class="redes-sociales">
 			<button id="sign-up-facebook" type="submit" value="Facebook"><i class="fab fa-facebook-square"></i> Ingresa con Facebook </button>
 			<button id="sign-up-Google" type="submit" value="Google"><i class="fab fa-google"></i> Ingresa con Google </button>
 			<button id="sign-up-Aple" type="submit" value="Apple"><i class="fab fa-apple"></i> Ingresa con Apple </button>
-	   </section>
+	   </section>  -->
 
     </main>
 <%- include('./footer') %>
