@@ -15,4 +15,8 @@ routerUsuarios.post('/register', upload.single('imagenUser'), controllerUsuarios
 
 routerUsuarios.get('/logout',controllerUsuarios.logout);
 
+routerUsuarios.get('/users/api/', controllerUsuarios.api);
+
+routerUsuarios.get('/users/api/:id', controllerUsuarios.apiID);
+
 module.exports = routerUsuarios;

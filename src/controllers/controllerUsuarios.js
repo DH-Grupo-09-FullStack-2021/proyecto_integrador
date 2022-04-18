@@ -10,14 +10,10 @@ const controllerUsuarios =
     },
 
 	loginPOST:(req,res)=>
-	{
-		let errors = validationResult(req.body);
-
-		if (errors.isEmpty())
-		{	    
+	{	    
 			(async () => {
 				const usertologin = await db.user.findOne({
-					where: {email: req.body.emailusuario}})
+				    where: {email: req.body.emailusuario}});
 		
 				if (usertologin !== null)
 				{
@@ -50,9 +46,6 @@ const controllerUsuarios =
 					}}, old: req.body});
 				}
 			})();
-		}
-		else
-			return res.render("register", { errors: errors.mapped(), old: req.body});
 	},
 
     register: (req, res) =>
@@ -62,10 +55,6 @@ const controllerUsuarios =
 
     registerPOST: (req, res) =>
     {
-		let errors = validationResult(req.body);
-
-		if (errors.isEmpty())
-		{
 			let archivo_imagen = null;
 	    
 			if (req.file)		
@@ -156,9 +145,6 @@ const controllerUsuarios =
 					}}, old: req.body});
 				}
 			})();
-		}
-		else
-			return res.render("register", { errors: errors.mapped(), old: req.body});
     },
     
     profile: (req, res) =>
@@ -172,6 +158,31 @@ const controllerUsuarios =
 		res.clearCookie("email");
 		return res.redirect("/")	
     },
+
+    api: (req, res) =>
+    {
+	(async () =>
+	 {
+	     let userlist = [];
+	     const {count, rows} = await db.user.findAndCountAll();
+	     rows.forEach(user =>
+			  {
+			      var tempuser = user.toJSON();
+			      delete tempuser.password;
+			      userlist.push(tempuser);
+			  });
+	     res.send({count: count, users: userlist});
+	 })();
+    },
+
+    apiID: (req, res) =>
+    {
+	(async () => {
+	    let u = await db.user.findByPk(req.params.id);
+	    let c = await db.compra.findAll({where: {userId: req.params.id}});
+	    res.send({user: u.toJSON(), compras: c});
+	})();
+    }
 };
 
 module.exports = controllerUsuarios;

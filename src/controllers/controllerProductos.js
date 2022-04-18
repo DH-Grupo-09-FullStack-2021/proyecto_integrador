@@ -35,10 +35,7 @@ const controllerProductos =
     
     submitPOST: (req, res) =>
     {
-		let errors = validationResult(req.body);
 
-		if (errors.isEmpty())
-		{
 			(async () => {
 				let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
 				if (p === null)
@@ -63,9 +60,7 @@ const controllerProductos =
 						location: 'body'
 					}}, old: req.body});
 			})();
-		}
-		else
-			return res.render("submit", { errors: errors.mapped(), old: req.body});
+
     },
     
     editar: (req, res) =>
@@ -86,10 +81,6 @@ const controllerProductos =
 
     editarPUT: (req, res) =>
     { 
-		let errors = validationResult(req.body);
-
-		if (errors.isEmpty())
-		{
 			for (let p of products)
 			{
 				if (p.id == req.params.id)
@@ -108,9 +99,6 @@ const controllerProductos =
 			}
 	
 			res.redirect("/products");
-		}
-		else
-			return res.render("editar", { errors: errors.mapped(), old: req.body});
     },
     
     plist: (req, res) =>
@@ -139,6 +127,29 @@ const controllerProductos =
 		})();
 
 		return res.redirect('/products');
+    },
+
+    api: (req, res) =>
+    {
+	(async () =>
+	 {
+	     let productslist = [];
+	     const {count, rows} = await db.product.findAndCountAll();
+	     rows.forEach(product =>
+			  {
+			      productslist.push(product.toJSON());
+			  });
+	     res.send({count: count, products: productslist});
+	 })();
+    },
+
+    apiID: (req, res) =>
+    {
+	(async () => {
+	    let p = await db.product.findByPk(req.params.id);
+	    let c = await db.compra.findAll({where: {productId: req.params.id}});
+	    res.send({product: p.toJSON(), compras: c});
+	})();
     }
 };
 

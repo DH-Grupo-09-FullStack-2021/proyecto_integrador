@@ -18,4 +18,8 @@ routerProductos.post('/products', upload.single('imagenprod'), controllerProduct
 
 routerProductos.delete('/products/detail/products/delete/:id', controllerProductos.destroy);
 
+routerProductos.get('/products/api/', controllerProductos.api);
+
+routerProductos.get('/products/api/:id', controllerProductos.apiID);
+
 module.exports = routerProductos;
