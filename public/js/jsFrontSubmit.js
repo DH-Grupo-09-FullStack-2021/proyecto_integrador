@@ -36,7 +36,7 @@ window.addEventListener("load",function(){
         let imagenSubmit=document.querySelector("input.formulario-input-box-imagen")
         if(imagenSubmit.value == ""){
             errores.push(1);
-            let validacion= document.querySelector("section.errorPrecio")
+            let validacion= document.querySelector("section.errorImagen")
             validacion.innerHTML ="Debe subir una imagen del producto";
         }
 

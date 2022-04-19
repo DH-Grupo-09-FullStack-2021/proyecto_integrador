@@ -21,55 +21,55 @@ const controllerProductos =
     },
     
     submitPOST: (req, res) =>
-    {
-
-			(async () => {
-				let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
-				if (p === null)
-				{
-					const newprod = db.product.build({
-						name: req.body.nombreproducto,
-						price: req.body.valorproducto,
-						maker: req.body.fabricadorproducto,
-						desc: req.body.descprod,
-						img: req.file.filename
-					});
-
-				newprod.save();
-	
-				return res.redirect("/products");
-				} else
-					return res.render("submit", { errors: {
-						nombreproducto: {
-						msg: "Ya existe un producto con este nombre en la base de datos",
-						param: "nombreproducto",
-						value: req.body.nombreproducto,
-						location: 'body'
-					}}, old: req.body});
-			})();
-
+    {	
+	(async () => {
+	    let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
+	    if (p === null)
+	    {
+		const newprod = db.product.build({
+		    name: req.body.nombreproducto.trim(),
+		    price: req.body.valorproducto,
+		    maker: req.body.fabricadorproducto.trim(),
+		    desc: req.body.descprod.trim(),
+		    img: req.file.filename
+		});
+		
+		newprod.save();
+		
+		return res.redirect("/products");
+	    }
+	    else
+	    {
+		let nombreproducto = {};
+		let abc = nombreproducto.msg = "Ya existe un producto con este nombre en la base de datos";
+		return res.render("submit", {errors: abc, old: req.body});
+	    }
+	})();
     },
     
     editar: (req, res) =>
-	{
-	    (async () => {
-		let producto = await db.product.findOne({where: {id: req.params.id}});
-
-		if (producto === null)
-			return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
-		else
-		    return res.render("editar", {producto: producto});
-	    })();
+    {
+	(async () => {
+	    let producto = await db.product.findOne({where: {id: req.params.id}});
+	    
+	    if (producto === null)
+		return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
+	    else
+		return res.render("editar", {producto: producto});
+	})();
     },
 
     editarPUT: (req, res) =>
     {	
 	(async () => {
 	    let p = await db.product.findOne({where: {id: req.params.id}});
-	    p.name = req.body.nombreproducto;
+	    if (p === null)
+		return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
+
+	    p.name = req.body.nombreproducto.trim();
 	    p.price = req.body.valorproducto;
-	    p.maker = req.body.fabricadorproducto;
-	    p.desc = req.body.descprod;
+	    p.maker = req.body.fabricadorproducto.trim();
+	    p.desc = req.body.descprod.trim();
 	    p.save();
 	
 	    return res.redirect("/products");
