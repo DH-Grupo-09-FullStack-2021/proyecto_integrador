@@ -11,7 +11,7 @@
 	       Producto</label>
 	       <% if (locals.errors && errors.nombreproducto) { %>
 		<div class="formulario-warning">
-		  <%= errors.nombreproducto.msg %>
+		  <%= errors.nombreproducto %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorNombre"></section>
@@ -25,7 +25,7 @@
 	       <label for="fabricadorproducto">Fabricante</label>
 	       <% if (locals.errors && errors.fabricadorproducto) { %>
 		<div class="formulario-warning">
-		  <%= errors.fabricadorproducto.msg %>
+		  <%= errors.fabricadorproducto %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorFabricante"></section>
@@ -39,7 +39,7 @@
 	       <label for="descprod">Descripción del producto</label>
 	       <% if (locals.errors && errors.descprod) { %>
 		<div class="formulario-warning">
-		  <%= errors.descprod.msg %>
+		  <%= errors.descprod %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorDescripcion"></section>
@@ -53,7 +53,7 @@
 	       <label for="valorproducto">Nuevo precio</label>
 	       <% if (locals.errors && errors.valorproducto) { %>
 		<div class="formulario-warning">
-		  <%= errors.valorproducto.msg %>
+		  <%= errors.valorproducto %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorPrecio"></section>

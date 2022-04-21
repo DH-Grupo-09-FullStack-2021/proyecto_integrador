@@ -10,7 +10,7 @@
 		  usuario</label>
 		  <% if (locals.errors && errors.nombreusuario) { %>
 		<div class="formulario-warning">
-		  <%= errors.nombreusuario.msg %>
+		  <%= errors.nombreusuario %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorNombreUsuario"></section>
@@ -25,7 +25,7 @@
 		  <label for="emailusuario">E-mail</label>
 		  <% if (locals.errors && errors.emailusuario) { %>
 		<div class="formulario-warning">
-		  <%= errors.emailusuario.msg %>
+		  <%= errors.emailusuario %>
 		</div>
 		<% } %>
 		<section class="formulario-warning ErrorEmail"></section>
@@ -42,7 +42,7 @@
 		  for="contrasenausuario">Contraseña</label>
 		  <% if (locals.errors && errors.contrasenausuario) { %>
 		<div class="formulario-warning">
-		  <%= errors.contrasenausuario.msg %>
+		  <%= errors.contrasenausuario %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorContraseña"></section>
@@ -58,7 +58,7 @@
 		  contraseña</label>
 		  <% if (locals.errors && errors.contrasenausuario2) { %>
 		<div class="formulario-warning">
-		  <%= errors.contrasenausuario2.msg %>
+		  <%= errors.contrasenausuario2 %>
 		</div>
 		<% } %>
 		<section class="formulario-warning errorContraseña2"></section>
