@@ -17,33 +17,54 @@ const controllerProductos =
     
     submit: (req, res) =>
     {
-		res.render("submit");
+	res.render("submit");
     },
     
     submitPOST: (req, res) =>
     {	
 	(async () => {
-	    let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
-	    if (p === null)
+	    let errors = {};
+
+	    if (req.body.nombreproducto.trim() == "")
+		errors.nombreproducto = "Debe ingresar el nombre del producto";
+
+	    if (req.body.valorproducto == 0)
+		errors.valorproducto = "Debe ingresar el valor comercial del producto";
+
+	    if (req.body.fabricadorproducto.trim() == "")
+		errors.fabricadorproducto = "Debe ingresar el nombre del fabricante del producto";
+
+	    if (!req.file.mimetype.match("image.*"))
+		errors.imagenprod = "El archivo correspondiente a la imagen del producto debe ser una imagen";
+
+	    if (req.file.filename == "")
+		errors.imagenprod = "Debe subir una imagen del producto";
+
+	    if (req.body.descprod.trim() == "")
+		errors.descprod = "Debe ingresar una descripción del producto";
+
+	    if (Object.keys(errors).length == 0)
 	    {
-		const newprod = db.product.build({
-		    name: req.body.nombreproducto.trim(),
-		    price: req.body.valorproducto,
-		    maker: req.body.fabricadorproducto.trim(),
-		    desc: req.body.descprod.trim(),
-		    img: req.file.filename
-		});
-		
-		newprod.save();
-		
-		return res.redirect("/products");
+		let p = await db.product.findOne({where: {name: req.body.nombreproducto}});
+		if (p === null)
+		{
+		    const newprod = db.product.build({
+			name: req.body.nombreproducto.trim(),
+			price: req.body.valorproducto,
+			maker: req.body.fabricadorproducto.trim(),
+			desc: req.body.descprod.trim(),
+			img: req.file.filename
+		    });
+		    
+		    newprod.save();
+		    
+		    return res.redirect("/products");
+		}
+		else
+		    errors.nombreproducto = "Ya existe un producto con este nombre en la base de datos";
 	    }
-	    else
-	    {
-		let nombreproducto = {};
-		let abc = nombreproducto.msg = "Ya existe un producto con este nombre en la base de datos";
-		return res.render("submit", {errors: abc, old: req.body});
-	    }
+
+	    return res.render("submit", {errors: errors, old: req.body});
 	})();
     },
     
@@ -62,26 +83,45 @@ const controllerProductos =
     editarPUT: (req, res) =>
     {	
 	(async () => {
-	    let p = await db.product.findOne({where: {id: req.params.id}});
-	    if (p === null)
-		return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
+	    let errors = {};
 
-	    p.name = req.body.nombreproducto.trim();
-	    p.price = req.body.valorproducto;
-	    p.maker = req.body.fabricadorproducto.trim();
-	    p.desc = req.body.descprod.trim();
-	    p.save();
-	
-	    return res.redirect("/products");
+	    if (req.body.nombreproducto.trim() == "")
+		errors.nombreproducto = "Debe ingresar el nombre del producto";
+
+	    if (req.body.valorproducto == 0)
+		errors.valorproducto = "Debe ingresar el valor comercial del producto";
+
+	    if (req.body.fabricdorproducto.trim() == "")
+		errors.fabricadorproducto = "Debe ingresar el nombre del fabricante del producto";
+
+	    if (req.body.descprod.trim() == "")
+		errors.descprod = "Debe ingresar una descripción del producto";
+	    
+	    if (Object.keys(errors).length == 0)
+	    {
+		let p = await db.product.findOne({where: {id: req.params.id}});
+		if (p === null)
+		    return res.render('not-found', {errno: 404, errmsg: "El indice no corresponde a ningun producto"});
+
+		p.name = req.body.nombreproducto.trim();
+		p.price = req.body.valorproducto;
+		p.maker = req.body.fabricadorproducto.trim();
+		p.desc = req.body.descprod.trim();
+		p.save();
+
+		return res.redirect("/products");
+	    }
+
+	    return res.render("editar", {errors: errors, old: req.body});
 	})();
     },
     
     plist: (req, res) =>
-	{
-	    (async () => {
-		let products = await db.product.findAll({limit: 8});
-		return res.render("plist", {productos_lista: products});
-	    })();
+    {
+	(async () => {
+	    let products = await db.product.findAll({limit: 8});
+	    return res.render("plist", {productos_lista: products});
+	})();
     },
 
     destroy: (req, res) =>
@@ -99,16 +139,15 @@ const controllerProductos =
 
     api: (req, res) =>
     {
-	(async () =>
-	 {
-	     let productslist = [];
-	     const {count, rows} = await db.product.findAndCountAll();
-	     rows.forEach(product =>
-			  {
-			      productslist.push(product.toJSON());
-			  });
-	     res.send({count: count, products: productslist});
-	 })();
+	(async () => {
+	    let productslist = [];
+	    const {count, rows} = await db.product.findAndCountAll();
+	    rows.forEach(product =>
+			 {
+			     productslist.push(product.toJSON());
+			 });
+	    res.send({count: count, products: productslist});
+	})();
     },
 
     apiID: (req, res) =>
@@ -118,9 +157,9 @@ const controllerProductos =
 	    let c = await db.compra.findAll({where: {productId: req.params.id}});
 	    let compras = [];
 	    c.forEach(compra =>
-			 {
-			     compras.push(compra.toJSON());
-			 });
+		      {
+			  compras.push(compra.toJSON());
+		      });
 	    res.send({product: p.toJSON(), compras: compras});
 	})();
     }
