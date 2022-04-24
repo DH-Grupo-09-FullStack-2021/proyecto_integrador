@@ -57,7 +57,7 @@ const controllerUsuarios =
     registerPOST: (req, res) =>
     {
         let errors = {};
-        console.log(req.body);
+
         if (req.body.nombreusuario.trim() == "")
             errors.nombreusuario = "Debe ingresar un nombre de usuario";
 
