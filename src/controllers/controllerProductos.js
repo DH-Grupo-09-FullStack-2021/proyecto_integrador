@@ -91,7 +91,7 @@ const controllerProductos =
             if (req.body.valorproducto == 0)
                 errors.valorproducto = "Debe ingresar el valor comercial del producto";
 
-            if (req.body.fabricdorproducto.trim() == "")
+            if (req.body.fabricadorproducto.trim() == "")
                 errors.fabricadorproducto = "Debe ingresar el nombre del fabricante del producto";
 
             if (req.body.descprod.trim() == "")
