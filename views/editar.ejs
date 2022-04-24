@@ -5,73 +5,73 @@
 <%- include('./header') %>
 <main class="main">
 <%if (locals.isUserLogged===true) {%>
-	     <form method="POST" action="/products/<%= producto.id %>?_method=PUT" class="flexbox-formulario-r">
-	     <div class="formulario-item formulario-label">
-	       <label for="nombreproducto">Nuevo nombre del
-	       Producto</label>
-	       <% if (locals.errors && errors.nombreproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.nombreproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorNombre"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box" type="text"
-	       id="nombreproducto" name="nombreproducto"
-		 placeholder="<%=producto.name %>"
-		 value="<%= locals.old && old.nombreproducto ? old.nombreproducto : producto.name %>" required="required">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="fabricadorproducto">Fabricante</label>
-	       <% if (locals.errors && errors.fabricadorproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.fabricadorproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorFabricante"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
-	       name="fabricadorproducto"
-		 placeholder="<%=producto.maker %>"
-		 value="<%= locals.old && old.fabricadorproducto ? old.fabricadorproducto : producto.maker %>" required="required">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="descprod">Descripción del producto</label>
-	       <% if (locals.errors && errors.descprod) { %>
-		<div class="formulario-warning">
-		  <%= errors.descprod %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorDescripcion"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-contrasena-register" type="text"
-		 name="descprod" id="descprod"
-		 placeholder="<%=producto.desc %>"
-		 value="<%= locals.old && old.descprod ? old.descprod : producto.desc %>" required="required">
-	     </div>  
-	     <div class="formulario-item formulario-label">
-	       <label for="valorproducto">Nuevo precio</label>
-	       <% if (locals.errors && errors.valorproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.valorproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorPrecio"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-contrasena-register2" type="number"
-		 name="valorproducto" id="valorproducto"
-		 placeholder="<%=producto.price %>"
-		 value="<%= locals.old && old.valorproducto ? old.valorproducto : producto.price %>" required="required">
-	     </div>
-	     <div class="formulario-item">
-	       <input class="formulario-boton-enviar" type="submit"
-	       value="Actualizar Producto">
-	     </div>
-	     </form>
-	     <% } else { %>
-	     <div class="formulario-label">Error: 401. Registrese para
-	       acceder a esta pagina.</div>
-	     <% } %>
+             <form method="POST" action="/products/<%= producto.id %>?_method=PUT" class="flexbox-formulario-r">
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="nombreproducto">Nuevo nombre del
+               Producto</label>
+               <% if (locals.errors && errors.nombreproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.nombreproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorNombre letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box" type="text"
+               id="nombreproducto" name="nombreproducto"
+                 placeholder="<%=producto.name %>"
+                 value="<%= locals.old && old.nombreproducto ? old.nombreproducto : producto.name %>" required="required">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="fabricadorproducto">Fabricante</label>
+               <% if (locals.errors && errors.fabricadorproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.fabricadorproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorFabricante letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
+               name="fabricadorproducto"
+                 placeholder="<%=producto.maker %>"
+                 value="<%= locals.old && old.fabricadorproducto ? old.fabricadorproducto : producto.maker %>" required="required">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="descprod">Descripción del producto</label>
+               <% if (locals.errors && errors.descprod) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.descprod %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorDescripcion letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-contrasena-register" type="text"
+                 name="descprod" id="descprod"
+                 placeholder="<%=producto.desc %>"
+                 value="<%= locals.old && old.descprod ? old.descprod : producto.desc %>" required="required">
+             </div>  
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="valorproducto">Nuevo precio</label>
+               <% if (locals.errors && errors.valorproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.valorproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorPrecio letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-contrasena-register2" type="number"
+                 name="valorproducto" id="valorproducto"
+                 placeholder="<%=producto.price %>"
+                 value="<%= locals.old && old.valorproducto ? old.valorproducto : producto.price %>" required="required">
+             </div>
+             <div class="formulario-item">
+               <input class="formulario-boton-enviar" type="submit"
+               value="Actualizar Producto">
+             </div>
+             </form>
+             <% } else { %>
+             <div class="formulario-label letra-outfit-sans-serif">Error: 401. Registrese para
+               acceder a esta pagina.</div>
+             <% } %>
     </main>
 <%- include('./footer') %>
     <script src="/public/js/jsFrontEdit.js"></script>

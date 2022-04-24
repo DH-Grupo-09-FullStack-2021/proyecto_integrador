@@ -5,81 +5,81 @@
 <%- include('./header') %>
 <main class="main">
 <%if (locals.isUserLogged===true) {%>
-	     <form method="POST" action="/products" class="flexbox-formulario-r" enctype="multipart/form-data">
-	     <div class="formulario-item formulario-label">
-	       <label for="nombreproducto">Nombre del Producto</label>
-		  <% if (locals.errors && errors.nombreproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.nombreproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorNombre"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box nombreProductoFormSubmit" type="text"
-	       id="nombreproducto" name="nombreproducto"
-	       required="required" 
-			  value="<%= locals.old && old.nombreproducto %>">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="fabricadorproducto">Fabricante</label>
-	       <% if (locals.errors && errors.fabricadorproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.fabricadorproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorFabricante"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
-	       name="fabricadorproducto" required="required" 
-			  value="<%= locals.old && old.fabricadorproducto %>">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="descprod">Descripción del producto</label>
-		  <% if (locals.errors && errors.descprod) { %>
-		<div class="formulario-warning">
-		  <%= errors.descprod %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorDescripcion"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-contrasena-register" type="text"
-		 name="descprod" id="descprod" required="required"
-			  value="<%= locals.old && old.descprod %>">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="imagenprod">Imagen</label>
-		  <% if (locals.errors && errors.imagenprod) { %>
-		<div class="formulario-warning">
-		  <%= errors.imagenprod %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorImagen"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenprod" id="imagenprod"
-	       required="required">
-	     </div>
-	     <div class="formulario-item formulario-label">
-	       <label for="valorproducto">Precio</label>
-		  <% if (locals.errors && errors.valorproducto) { %>
-		<div class="formulario-warning">
-		  <%= errors.valorproducto %>
-		</div>
-		<% } %>
-		<section class="formulario-warning errorPrecio"></section>
-	     </div><div class="formulario-item">
-	       <input class="formulario-input-box-contrasena-register2" type="number" name="valorproducto" id="valorproducto"
-	       required="required" 
-			  value="<%= locals.old && old.valorproducto %>">
-	     </div>
-	     <div class="formulario-item">
-	       <input class="formulario-boton-enviar" type="submit"
-	       value="Agregar Producto">
-	     </div>
-	     </form>
-	     <% } else { %>
-	     <div class="formulario-label">Error: 401. Registrese para
-	       acceder a esta pagina.</div>
-	     <% } %>
+             <form method="POST" action="/products" class="flexbox-formulario-r" enctype="multipart/form-data">
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="nombreproducto">Nombre del Producto</label>
+                  <% if (locals.errors && errors.nombreproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.nombreproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorNombre letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box nombreProductoFormSubmit" type="text"
+               id="nombreproducto" name="nombreproducto"
+               required="required" 
+                          value="<%= locals.old && old.nombreproducto %>">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="fabricadorproducto">Fabricante</label>
+               <% if (locals.errors && errors.fabricadorproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.fabricadorproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorFabricante letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
+               name="fabricadorproducto" required="required" 
+                          value="<%= locals.old && old.fabricadorproducto %>">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="descprod">Descripción del producto</label>
+                  <% if (locals.errors && errors.descprod) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.descprod %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorDescripcion letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-contrasena-register" type="text"
+                 name="descprod" id="descprod" required="required"
+                          value="<%= locals.old && old.descprod %>">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="imagenprod">Imagen</label>
+                  <% if (locals.errors && errors.imagenprod) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.imagenprod %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorImagen letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenprod" id="imagenprod"
+               required="required">
+             </div>
+             <div class="formulario-item formulario-label letra-outfit-sans-serif">
+               <label for="valorproducto">Precio</label>
+                  <% if (locals.errors && errors.valorproducto) { %>
+                <div class="formulario-warning letra-noto-sans-error">
+                  <%= errors.valorproducto %>
+                </div>
+                <% } %>
+                <section class="formulario-warning errorPrecio letra-noto-sans-error"></section>
+             </div><div class="formulario-item">
+               <input class="formulario-input-box-contrasena-register2" type="number" name="valorproducto" id="valorproducto"
+               required="required" 
+                          value="<%= locals.old && old.valorproducto %>">
+             </div>
+             <div class="formulario-item">
+               <input class="formulario-boton-enviar" type="submit"
+               value="Agregar Producto">
+             </div>
+             </form>
+             <% } else { %>
+             <div class="formulario-label letra-outfit-sans-serif">Error: 401. Registrese para
+               acceder a esta pagina.</div>
+             <% } %>
     </main>
 <%- include('./footer') %>
     <script src="/public/js/jsFrontSubmit.js"></script>

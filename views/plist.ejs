@@ -3,20 +3,20 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-	     <main class="main">
-	       <div class="display-texto-caja-prod">
-	       Productos Disponibles <%if (locals.isUserLogged===true) {%> <a class="solo-escritorio" display="inline" id="createproduct"
+             <main class="main">
+               <div class="display-texto-caja-prod letra-outfit-sans-serif">
+               Productos Disponibles <%if (locals.isUserLogged===true) {%> <a class="solo-escritorio" display="inline" id="createproduct"
    href="/products/create" ><button class="boton-agregar-producto">Agregar Producto</button></a> <% }%>
-	       </div> 
-	     <article class="productos-main productos-pagina-productos">
-	       <% for (let i = 0; i < productos_lista.length; i++) { %>
+               </div> 
+             <article class="productos-main productos-pagina-productos">
+               <% for (let i = 0; i < productos_lista.length; i++) { %>
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main margin-bot-plist">
-        <img src="/public/img/<%= productos_lista[i].img %>" class='img-main'>
-        <h3><strong><%= productos_lista[i].maker %></strong></h3>
+        <img src="/public/img/<%= productos_lista[i].img %>" class="img-main-productos">
+        <div class="titulo-producto-inicio"><%= productos_lista[i].maker %></div>
         <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
-        <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
+        <div class="titulo-producto-inicio">$ <%= productos_lista[i].price %></div>
     </a>
-	<% } %>
+        <% } %>
     </article>
     </main>
 <%- include('./footer') %>

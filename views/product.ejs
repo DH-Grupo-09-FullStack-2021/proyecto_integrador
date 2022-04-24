@@ -8,52 +8,57 @@
     
 <div class="productos-main caja-prod-carrito">
   <img src="/public\img\<%= product.img %>" class='img-main'>
-	</div>
-	  <div class="display-texto-caja-carrito">
-	    <%= product.name %>
-	  <div class="carrito-texinfo-box">
-	    <%= product.desc %>
+        </div>
+          <div class="display-texto-caja-carrito letra-productos-sans-serif">
+            <%= product.name %>
+          <div class="carrito-texinfo-box">
+            <%= product.desc %>
 <br><br>
-	    Fabricante: <%= product.maker %>
-	  </div>
+            Fabricante: <%= product.maker %>
+          </div>
 
-	  <div class="carrito-total-flexbox">
-	    Precio
-  	    <div class="carrito-total-a-pagar">
-	      $ <%= product.price %>
-	    </div>
-	  </div>
-	  <div> </div>
-	  <%if (locals.isUserLogged===true) {%>
-	  <div class="flexbox-boton-pagina-producto">
-	    <form action="/cart/add/<%= product.id%>"  method="POST"> 
-	  <button type="submit" class="boton-agregar-producto
-	    action-button post">Agregar producto al carrito</button>
-	    </form><div class="solo-escritorio espacio-pagina-productos"> a</div>
-	    <a href="/products/edit/<%= product.id %>"><button class="solo-escritorio boton-editar-producto">Editar producto</button></a>
-	  <form action="/products/detail/products/delete/<%= product.id%>?_method=DELETE"  method="POST"> 
-	  <button id="Boton_Eliminar" type="submit" class="solo-escritorio boton-borrar-producto action-button delete">Eliminar producto</button>
-	    </form>
-	</div>
-	<% }%>
+          <div class="carrito-total-flexbox">
+            Precio
+            <div class="carrito-total-a-pagar">
+              $ <%= product.price %>
+            </div>
+          </div>
+          <div> </div>
+          <%if (locals.isUserLogged===true) {%>
+          <div class="flexbox-boton-pagina-producto">
+            <form action="/cart/add/<%= product.id%>"  method="POST"> 
+          <button type="submit" class="boton-agregar-producto
+            action-button post">Agregar producto al carrito</button>
+            </form><div class="solo-escritorio espacio-pagina-productos"> a</div>
+            <a href="/products/edit/<%= product.id %>"><button class="solo-escritorio boton-editar-producto">Editar producto</button></a>
+          <form action="/products/detail/products/delete/<%= product.id%>?_method=DELETE"  method="POST"> 
+          <button id="Boton_Eliminar" type="submit" class="solo-escritorio boton-borrar-producto action-button delete">Eliminar producto</button>
+            </form>
+        </div>
+        <% }%>
 
-	  </div>
+          </div>
     </div>
     </div>
-    	       <div class="display-texto-caja-prod">
-	       Productos Relacionados
-	       </div>
-    	     <article class="productos-main">
-	       <% for (let i = 0; i < productos_lista.length; i++) { %>
+               <div class="display-texto-caja-prod letra-outfit-sans-serif">
+               Productos Relacionados
+               </div>
+             <article class="productos-main">
+               <% for (let i = 0; i < productos_lista.length; i++) { %>
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
-        <img src="/public\img\<%= productos_lista[i].img %>" class='img-main'>
-        <h3><strong><%= productos_lista[i].name %></strong></h3>
-        <div class="texto-producto-inicio"><%= productos_lista[i].desc %></div>
-        <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
+        <img src="/public\img\<%= productos_lista[i].img %>" class="img-main-productos">
+        <div class="titulo-producto-inicio"><%= productos_lista[i].maker %></div>
+        <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
+        <div class="titulo-producto-inicio">$ <%=
+          productos_lista[i].price %></div>
+          <div class="css-display-inline">
+                      <form action="/cart/add/<%= productos_lista[i].id%>"  method="POST"> 
+          <button type="submit" class="boton-agregar-producto
+            action-button post">Agregar producto al carrito</button>
+            </form></div>
     </a>
-	<% } %>
+        <% } %>
     </article>
-	<script src="/public/js/jsFront.js"></script>
     </main>
 <%- include('./footer') %>
     

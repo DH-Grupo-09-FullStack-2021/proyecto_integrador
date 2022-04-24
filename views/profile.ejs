@@ -5,34 +5,34 @@
 <%- include('./header') %>
 <main class="main">
 <%if (locals.isUserLogged===true) {%>
-<div class="titulo-perfil-usuario">Perfil de usuario</div>
-    <div class="perfil-usuario">
+<div class="titulo-perfil-usuario letra-outfit-sans-serif">Perfil de usuario</div>
+    <div class="perfil-usuario letra-productos-sans-serif">
         <div class="item-perfil-usuario margen-perfil-usuario">
-	  <div class="bold-perfil-usuario">Nombre de usuario:</div> <%=userData.username%>
-	</div>
-	<div class="item-perfil-usuario margen-perfil-usuario">
-	  <div class="bold-perfil-usuario">E-mail del usuario:</div> <%=userData.email%>
-	</div>
-	<% if (userData.img){ %><div class="item-perfil-usuario margen-perfil-usuario">
-	  <div class="bold-perfil-usuario">Imagen de perfil:<br></div>
-	  <img src="/public/img/profile/<%= userData.img%>" alt="Foto de mi perro">
-	</div><% } %>
-	<!--<div class="item-perfil-usuario">
-	  <div class="bold-perfil-usuario">Biografía del usuario:</div> Hola chicos soy Pepe Sanchez y aguante Racing.
-	  </div>-->
-	   <div>
-	<a id="logout"
+          <div class="bold-perfil-usuario">Nombre de usuario:</div> <%=userData.username%>
+        </div>
+        <div class="item-perfil-usuario margen-perfil-usuario">
+          <div class="bold-perfil-usuario">E-mail del usuario:</div> <%=userData.email%>
+        </div>
+        <% if (userData.img){ %><div class="item-perfil-usuario margen-perfil-usuario">
+          <div class="bold-perfil-usuario">Imagen de perfil:<br></div>
+          <img src="/public/img/profile/<%= userData.img%>" alt="Foto de mi perro">
+        </div><% } %>
+        <!--<div class="item-perfil-usuario">
+          <div class="bold-perfil-usuario">Biografía del usuario:</div> Hola chicos soy Pepe Sanchez y aguante Racing.
+          </div>-->
+           <div>
+        <a id="logout"
    href="/logout" ><button class="boton-profile-cerrar">Cerrar session</button></a>
    </div>
     </div>
  <!--   <div class="panel-control-usuario">
  </div> -->
 
- 	     <% } else { %>
-	     <div class="formulario-label">Error: 401. Registrese para
-	       acceder a esta pagina.</div>
-	       <% } %>
-	       
+             <% } else { %>
+             <div class="formulario-label">Error: 401. Registrese para
+               acceder a esta pagina.</div>
+               <% } %>
+               
     </main>
 <%- include('./footer') %>
     

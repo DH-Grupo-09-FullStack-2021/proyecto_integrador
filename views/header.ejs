@@ -1,23 +1,23 @@
     <header class="header">
         <article class="header-main-top">
             <img src="/public\img\logo.JPG" class="logo">
-            <form class="boton-estilizado top-nav-bar">
-	        <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="busqueda" id="busqueda"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
-	    </form>
+            <form class="boton-estilizado top-nav-bar letra-outfit-sans-serif">
+                <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="busqueda" id="busqueda"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
+            </form>
             <%if (locals.isUserLogged===false) {%>
-            <a href="/login" class="solo-escritorio top-nav-bar">Login</a>
+            <a href="/login" class="letra-outfit-sans-serif solo-escritorio top-nav-bar">Login</a>
             <a href="/login" class="solo-movil top-nav-bar"><i class="fas fa-user"></i></a>
-            <a href="/register" class="solo-escritorio top-nav-bar top-nav-right-margin">Registrarse</a>
+            <a href="/register" class="letra-outfit-sans-serif solo-escritorio top-nav-bar top-nav-right-margin">Registrarse</a>
             <a href="/register" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-user-plus"></i></a>
             <% }%>
              <%if (locals.isUserLogged===true) {%>
-            <a href="/profile" class="solo-escritorio top-nav-bar">Perfil del usuario</a>
+            <a href="/profile" class="letra-serif-navbar solo-escritorio top-nav-bar">Perfil del usuario</a>
             <a href="/profile" class="solo-movil top-nav-bar"><i class="fas fa-user-circle"></i></i></a>
-            <a href="/cart" class="solo-escritorio top-nav-bar top-nav-right-margin">Carrito de Compras</a>
+            <a href="/cart" class="letra-serif-navbar solo-escritorio top-nav-bar top-nav-right-margin">Carrito de Compras</a>
             <a href="/cart" class="solo-movil top-nav-bar top-nav-right-margin"><i class="fas fa-shopping-cart"></i></i></a>
              <% }%>
         </article>
-        <nav class="main-navbar">
+        <nav class="main-navbar letra-serif-navbar">
              <div><a href='/'>Inicio</a></div>
              <div><a href='/products'>Productos</a></div>
              <div><a href='#'>Ofertas</a></div>

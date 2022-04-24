@@ -29,6 +29,7 @@
     justify-content: space-between;
     color: black;
     text-decoration: none;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .texto-producto-inicio
@@ -47,6 +48,20 @@
 .img-main
 {
     width: 75%;
+}
+
+.img-main-productos
+{
+    min-height: 65%;
+    max-height: 80%;
+    max-width: 90%;
+}
+
+.img-main-productos-carrito
+{
+    min-height: 50%;
+    max-height: 80%;
+    max-width: 90%;
 }
 
 .display-texto-caja-prod
@@ -157,4 +172,34 @@ and (min-device-width: 476px)
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.titulo-producto-inicio
+{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.boton-remover-producto
+{
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    width: 90%
+    border-width: 0px;
+    border-radius: 12px;
+    height: 36px;
+    transition: 500ms color;
+    transition: 500ms background-color;
+    padding: 5px;
+    bottom-margin: 10px;
+    margin: 10px;
+}
+
+.boton-remover-producto:hover
+{
+    background-color: darkred;
+    color: white;
+    transition: 500ms color;
+    transition: 500ms;
 }

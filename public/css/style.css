@@ -17,6 +17,11 @@
     align-self: center;
 }
 
+nav > div:hover
+{
+    text-shadow: 0 0 10px #fff000;
+}
+
 .top-nav-right-margin
 {
     margin-right: 22px;
@@ -239,7 +244,8 @@
 {
     text-decoration: none;
     color: white;
-    background-color: purple;
+    background-color: #20c741;
+    width: 90%
     border-width: 0px;
     border-radius: 12px;
     height: 36px;
@@ -247,6 +253,7 @@
     transition: 500ms background-color;
     padding: 5px;
     bottom-margin: 10px;
+    margin: 10px;
 }
 
 .boton-agregar-producto:hover
@@ -268,4 +275,29 @@
     height: 20%;
     width: 100%;
     padding: 100px;
+}
+
+.letra-serif-navbar
+{
+    font-family: 'Libre Bodoni', serif;
+}
+
+.letra-noto-sans-error
+{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.letra-productos-sans-serif
+{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.letra-outfit-sans-serif
+{
+    font-family: 'Outfit', sans-serif;
+}
+
+.css-display-inline
+{
+    display: inline;
 }

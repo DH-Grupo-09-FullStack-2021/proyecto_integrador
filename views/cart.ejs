@@ -5,43 +5,53 @@
 <%- include('./header') %>
 <main class="main">
 <%if (locals.isUserLogged===true) {%>
-<div class="display-texto-caja-prod">Productos en el Carrito</div>
+<div class="display-texto-caja-prod letra-outfit-sans-serif">Productos en el Carrito</div>
 <div class="contenedor-carrito">
     
 <div class="productos-main caja-prod-carrito">
   <% if (productos_lista.length) { %>
       <% for (let i = 0; i < productos_lista.length; i++) { %>
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
-        <img src="/public\img\<%= productos_lista[i].img %>" class='img-main'>
-        <h3><strong><%= productos_lista[i].name %></strong></h3>
+        <img src="/public\img\<%= productos_lista[i].img %>" class="img-main-productos-carrito">
+        <div class="titulo-producto-inicio"><%=
+          productos_lista[i].name %></div>
+          <% if (productos_lista[i].id >= 6){ %>
+          <br>
+          <% } %>
         <div class="texto-producto-inicio">Cantidad: <%= productos_lista[i].cantidad %></div>
-        <h2><strong>$ <%= productos_lista[i].price %></strong></h2>
+        <div class="titulo-producto-inicio">$ <%=
+          productos_lista[i].price %></div>
+           <div class="css-display-inline">
+                      <form action="/cart/remove/<%= productos_lista[i].id%>"  method="POST"> 
+          <button type="submit" class="boton-remover-producto
+            action-button post">Remover producto del carrito</button>
+            </form></div>
     </a>
-	<% } %>
-	<% } else { %>
-	<div class="noprod-carrito-abc">Todavia no agregaste ningun producto a tu carrito!</div>
-	  <% } %>
-	  </div>
-	  <div class="display-texto-caja-carrito">
-	    Información del cliente
-	  <div class="carrito-texinfo-box">
-	    <%= infouser.email %>
-	  </div>
-	  Información de pago
-	  <div class="carrito-texinfo-box">
-	    Tarjeta de Credito banco Uuy mi Billetera
-	    Nro. 123412341234 1234
-	  </div>
-	  <div class="carrito-total-flexbox">
-	    Total
-  	    <div class="carrito-total-a-pagar">
-	      $ <%= totalapagar %>
-	    </div>
-	  </div>
-	  <div class="flexbox-boton-checkout-carrito">
-	    <button type="submit" class="boton-checkout-carrito">Checkout</button>
-	  </div>  
-	  </div>
+        <% } %>
+        <% } else { %>
+        <div class="noprod-carrito-abc letra-outfit-sans-serif">Todavia no agregaste ningun producto a tu carrito!</div>
+          <% } %>
+          </div>
+          <div class="display-texto-caja-carrito letra-productos-sans-serif">
+            Información del cliente
+          <div class="carrito-texinfo-box">
+            <%= infouser.email %>
+          </div>
+          Información de pago
+          <div class="carrito-texinfo-box">
+            Tarjeta de Credito banco Uuy mi Billetera
+            Nro. 123412341234 1234
+          </div>
+          <div class="carrito-total-flexbox">
+            Total
+            <div class="carrito-total-a-pagar">
+              $ <%= totalapagar %>
+            </div>
+          </div>
+          <div class="flexbox-boton-checkout-carrito">
+            <button type="submit" class="boton-checkout-carrito">Checkout</button>
+          </div>  
+          </div>
     </div>
     </div>
     <% } %>
