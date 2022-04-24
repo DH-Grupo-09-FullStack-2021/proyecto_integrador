@@ -37,7 +37,7 @@ const controllerCarrito =
     cartPOST: (req, res) =>
     {
         if (typeof(req.session.user) == 'undefined')
-            return res.redirect("/register/" + req.params.id)
+            return res.redirect("/register)
 
         (async () => {
             let usrc = await db.user.findOne({where: {email: req.session.user.email}});
