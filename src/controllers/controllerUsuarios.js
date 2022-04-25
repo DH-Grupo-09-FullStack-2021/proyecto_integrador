@@ -51,7 +51,7 @@ const controllerUsuarios =
     
     register: (req, res) =>
     {
-        res.render("register");
+        res.render("register", {redirect_prod: req.query.id_producto});
     },
 
     registerPOST: (req, res) =>
@@ -112,8 +112,11 @@ const controllerUsuarios =
                         req.session.user = new_user;
                         
                         res.cookie("email", new_user.email,{maxAge:1000*60}*30)
-                        
-                        return res.redirect("profile");
+                        console.log(req.query);
+                        if (typeof(req.query.id_producto) == "undefined")
+                            return res.redirect("profile");
+                        else
+                            return res.redirect("/cart/add/" + req.query.id_producto + "");
                     }
                     else
                         return res.render("register", {errors: {emailusuario:  "Este E-mail ya esta registrado"}, old: req.body});

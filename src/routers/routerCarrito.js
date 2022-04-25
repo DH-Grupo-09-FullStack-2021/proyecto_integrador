@@ -6,6 +6,8 @@ routerCarrito.get('/cart', controllerCarrito.cart);
 
 routerCarrito.post('/cart/add/:id', controllerCarrito.cartPOST);
 
+routerCarrito.get('/cart/add/:id', controllerCarrito.cartPOST);
+
 routerCarrito.post('/cart/remove/:id', controllerCarrito.cartDELETE);
 
 module.exports = routerCarrito;

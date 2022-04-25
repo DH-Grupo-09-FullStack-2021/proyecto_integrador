@@ -3,8 +3,15 @@
 <%- include('./head') %>
 <body class="grey-bg-color-idx">
 <%- include('./header') %>
-    <main class="cuerpo">
-            <form class="flexbox-formulario-r" action="/register" method="POST" enctype="multipart/form-data">
+<main class="cuerpo">
+<% if (redirect_prod){ %>
+            <form class="flexbox-formulario-r"
+action="/register?id_producto=<%= redirect_prod %>"
+method="POST" enctype="multipart/form-data">
+<% } else { %>
+<form class="flexbox-formulario-r" action="/register" method="POST"
+enctype="multipart/form-data">
+<% } %>
                 <div class="formulario-item formulario-label letra-outfit-sans-serif">
                         <label for="nombreusuario">Nombre de
                   usuario</label>
