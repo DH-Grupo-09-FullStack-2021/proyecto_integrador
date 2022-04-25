@@ -112,7 +112,7 @@ const controllerUsuarios =
                         req.session.user = new_user;
                         
                         res.cookie("email", new_user.email,{maxAge:1000*60}*30)
-                        console.log(req.query);
+
                         if (typeof(req.query.id_producto) == "undefined")
                             return res.redirect("profile");
                         else
