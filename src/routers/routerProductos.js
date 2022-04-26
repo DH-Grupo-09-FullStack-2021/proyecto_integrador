@@ -22,4 +22,6 @@ routerProductos.get('/products/api/', controllerProductos.api);
 
 routerProductos.get('/products/api/:id', controllerProductos.apiID);
 
+routerProductos.get('/products/apilastcreated', controllerProductos.apiLastCreated);
+
 module.exports = routerProductos;

@@ -162,7 +162,20 @@ const controllerProductos =
                       });
             res.send({product: p.toJSON(), compras: compras});
         })();
+    },
+
+    apiLastCreated: (req, res) =>
+    {
+        (async () => {
+            let temprod, products = await db.product.findAll({limit: 1, order: [['createdAt', 'DESC']]});
+            products.forEach(product =>
+                         {
+                             temprod = product.toJSON();
+                         });
+            res.send({lastProductCreated: temprod});
+        })();
     }
+
 };
 
 module.exports = controllerProductos;

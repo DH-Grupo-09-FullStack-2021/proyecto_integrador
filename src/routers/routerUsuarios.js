@@ -19,4 +19,6 @@ routerUsuarios.get('/users/api/', controllerUsuarios.api);
 
 routerUsuarios.get('/users/api/:id', controllerUsuarios.apiID);
 
+routerUsuarios.get('/users/apilastcreated', controllerUsuarios.apiLastCreated);
+
 module.exports = routerUsuarios;

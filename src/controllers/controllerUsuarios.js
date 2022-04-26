@@ -169,6 +169,19 @@ const controllerUsuarios =
                          });
             res.send({user: u.toJSON(), compras: compras});
         })();
+    },
+
+    apiLastCreated: (req, res) =>
+    {
+        (async () => {
+            let tempuser, users = await db.user.findAll({limit: 1, order: [['createdAt', 'DESC']]});
+             users.forEach(user =>
+                          {
+                              tempuser = user.toJSON();
+                              delete tempuser.password;
+                          });
+            res.send({lastUserCreated: tempuser});
+         })();
     }
 };
 
