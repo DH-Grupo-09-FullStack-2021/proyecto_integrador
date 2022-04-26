@@ -1,0 +1,115 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.grey-bg-color-idx
+{
+    background-color: rgb(223, 223, 223);
+}
+.header{
+    background-color: rgb(132, 24, 233);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.header-main-top{
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    box-sizing: border-box;
+}
+.logo{
+    width: 100%;
+    height: auto;
+    max-width: 30%;
+}
+.main{
+    display: flex;
+    padding: 10px;
+    padding-top: 78px;
+    padding-bottom: 28px;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 18px;
+    justify-content: space-around;
+}
+.producto{
+    display: flex;
+    padding: 10px;
+    padding-top: 78px;
+    padding-bottom: 28px;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20PX;
+    border-radius: 18px;
+    justify-content: space-around;
+    align-items: stretch;
+}
+.admin
+{
+    height: 0px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    margin: 12px;
+    padding-left: 12px;
+    top: 36px;
+    position: relative;
+    border-radius: 8px;
+
+}
+@media only screen
+and (min-device-width: 476px)
+{
+    .admin { font-size: 36px; }
+}
+
+.copyright{
+    text-align: center;
+}
+.numero{
+font-size: 50px;
+background-color: white;
+
+}
+.logoproducto{
+  color: rgb(132, 24, 233);
+  width: 100px;
+  height: 100px;
+
+}
+
+.container{
+padding-left: 40%;    
+padding-right: 40%;
+font-size: 30px;
+display: flex;
+justify-content: space-around;
+}
+.titulo{
+  font-size: 40px;
+}
+.tituloproducto{
+    font-size: 40px;
+}
+.listaProductos{
+    width: 40%;
+    font-size: 40px;
+    padding-left:5%;
+    padding-top: 1%;
+    background-color:rgb(223, 223, 223) ;
+    display: flex;
+    border-radius: 10%;
+}
+.Ultimoproducto{
+    width: 40%;
+    padding-left:5%;
+    padding-top: 1%;
+    font-size: 40px;
+    background-color: rgb(223, 223, 223);
+    border-radius: 10%;
+    display: flex;
+}

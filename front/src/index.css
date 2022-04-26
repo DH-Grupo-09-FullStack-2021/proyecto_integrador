@@ -1,0 +1,72 @@
+.grey-bg-color-idx
+{
+    background-color: rgb(223, 223, 223);
+}
+.header{
+    background-color: rgb(132, 24, 233);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.header-main-top{
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    box-sizing: border-box;
+}
+.logo{
+    width: 100%;
+    height: auto;
+    max-width: 30%;
+}
+.main{
+    display: flex;
+    padding: 10px;
+    padding-top: 78px;
+    padding-bottom: 28px;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 18px;
+    justify-content: space-around;
+}
+.producto{
+    display: flex;
+    padding: 10px;
+    padding-top: 78px;
+    padding-bottom: 28px;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 18px;
+}
+.admin
+{
+    height: 0px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    margin: 12px;
+    padding-left: 12px;
+    top: 36px;
+    position: relative;
+    border-radius: 8px;
+
+}
+@media only screen
+and (min-device-width: 476px)
+{
+    .admin { font-size: 36px; }
+}
+
+.copyright{
+    text-align: center;
+}
+.numero{
+    display: flex;
+    background-color: blue;
+    margin: 20%;
+
+}
