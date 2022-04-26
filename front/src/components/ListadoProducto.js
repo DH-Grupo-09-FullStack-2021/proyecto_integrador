@@ -23,8 +23,8 @@ function ListadoProducto(){
           ListadoProducto.map((listaProductos,i)=>{
             return(
               <li key={i}>
-                <h3>nombre:{listaProductos.name}</h3>
-                <h3>Precio:{listaProductos.price}</h3>
+                <h3>Nombre: {listaProductos.name}</h3>
+                <h3>Precio: {listaProductos.price}</h3>
               </li>
             )
           })

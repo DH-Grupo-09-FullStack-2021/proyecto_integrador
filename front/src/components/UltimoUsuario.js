@@ -4,10 +4,10 @@ function UltimoUsuario(){
   const [UltimoUsuario, setUltimoUsuario]= useState([])
 
     useEffect(()=>{
-      fetch("https://tp-grupo9-dh.herokuapp.com/users/api/")
+      fetch("https://tp-grupo9-dh.herokuapp.com/users/apilastcreated/")
         .then(response => response.json())
         .then(data =>{
-          setUltimoUsuario(data.users)
+          setUltimoUsuario(data.lastUserCreated)
 
         })
     },[])
@@ -24,16 +24,8 @@ function UltimoUsuario(){
     return(
       <ul className="usuario">
         {UltimoUsuario.length === 0 && <p>Cargando...</p>}
-        {
-          UltimoUsuario.filter(usuario=>usuario.id>17).map((usuario,i)=>{
-            return(
-              <li key={i}>
-                <h3>nombre:{usuario.username}</h3>
-                <h3>email:{usuario.email}</h3>
-              </li>
-            )
-          })
-        }
+                <div className="enunciado-lista">Nombre:</div><div> {UltimoUsuario.username}</div>
+                <div className="enunciado-lista">E-mail:</div><div> {UltimoUsuario.email}</div>
     </ul>
     )
   }

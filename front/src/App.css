@@ -90,7 +90,7 @@ display: flex;
 justify-content: space-around;
 }
 .titulo{
-  font-size: 40px;
+    font-size: 36px;
 }
 .tituloproducto{
     font-size: 40px;
@@ -112,4 +112,15 @@ justify-content: space-around;
     background-color: rgb(223, 223, 223);
     border-radius: 10%;
     display: flex;
+}
+
+.imagen-react-api
+{
+    max-width: 70%;
+}
+
+.enunciado-lista
+{
+    font-weight: bold;
+    font-size: 22px;
 }
