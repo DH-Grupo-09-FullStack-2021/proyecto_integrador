@@ -7,6 +7,7 @@ const routerProductos = require('./routers/routerProductos');
 const routerMain = require('./routers/routerMain');
 const routerUsuarios = require('./routers/routerUsuarios');
 const routerCarrito = require('./routers/routerCarrito');
+const cors = require('cors');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(methodOverride('_method')) 
 app.use (session({secret:"Identificador de Seguridad", resave: true,saveUninitialized: false,}))
 app.use(coolieParser());
+app.use(cors());
 
 const mdUserCookie = require('./middlewares/mdUserCookie.js');
 app.use(mdUserCookie)
