@@ -50,7 +50,7 @@ and (max-device-width: 1440px)
 /* escritorio resolucion regular (768p a 1024p) */
 @media only screen
 and (min-device-width: 769px)
-and (max-device-width: 1023px)
+and (max-device-width: 1024px)
 {
     .flexbox-formulario { padding-left: 10vw; }
     .flexbox-formulario-r { padding-left: 10vw; }
@@ -65,7 +65,7 @@ and (max-device-width: 1023px)
     .formulario-boton-enviar{width: 60vw;}
     .redes-sociales{width: 40vw;justify-content: center;}
 
-
+    .nombre-fabricante-caja-producto { min-height: 20%; }
 
     .logo-footer .logo { max-width: 75%; }
 
@@ -75,8 +75,8 @@ and (max-device-width: 1023px)
     .texto-producto-inicio { height: 74px; }
     .perfil-usuario
     {
-	width: 70%;
-	margin-left: 8%;
+        width: 70%;
+        margin-left: 8%;
     }
     .titulo-perfil-usuario { margin-left: 8%; }
 }
@@ -109,12 +109,12 @@ and (max-device-width: 768px)
     .productos-main { flex-flow: row wrap; }
     .productos-main { justify-content: center; }
     .CajaProductos-main { min-width: 48%; }
-    .CajaProductos-main { margin-bottom: 18px; }
+    .CajaProductos-main { margin: 4px; }
 
     .perfil-usuario
     {
-	width: 80%;
-	margin-left: 4%;
+        width: 80%;
+        margin-left: 4%;
     }
     .titulo-perfil-usuario { margin-left: 4%; }
 }
@@ -147,9 +147,9 @@ and (max-device-width: 476px)
 
     .header-main-top .logo
     {
-	width: 100%;
-	max-width: 100%;
-	margin-bottom: 18px;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 18px;
     }
     .header-main-top { flex-flow: row wrap; }
     .boton-estilizado input { max-width: 80%; }
@@ -164,14 +164,14 @@ and (max-device-width: 476px)
     .caja-prod-carrito { width: 97%; }
     .display-texto-caja-carrito
     {
-	width: 97%;
-	margin-top: 20px;
+        width: 97%;
+        margin-top: 20px;
     }
 
     .perfil-usuario
     {
-	width: 90%;
-	margin-left: 4px;
+        width: 90%;
+        margin-left: 4px;
     }
 
     .bold-perfil-usuario { display: flex; }

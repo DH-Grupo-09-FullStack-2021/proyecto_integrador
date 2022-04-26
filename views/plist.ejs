@@ -12,7 +12,7 @@
                <% for (let i = 0; i < productos_lista.length; i++) { %>
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main margin-bot-plist">
         <img src="/public/img/<%= productos_lista[i].img %>" class="img-main-productos">
-        <div class="titulo-producto-inicio"><%= productos_lista[i].maker %></div>
+        <div class="titulo-producto-inicio nombre-fabricante-caja-producto"><%= productos_lista[i].maker %></div>
         <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
         <div class="titulo-producto-inicio">$ <%= productos_lista[i].price %></div>
     </a>

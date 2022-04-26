@@ -13,7 +13,7 @@
       <% for (let i = 0; i < productos_lista.length; i++) { %>
     <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
         <img src="/public\img\<%= productos_lista[i].img %>" class="img-main-productos-carrito">
-        <div class="titulo-producto-inicio"><%=
+        <div class="titulo-producto-inicio nombre-fabricante-caja-producto"><%=
           productos_lista[i].name %></div>
           <% if (productos_lista[i].id >= 6){ %>
           <br>
@@ -24,7 +24,7 @@
            <div class="css-display-inline">
                       <form action="/cart/remove/<%= productos_lista[i].id%>"  method="POST"> 
           <button type="submit" class="boton-remover-producto
-            action-button post">Remover producto del carrito</button>
+            action-button post">Remover producto</button>
             </form></div>
     </a>
         <% } %>

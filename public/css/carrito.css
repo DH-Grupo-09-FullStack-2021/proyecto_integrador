@@ -52,14 +52,12 @@
 
 .img-main-productos
 {
-    min-height: 65%;
     max-height: 80%;
     max-width: 90%;
 }
 
 .img-main-productos-carrito
 {
-    min-height: 50%;
     max-height: 80%;
     max-width: 90%;
 }
