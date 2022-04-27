@@ -20,10 +20,17 @@ function UltimoProducto(){
     return(
       <ul className='ultimoproducto'>
         {UltimoProducto.length === 0 && <p>Cargando...</p>}
-                <h3>Nombre: {UltimoProducto.name}</h3>
-                <h3>Precio: {UltimoProducto.price}</h3>
-                <h3>Descripcion: {UltimoProducto.desc}</h3>
-                    <img src={imagen_producto} alt="imagen" class="imagen-react-api"/>
+                <div className='display'>
+                <h3 >Nombre:</h3><h3 className="enunciado-lista-producto">{UltimoProducto.name}</h3>
+                </div>
+                <div className='display'>
+                <h3>Precio:</h3><h3 className="enunciado-lista-producto">{UltimoProducto.price}</h3>
+                </div>
+                <div className='display'>
+                <h3>Descripcion:</h3 ><h3 className="enunciado-lista-producto">{UltimoProducto.desc}</h3>
+                </div>
+                <img src={imagen_producto} alt="imagen" class="imagen-react-api" width="500"/>
+ 
     </ul>
     )
   }

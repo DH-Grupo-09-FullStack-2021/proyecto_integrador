@@ -1,6 +1,9 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
+body{
+    margin: 0px;
+}
 .grey-bg-color-idx
 {
     background-color: rgb(223, 223, 223);

@@ -1,3 +1,15 @@
 .ultimoproducto{
     font-size: 60%; 
 }
+.enunciado-lista-producto{
+    width: auto;
+    padding-top: 1.3%;
+    padding-left: 1%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+}
+.display{
+    width: 1000px;
+    display: inline-flex;
+}
