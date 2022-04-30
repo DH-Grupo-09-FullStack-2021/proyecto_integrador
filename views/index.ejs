@@ -23,7 +23,11 @@
                <% for (let i = 0; i < productos_lista.length; i++) { %>
                <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
                <img src="/public/img/<%= productos_lista[i].img %>" class="img-main-productos">
+<% if (productos_lista[0].id == 7 || productos_lista[1].id == 7 || productos_lista[2].id == 7 || productos_lista[3].id == 7) { %>
         <div class="titulo-producto-inicio nombre-fabricante-caja-producto"><%= productos_lista[i].maker %></div>
+<% } else { %>
+                  <div class="titulo-producto-inicio"><%= productos_lista[i].maker %></div>
+<% } %>
         <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
         <div class="titulo-producto-inicio">$ <%=
           productos_lista[i].price %></div>
