@@ -35,7 +35,6 @@
     width: 100%;
     height: auto;
     flex-shrink: 0;
-    counter-increment: item;
     scroll-snap-align: start;
 }
 /*
@@ -44,7 +43,7 @@
 {
     animation-name: none;
 }
-
+*/
 @keyframes proximo
 {
     75%
@@ -113,7 +112,7 @@
         scroll-snap-align: center;
     }
 }
-
+/*
 .carrousel-item
 {
     animation-timing-function: ease;
