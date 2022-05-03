@@ -201,3 +201,5 @@ and (min-device-width: 476px)
     transition: 500ms color;
     transition: 500ms;
 }
+
+.nombre-producto-caja-carrito { min-height: 20%; }
