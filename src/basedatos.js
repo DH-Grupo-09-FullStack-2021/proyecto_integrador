@@ -1,6 +1,6 @@
 const { Sequelize, Model, DataTypes, Op } = require('sequelize');
 
-const sequelize = new Sequelize('mariadb://tpdhg9:Rkfp@Vf7mXBBDd4@mysql-tpdhg9.alwaysdata.net:3306/tpdhg9_trabajointegrador');
+const sequelize = new Sequelize('mariadb://tpdhg9:Rkfp@Vf7mXBBDd4@mysql-tpdhg9.alwaysdata.net:3306/tpdhg9_trabajointegrador', {dialectOptions: {connectTimeout: 3500}});
 
 let db = {};
 
