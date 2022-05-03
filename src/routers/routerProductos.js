@@ -18,6 +18,10 @@ routerProductos.post('/products', upload.single('imagenprod'), controllerProduct
 
 routerProductos.delete('/products/detail/products/delete/:id', controllerProductos.destroy);
 
+routerProductos.post('/products/search', controllerProductos.searchPOST);
+
+routerProductos.get('/products/search/:searchQuery', controllerProductos.search);
+
 routerProductos.get('/products/api/', controllerProductos.api);
 
 routerProductos.get('/products/api/:id', controllerProductos.apiID);

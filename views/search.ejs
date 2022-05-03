@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./head') %>
+<body class="grey-bg-color-idx">
+<%- include('./header') %>
+             <main class="main">
+               <div class="display-texto-caja-prod letra-outfit-sans-serif">
+               Se encontraron <%= nprod %> productos para la busqueda '<%= searchQuery %>'
+               </div>
+               <div class="productos-main">
+                 <% if (productos_lista.length && nprod != 0) { %>
+               <% for (let i = 0; i < productos_lista.length; i++) { %>
+               <a href="/products/detail/<%= productos_lista[i].id %>" class="CajaProductos-main">
+               <img src="/public/img/<%= productos_lista[i].img %>" class="img-main-productos">
+               <div class="titulo-producto-inicio"><%= productos_lista[i].maker %></div>
+        <div class="texto-producto-inicio"><%= productos_lista[i].name %></div>
+        <div class="titulo-producto-inicio">$ <%=
+          productos_lista[i].price %></div>
+          <div class="css-display-inline">
+                      <form action="/cart/add/<%= productos_lista[i].id%>"  method="POST"> 
+          <button type="submit" class="boton-agregar-producto
+            action-button post">Agregar al carrito</button>
+            </form></div>
+               </a>
+               <% } %>
+            </div>
+            <% } else { %>
+            <div class="noprod-carrito-abc
+              letra-outfit-sans-serif">No hay resultados para la
+              busqueda '<%= searchQuery %>'</div>
+              <% } %>
+    </main>
+<%- include('./footer') %>
+    
+</body>
+</html>

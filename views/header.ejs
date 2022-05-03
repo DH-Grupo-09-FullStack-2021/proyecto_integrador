@@ -1,8 +1,8 @@
     <header class="header">
         <article class="header-main-top">
             <img src="/public\img\logo.JPG" class="logo">
-            <form class="boton-estilizado top-nav-bar letra-outfit-sans-serif">
-                <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="busqueda" id="busqueda"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
+            <form class="boton-estilizado top-nav-bar letra-outfit-sans-serif" action="/products/search" method="POST">
+                <input placeholder="Buscar..." class="subclase-boton-est" type="text" name="searchQuery" id="searchQuery"><button type="submit" class="subclase-boton-est"><i class="fas fa-search"></i></button>
             </form>
             <%if (locals.isUserLogged===false) {%>
             <a href="/login" class="letra-outfit-sans-serif solo-escritorio top-nav-bar">Login</a>
@@ -24,5 +24,5 @@
              <div><a href='#'>Quienes somos</a></div>
              <div><a href='#'>Contactanos</a></div>
         </nav>
-        
+        <script src="/public/js/jsFrontSearch.js"></script>
     </header>

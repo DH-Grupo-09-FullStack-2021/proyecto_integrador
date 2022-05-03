@@ -50,7 +50,7 @@ and (max-device-width: 1440px)
 /* escritorio resolucion regular (768p a 1024p) */
 @media only screen
 and (min-device-width: 769px)
-and (max-device-width: 1024px)
+and (max-device-width: 1023px)
 {
     .flexbox-formulario { padding-left: 10vw; }
     .flexbox-formulario-r { padding-left: 10vw; }

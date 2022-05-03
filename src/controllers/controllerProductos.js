@@ -137,6 +137,44 @@ const controllerProductos =
         })();
     },
 
+    searchPOST: (req, res) =>
+    {
+        /* no hace falta validar por el back, esto ya da error 404 si viene vacio y eso es suficiente */
+        return res.redirect('/products/search/' + req.body.searchQuery + "");
+    },
+
+    search: (req, res) =>
+    {
+        (async () => {
+            let realQuery = ".*";
+
+            for (let i = 0; i < req.params.searchQuery.length; i++)
+            {
+                if (req.params.searchQuery[i].toUpperCase() != req.params.searchQuery[i].toLowerCase())
+                    realQuery += '[' + req.params.searchQuery[i].toUpperCase() + req.params.searchQuery[i].toLowerCase() + ']';
+                else
+                    realQuery += req.params.searchQuery[i];
+            }
+
+            realQuery += '.*';
+
+            const {count, rows} = await db.product.findAndCountAll({where: {
+                [db.Op.or]: [
+                    {name: {[db.Op.regexp]: realQuery}},
+                    {maker: {[db.Op.regexp]: realQuery}}
+                ]
+            }});
+
+            let productos = [];
+            rows.forEach(prod =>
+            {
+                productos.push(prod.toJSON());
+            });
+
+            return res.render('search', {productos_lista: productos, nprod: count, searchQuery: req.params.searchQuery});
+        })();
+    },
+
     api: (req, res) =>
     {
         (async () => {
