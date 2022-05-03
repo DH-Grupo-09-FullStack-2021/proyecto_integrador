@@ -203,3 +203,8 @@ and (min-device-width: 476px)
 }
 
 .nombre-producto-caja-carrito { min-height: 20%; }
+
+.carrito-de-compras .caja-prod-carrito
+{
+    justify-content: space-around;
+}
