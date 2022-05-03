@@ -27,9 +27,9 @@ function UltimoProducto(){
                 <h3>Precio:</h3><h3 className="enunciado-lista-producto">{UltimoProducto.price}</h3>
                 </div>
                 <div className='display'>
-                <h3>Descripcion:</h3 ><h3 className="enunciado-lista-producto">{UltimoProducto.desc}</h3>
+                <h3>Descripcion:</h3 ><h3 className="texto-no-break enunciado-lista-producto">{UltimoProducto.desc}</h3>
                 </div>
-                <img src={imagen_producto} alt="imagen" class="imagen-react-api" width="500"/>
+                <img src={imagen_producto} alt="imagen" class="imagen-react-api"/>
  
     </ul>
     )

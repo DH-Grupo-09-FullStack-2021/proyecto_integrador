@@ -122,6 +122,11 @@ justify-content: space-around;
     max-width: 70%;
 }
 
+.texto-no-break
+{
+    max-width: 60%;
+}
+
 .enunciado-lista
 {
     font-weight: bold;
