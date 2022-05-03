@@ -24,8 +24,8 @@ enctype="multipart/form-data">
                         </div>
                         <div class="formulario-item">
                         <input class="formulario-input-box"
-                          type="text" id="nombreusuario" minlength="8" maxlength="32"
-                          name="nombreusuario" required="required"
+                          type="text" id="nombreusuario"
+                          name="nombreusuario" 
                           value="<%= locals.old && old.nombreusuario %>">
                 </div>
                 <div class="formulario-item formulario-label letra-outfit-sans-serif">
@@ -41,7 +41,7 @@ enctype="multipart/form-data">
                         <input class="formulario-input-box-email-register"
                           type="email"
                           id="emailusuario"name="emailusuario"
-                          required="required" value="<%= locals.old &&
+                           value="<%= locals.old &&
                           old.emailusuario %>">
                 </div>
                 <div class="formulario-item formulario-label letra-outfit-sans-serif">
@@ -57,8 +57,7 @@ enctype="multipart/form-data">
                         <div class="formulario-item">
                         <input class="formulario-input-box-contrasena-register"
                           type="password" name="contrasenausuario"
-                          id="contrasenausuario"minlength="8"
-                          maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario %>">
+                          id="contrasenausuario" autocomplete="off" value="<%= locals.old && old.contrasenausuario %>">
                 </div>
                 <div class="formulario-item formulario-label letra-outfit-sans-serif">
                         <label for="contrasenausuario2">Repetir
@@ -73,8 +72,7 @@ enctype="multipart/form-data">
                         <div class="formulario-item">
                         <input class="formulario-input-box-contrasena-register2"
                           type="password" name="contrasenausuario2"
-                          id="contrasenausuario2"minlength="8"
-                          maxlength="32" required="required" autocomplete="off" value="<%= locals.old && old.contrasenausuario2 %>">
+                          id="contrasenausuario2" autocomplete="off" value="<%= locals.old && old.contrasenausuario2 %>">
                         </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
                <label for="imagenUser">Imagen de perfil</label>
@@ -84,7 +82,7 @@ enctype="multipart/form-data">
                 <div class="formulario-item">
                         <input class="formulario-checkbox letra-outfit-sans-serif"
                   type="checkbox"name="terminosycond"
-                  id="terminosycond" required="required" value="<%= locals.old && old.terminosycond %>">
+                  id="terminosycond"  value="<%= locals.old && old.terminosycond %>">
                         <label class="letra-productos-sans-serif" for="terminosycond">Acepto a los terminos y condiciones</label>
                                    <section class="formulario-warning
                   errorCheckbox letra-noto-sans-error"></section>

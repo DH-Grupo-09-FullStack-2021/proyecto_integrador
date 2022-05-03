@@ -19,7 +19,7 @@
                <input class="formulario-input-box" type="text"
                id="nombreproducto" name="nombreproducto"
                  placeholder="<%=producto.name %>"
-                 value="<%= locals.old && old.nombreproducto ? old.nombreproducto : producto.name %>" required="required">
+                 value="<%= locals.old && old.nombreproducto ? old.nombreproducto : producto.name %>">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
                <label for="fabricadorproducto">Fabricante</label>
@@ -33,7 +33,7 @@
                <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
                name="fabricadorproducto"
                  placeholder="<%=producto.maker %>"
-                 value="<%= locals.old && old.fabricadorproducto ? old.fabricadorproducto : producto.maker %>" required="required">
+                 value="<%= locals.old && old.fabricadorproducto ? old.fabricadorproducto : producto.maker %>">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
                <label for="descprod">Descripción del producto</label>
@@ -47,7 +47,7 @@
                <input class="formulario-input-box-contrasena-register" type="text"
                  name="descprod" id="descprod"
                  placeholder="<%=producto.desc %>"
-                 value="<%= locals.old && old.descprod ? old.descprod : producto.desc %>" required="required">
+                 value="<%= locals.old && old.descprod ? old.descprod : producto.desc %>">
              </div>  
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
                <label for="valorproducto">Nuevo precio</label>
@@ -61,7 +61,7 @@
                <input class="formulario-input-box-contrasena-register2" type="number"
                  name="valorproducto" id="valorproducto"
                  placeholder="<%=producto.price %>"
-                 value="<%= locals.old && old.valorproducto ? old.valorproducto : producto.price %>" required="required">
+                 value="<%= locals.old && old.valorproducto ? old.valorproducto : producto.price %>">
              </div>
              <div class="formulario-item">
                <input class="formulario-boton-enviar" type="submit"

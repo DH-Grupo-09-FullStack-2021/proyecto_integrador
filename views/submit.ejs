@@ -17,7 +17,7 @@
              </div><div class="formulario-item">
                <input class="formulario-input-box nombreProductoFormSubmit" type="text"
                id="nombreproducto" name="nombreproducto"
-               required="required" 
+                
                           value="<%= locals.old && old.nombreproducto %>">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
@@ -30,7 +30,7 @@
                 <section class="formulario-warning errorFabricante letra-noto-sans-error"></section>
              </div><div class="formulario-item">
                <input class="formulario-input-box-email-register" type="text" id="fabricadorproducto"
-               name="fabricadorproducto" required="required" 
+               name="fabricadorproducto"  
                           value="<%= locals.old && old.fabricadorproducto %>">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
@@ -43,7 +43,7 @@
                 <section class="formulario-warning errorDescripcion letra-noto-sans-error"></section>
              </div><div class="formulario-item">
                <input class="formulario-input-box-contrasena-register" type="text"
-                 name="descprod" id="descprod" required="required"
+                 name="descprod" id="descprod" 
                           value="<%= locals.old && old.descprod %>">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
@@ -55,8 +55,9 @@
                 <% } %>
                 <section class="formulario-warning errorImagen letra-noto-sans-error"></section>
              </div><div class="formulario-item">
-               <input class="formulario-input-box formulario-input-box-imagen" type="file" name="imagenprod" id="imagenprod"
-               required="required">
+               <input class="formulario-input-box
+             formulario-input-box-imagen" type="file"
+             name="imagenprod" id="imagenprod" required="required">
              </div>
              <div class="formulario-item formulario-label letra-outfit-sans-serif">
                <label for="valorproducto">Precio</label>
@@ -68,7 +69,7 @@
                 <section class="formulario-warning errorPrecio letra-noto-sans-error"></section>
              </div><div class="formulario-item">
                <input class="formulario-input-box-contrasena-register2" type="number" name="valorproducto" id="valorproducto"
-               required="required" 
+                
                           value="<%= locals.old && old.valorproducto %>">
              </div>
              <div class="formulario-item">
